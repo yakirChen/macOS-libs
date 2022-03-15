@@ -1,0 +1,21 @@
+{
+    "redhat.telemetry.enabled": false,
+    "editor.fontSize": 11,
+    "editor.fontFamily": "Hack",//, Menlo, Monaco, 'Courier New', monospace",
+    "workbench.editor.untitled.hint": "hidden",
+    "workbench.colorTheme": "Light High Contrast",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.maxTokenizationLineLength": 99999999,
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.untrustedFiles": "open",
+    "rust-client.revealOutputChannelOn": "info",
+    "rust.all_features": true,
+    "rust.cfg_test": true,
+    "rust-analyzer.updates.channel": "nightly",
+    "rust-analyzer.updates.askBeforeDownload": false,
+    "rust-analyzer.server.path": "/Users/yakir/local/rust/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer",
+    "rust-analyzer.enableCargoWatchOnStartup": "true", // 打开项目时自动开启 cargo watch
+    "rust-analyzer.highlightingOn": true, // 覆盖内建语法高亮
+    "rust-analyzer.lruCapacity": 1000, // 分析器最大缓存深度
+}

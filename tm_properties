@@ -1,0 +1,33 @@
+# Version 1.1 -- Generated Yakir
+disableTypingPairs                      = false
+disablePersistentClipboardHistory       = true
+disableTabAutoClose                     = true
+alwaysFindInDocument                    = true
+fontName                                = Hack-Regular
+fontSize                                = 11
+fontAscentDelta                         = -2
+fontLeadingDelta                        = 0
+lineHeight                              = 0.6
+showIndentGuides                        = flase
+showInvisibles                          = true
+# theme                                   = E7E82498-F9EA-49A6-A0D8-12327EA46B01
+lineNumberFontName                      = Hack-Regular
+lineNumberScaleFactor                   = 0.6
+# fileBrowserStyle                        = SourceList
+tabItemMinWidth                         = 200
+tabItemMaxWidth                         = 250
+tabItemLineBreakStyle                   = 4
+tabsAboveDocument                       = true
+enableLoopFilterList                    = true
+windowTitleSCM                          = '${TM_SCM_BRANCH:+ ($TM_SCM_NAME: $TM_SCM_BRANCH)}'
+windowTitleProject                      = '${projectDirectory:+ — ${projectDirectory/^.*\///}}'
+windowTitle                             = '$TM_DISPLAYNAME$windowTitleProject$windowTitleSCM'
+
+[ *.gmk ]
+fileType         = source.makefile
+
+[ *.vmoptions ]
+fileType         = source.properties
+
+[ attr.untitled ]
+fileType         = source.json

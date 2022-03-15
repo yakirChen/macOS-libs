@@ -1,0 +1,18 @@
+cluster.name: elastic
+node.name: node00
+node.attr.rack: r1
+path.data: /Volumes/sm/repos/es00/data
+path.logs: /Volumes/sm/repos/es00/logs
+bootstrap.memory_lock: true
+network.host: 127.0.0.1
+network.publish_host: 127.0.0.1
+transport.host: 127.0.0.1
+http.port: 9200
+transport.tcp.port: 9300
+http.cors.enabled: true
+http.cors.allow-origin: /.*/ # 所有
+discovery.seed_hosts: ["127.0.0.1", "[::1]"]
+cluster.initial_master_nodes: ["node00"]
+gateway.recover_after_nodes: 1
+action.destructive_requires_name: true
+xpack.security.enabled: false

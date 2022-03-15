@@ -1,0 +1,14 @@
+[repositories]
+  local
+  typesafe: http://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly
+  play: http://private-repo.typesafe.com/typesafe/maven-releases/
+  sbt-plugins-repo: http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+  sonatype-snapshots: https://oss.sonatype.org/content/repositories/snapshots
+  sonatype-releases: https://oss.sonatype.org/content/repositories/releases/
+  sonatype-public: https://oss.sonatype.org/content/groups/public/
+  bintray-ivy-snapshots: http://dl.bintray.com/sbt/ivy-snapshots/
+  bintray-imaven-snapshots: http://dl.bintray.com/sbt/maven-snapshots/
+  bintray-imaven-releases: http://dl.bintray.com/sbt/maven-releases/
+  aliyun: http://maven.aliyun.com/nexus/content/groups/public/
+  163: http://mirrors.163.com/maven/repository/maven-public/
+  maven-central

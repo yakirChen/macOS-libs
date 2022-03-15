@@ -1,0 +1,427 @@
+#!/usr/bin/env zsh
+setopt no_nomatch
+HIST_STAMPS="yyyy-mm-dd"
+DISABLE_UPDATE_PROMPT=true
+DISABLE_AUTO_UPDATE=true
+export ZSH=${HOME}/.ohmyzsh
+ZSH_THEME="jtriley"
+plugins=(
+    ant
+    mvn
+    # osx
+    # xcode
+    git
+    git-extras
+    git-lfs
+    # git-prompt
+    # spring
+    rust
+    fd
+    ripgrep
+    golang
+    # textmate
+    npm
+    brew
+    # history
+    # history-substring-search
+    # docker
+    # swiftpm
+    # zsh-completions
+    # zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+    # zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+    zsh-navigation-tools
+    # zsh-history-substring-search
+    colored-man-pages
+    colorize
+    torrent
+    docker-compose
+)
+
+# export PROMPT_COMMAND='echo -n [$(date +%H:%M:%S)]'
+# export PS1="\u@\h [\$(date +%H:%M:%S)]> "
+
+# export PS1="\\033[01;36m[cyan]%}%T%{$fg_bold[green]%} %{$fg_bold[white]%}%n%{$fg[magenta]%}@%{$fg_bold[white]%}%m %{$fg_bold[green]%}%d
+# %{$fg_bold[yellow]%}%% %{$reset_color%}"
+
+# func ssproxy() {
+#     sslocal -s $1 -p $2 -l 1080 -k $3  -t 300 -m aes-256-cfb
+# }
+
+# ########################################## User Configuration #####################################
+export BREW=${HOME}/local/brew
+export BREW_OPT=${HOME}/local/brew/opt
+export LOCAL=${HOME}/local
+export VLM=/Volumes/sm
+export VLM_REPOS=/Volumes/sm/repos
+# export TVLM_REPOS=/Volumes/To/repos
+export VLM_SERVERS=/Volumes/sm/servers
+export JARS=${LOCAL}/jars
+# export CHEAT_USER_DIR='/Users/yakir/app/cheats'
+# export CHEAT_PATH='/Users/yakir/app/cheats'
+# export CHEAT_COLORS=true
+
+# 语言工具
+export RUBY_HOME=${LOCAL}/ruby
+# export PY2_HOME=${LOCAL}/python2
+export PY3_HOME=${BREW_OPT}/python3
+export GOROOT=${LOCAL}/go
+#export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export ERL_HOME=${LOCAL}/otp
+# export RUST_HOME=${LOCAL}/rust
+export CARGO_HOME=${LOCAL}/rust
+# export SRCROOT=${LOCAL}/rust
+export CARGO_PATH=${CARGO_HOME}/
+export RUSTUP_HOME=${LOCAL}/rust
+# export RUSTUP_TRACE_DIR=${LOCAL}/rust/trace
+export RUSTFLAGS='-C target-cpu=native'
+# export RUSTFLAGS='-C prefer-dynamic'
+#export RUSTUP_TOOLCHAIN=stable
+export RUSTUP_TOOLCHAIN=nightly
+# export MIRI_SYSROOT=${VLM_REPOS}/miri
+#export RUSTUP_DIST_SERVER=https://static.rust-lang.org
+#export RUSTUP_UPDATE_ROOT=https://static.rust-lang.org/rustup
+# export RUST_SRC_PATH=$(${CARGO_HOME}/bin/rustc --print sysroot)/lib/rustlib/src/rust/src
+# export DYLD_LIBRARY_PATH=$(${CARGO_HOME}/bin/rustc --print sysroot)/lib:$DYLD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=$(rustc --print sysroot)/lib:$DYLD_LIBRARY_PATH
+# export STACK_HOME=${LOCAL}/stack
+# export CARTHAGE_HOME=${LOCAL}/carthage
+# export FLATBUFFERS_HOME=${LOCAL}/flatbuffers
+
+# export IPFS_PATH=/Volumes/sm/repos/ipfs
+
+# export RUST_SRC_PATH=
+# export OCAML_HOME=${LOCAL}/ocaml
+# export GROOVY_HOME=${LOCAL}/groovy
+# export LUA_HOME=${LOCAL}/lua
+# export GCC_HOME=${LOCAL}/gcc
+#export CLANG_HOME=${VLM_REPOS}/clang
+# export IGV_HOME=${LOCAL}/igv
+
+# 开发辅助
+export JADX_HOME=${LOCAL}/jadx
+export VIM_CONFIG_PATH=${HOME}/.vim
+export SQLITE=${LOCAL}/sqlite
+export MYSQL_BASE_DIR=/Volumes/sm/servers/mysql
+export MYSQL_COMMON_DIR=/Volumes/sm/repos/mysql
+export MYSQL_DATA_DIR=/Volumes/sm/repos/mysql/data
+export MYSQL_LOGS_DIR=/Volumes/sm/repos/mysql/logs
+export METAL_DEVICE_WRAPPER_TYPE=1
+export MTL_SHADER_VALIDATION=1
+
+export PGSOCKET=/Volumes/sm/repos/pgsql
+export PGDATA=/Volumes/sm/repos/pgsql/data
+export PGWAL=/Volumes/sm/repos/pgsql/wal
+export PGLOG=/Volumes/sm/repos/pgsql/pglog.log
+export PGCTLLOG=/Volumes/sm/repos/pgsql/pgctllog.log
+
+export NGINX_HOME=/Users/yakir/local/nginx
+# export BTRACE_HOME=${LOCAL}/btrace
+# export HTOP_HOME=${LOCAL}/htop
+# export FISH_HOME=${LOCAL}/fish
+
+# 运行时环境变量
+export PKG_CONFIG=${BREW_OPT}/pkg-config/bin/pkg-config       # pkg-config
+export PKG_CONFIG_PATH="${BREW_OPT}/libressl/lib/pkgconfig"
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/libffi/lib/pkgconfig/"
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/ncurses/lib/pkgconfig"
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/guile@2/lib/pkgconfig"
+# export PKG_CONFIG_LIBDIR=${LOCAL}/lib/pkgconfig
+# export CFLAGS="-I${LOCAL}/include -I${LOCAL}/include/openssl" # -I${LOCAL}/include/readline -I${LOCAL}/include/sodium -I${LOCAL}/include/freetype2"
+# # -I${LOCAL}/include/lzma -I${LOCAL}/include/freetype2
+# export CXXFLAGS="--std=c++17 "
+# export CPPFLAGS=${CFLAGS}
+# export LDFLAGS="-L${LOCAL}/lib"
+export BOOST_ROOT=${VLM_SERVERS}/boost
+export BOOSTDIR=${BOOST_ROOT}/include
+# export OPAMROOT=${VLM_REPOS}/opam
+# export OCAML_TOPLEVEL_PATH=${VLM_REPOS}/ocaml
+export GOPATH=${VLM_REPOS}/go/gopath
+export GOCACHE=${VLM_REPOS}/go/gocache
+
+# 打包编译工具
+export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
+export CMAKE_HOME=${LOCAL}/cmake
+export M2_HOME=${LOCAL}/maven                   # maven
+# export M2_HOME=${LOCAL}/mvnd                   # maven
+# export M2_HOME=${LOCAL}/maven4                   # maven
+export SBT_HOME=${LOCAL}/sbt                   # maven
+export MAVEN_CONFIG=${M2_HOME}/conf
+export MAVEN_SKIP_RC=true
+export MAVEN_REPOSITORY=/Volumes/sm/repos/m2/repository
+export SBT_OPTS="-Dsbt.global.base=/Volumes/sm/repos/sbt -Dsbt.ivy.home=/Volumes/sm/repos/ivy2"
+export ANT_HOME=${LOCAL}/ant                    # ant
+export GRADLE_HOME=${LOCAL}/gradle              # gradle
+# export JAVACC_HOME=${LOCAL}/javacc
+# export NASM_HOME=${LOCAL}/nasm
+# export BISON_HOME=${LOCAL}/bison
+export PROTOBUF_HOME=${LOCAL}/protoc
+# export YASM_HOME=${LOCAL}/yasm
+
+# repos
+export HASKELL_BIN=${VLM_REPOS}/haskell
+export GRADLE_USER_HOME=${VLM_REPOS}/gradle
+export COURSIER_CACHE=${VLM_REPOS}/coursier
+export COURSIER_INSTALL_DIR=${LOCAL}/coursier
+# export GRADLE_USER_HOME=${TVLM_REPOS}/gradle
+export GEM_HOME=${VLM_REPOS}/gem
+export GEM_PATH=${VLM_REPOS}/gem
+
+# 日常工具
+# export ARIA2_HOME=${LOCAL}/aria2              # aria2
+export HUB_HOME=${LOCAL}/hub
+export FFMPEG_HOME=${LOCAL}/ffmpeg
+export GNUPG_HOME=${LOCAL}/gnupg
+
+export ARTHAS_HOME=${LOCAL}/arthas
+
+# java 多版本切换
+#export JAVA_8_HOME=
+#export JAVA_11_HOME=
+    
+# alias jdk8="export JAVA_VERSION=1.8 && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
+# alias jdk11="export JAVA_VERSION=11 && export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
+
+export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_321)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
+export JAVA_17_HOME=$(/usr/libexec/java_home -v 17)
+export JAVA_18_HOME=$(/usr/libexec/java_home -v 18)
+export JAVA_SEMERU_HOME=/Library/Java/JavaVirtualMachines/semeru-jdk1.8.0_312.jdk/Contents/Home
+export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
+export JAVA_ZERO_FASTDEBUG_HOME=${HOME}/local/jdk/jdk-17.fastdebug.jdk/Contents/Home
+export GRAALVM_HOME=/Users/yakir/local/graalvm
+#export JAVA_ADOPT_HOT_14_HOME=/Users/yakir/local/jdk/jdk-14.0.1+7/Contents/Home/
+#export JAVA_ZERO_HOME=/Users/yakir/local/jdk-15.jdk/Contents/Home
+#export JDK_18_HOME=${JAVA_8_HOME}
+#export JDK_11_HOME=${JAVA_11_HOME}
+#export KOTLIN_HOME=${LOCAL}/kotlinc
+#export SCALA_HOME=${LOCAL}/scala
+#export SBT_HOME=${VLM_SERVERS}/sbt
+#export JDK_BOOT_DIR=${JAVA_8_HOME}
+# export GRAALVM_HOME=${LOCAL}/graalvm-ce-java11-20.3.0/Contents/Home
+
+alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
+alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
+alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
+alias jdk18="export JAVA_HOME=${JAVA_18_HOME}"
+alias jdksemeru="export JAVA_HOME=${JAVA_SEMERU_HOME}"
+alias zeroslow="export JAVA_HOME=${JAVA_ZERO_SLOWDEBUG_HOME}"
+alias zerofast="export JAVA_HOME=${JAVA_ZERO_FASTDEBUG_HOME}"
+# alias lanai="export JAVA_HOME=${JAVA_LANAI_HOME}"
+#alias loom="export JAVA_HOME=${JAVA_LOOM_HOME}"
+# alias ahjdk14="export JAVA_HOME=${JAVA_ADOPT_HOT_14_HOME}"
+# alias graal="export JAVA_HOME=${GRAAL_HOME} && \
+# export PATH=$JAVA_HOME/bin:$PATH"
+# alias zulujdk8="export JAVA_HOME=${ZULU_JDK_18_HOME}"
+# alias zulujdk9="export JAVA_HOME=${ZULU_JDK_19_HOME}"
+
+jdk8
+
+# node 多版本切换
+export NODE10_PATH=${LOCAL}/node10
+export NODE14_PATH=${LOCAL}/node14
+export NODE16_PATH=${LOCAL}/node16
+export NODE_OPTIONS="--max_old_space_size=4096"
+export NPM_GLOBAL=${VLM_REPOS}/npm
+alias node10="export NODE_PATH=${NODE10_PATH}"
+alias node14="export NODE_PATH=${NODE14_PATH}"
+alias node16="export NODE_PATH=${NODE16_PATH}"
+export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
+
+node16
+
+# export _JAVA_LAUNCHER_DEBUG=1
+# export DEF_JAVA_OPTS="-Xms100M -Xmx256M -Xverify:none -XX:ReservedCodeCacheSize=100m -XX:+UseG1GC -XX:+AlwaysPresmuch -XX:+UseNUMA -XX:+UseCompressedOops -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryErro-XX:+PrintGCDetails \
+# export ES_JAVA_OPTS="-Xms1G -Xmx1G -server -XX:+UseG1GC -XX:+UseNUMA -XX:+UseCompressedOops -XX:+AlwaysPresmuch -XX:SurvivorRatio=8 -XX:+AlwaysPresmuch"
+# export JAVA_DEBUG_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,suspend=n,address="
+#export JAVA_OPTS="${DEF_JAVA_OPTS} --illegal-access=deny -XX:HeapDumpPath=${VLM_REPOS}/logs/jvm_error.hprof"
+# export JAVA_OPTS="${DEF_JAVA_OPTS} -XX:HeapDumpPath=${VLM_REPOS}/logs/jvm_error.hprof"
+# export MAVEN_OPTS="-XX:+UseZGC"
+
+# export MAVEN_OPTS="${MAVEN_OPTS} -agentpath:/Users/yakir/Library/Java/Extensions/libConfusing.dylib"
+# export MAVEN_OPTS="${MAVEN_OPTS} -XX:+TraceClassLoading -XX:+TraceClassUnloading -XX:+TraceClassLoadingPreorder -XX:+TraceExceptions"
+
+# export MAVEN_OPTS="${MAVEN_OPTS} -agentpath:/Users/yakir/Developer/think/book/book-instrument/book-confusing/libConfusing.dylib"
+# export MAVEN_OPTS="${MAVEN_OPTS} -Xlog:class+load=info -Xlog:class+unload=info"
+# export MAVEN_OPTS="${MAVEN_OPTS} -Xlog:class+load=info -Xlog:class+unload=info -Xlog:exceptions=info"
+# export MAVEN_OPTS="${MAVEN_OPTS} -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=4000"
+
+export ANT_ARGS="-nouserlib -lib ${LOCAL}/ant/lib"
+export ANT_OPTS="-Djava.io.tmpdir=${VLM_REPOS}/javaiotmp -Divy_install_path=${LOCAL}/ant/lib -Ddest=${VLM_REPOS}/ivy -Divy.default.ivy.user.dir=${VLM_REPOS}/ivy -DdefaultCacheDir=${VLM_REPOS}/ivy"
+export SBT_OPTS="-Dsbt.global.base=${VLM_SERVERS}/sbt -Dsbt.version=1.0.4 -Dsbt.boot.directory=${VLM_REPOS}/sbt/boot -Dsbt.ivy.home=${VLM_REPOS}/ivy2 -Dsbt.override.build.repos=true -Dsbt.repository.config=${VLM_REPOS}/sbt/repositories"
+
+# for HTTP_METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+#     alias "${HTTP_METHOD}"="lwp-request -m '${HTTP_METHOD}'"
+# done
+# GET www.baidu.com
+
+########################################### OpenSSL ##################################################
+export OPENSSL_CFLAGS=${BREW_OPT}/libressl/include        # libressl
+# export OPENSSL_CFLAGS=${BREW_OPT}/openssl/include        # openssl
+# export OPENSSL_LIBS=${HOME}/local/lib/                 # openssl lib 貌似要所有的动态链接库都列出来
+export OPENSSL_INCLUDE_DIR=${OPENSSL_CFLAGS}
+export DEP_OPENSSL_INCLUDE=${OPENSSL_CFLAGS}
+# export OPENSSL_LIB_DIR=${BREW_OPT}/libressl/lib/
+export OPENSSL_LIB_DIR=${BREW_OPT}/libressl/lib/
+export OPENSSL_ROOT_DIR=${OPENSSL_INCLUDE_DIR}
+
+SILVER=(status:black:white dir:blue:black git:green:black cmdtime:magenta:black)
+export SILVER_SHELL=$0
+
+# ############################################ PATH #################################################
+PATH=${LOCAL}/bin:${LOCAL}/kits:${BREW}/bin:$PATH
+PATH=${COURSIER_INSTALL_DIR}:$PATH
+PATH=${JADX_HOME}/bin:$PATH
+PATH=${HUB_HOME}/bin:$PATH
+PATH=${CMAKE_HOME}/bin:${FLATBUFFERS_HOME}/bin:$PATH
+PATH=${CARGO_HOME}/bin:${M2_HOME}/bin:${SBT_HOME}/bin:${GRADLE_HOME}/bin:${ANT_HOME}/bin:$PATH
+PATH=${ERL_HOME}/bin:$PATH
+PATH=${SQLITE}/bin:$MYSQL_BASE_DIR/bin:$MYSQL_BASE_DIR/support-files:$PATH
+PATH=$KOTLIN_HOME/bin:$PATH
+PATH=$PROTOBUF_HOME/bin:$PATH
+# PATH=$PY2_HOME/bin:$PY3_HOME/bin:$LUA_HOME/bin:$PATH
+PATH=$PY3_HOME/bin:$LUA_HOME/bin:$PATH
+PATH=$GOROOT/bin:$GOPATH/bin:$CHEZ_SCHEME_HOME/bin:${NODE_PATH}/bin:$NPM_GLOBAL/bin:$PATH
+PATH=$GEM_HOME/bin:$RUBY_HOME/bin:$PATH
+PATH=${YARN_HOME}/bin:$PATH
+PATH=${STACK_HOME}:$PATH
+PATH=${CARTHAGE_HOME}/bin:$PATH
+
+# PATH=$HASKELL_BIN/bin:$ZK_HOME/bin:$TOMCAT_HOME/bin:$PATH
+# PATH=${BTRACE_HOME}/bin:${HTOP_HOME}/bin:$PATH
+# PATH=$CBC_HOME/bin:$JAVACC_HOME/bin:$GCC_HOME/bin:$PATH
+# PATH${SPRINGCLI_HOME}/bin:${FFMPEG_HOME}/bin:$PATH
+PATH=${NASM_HOME}:${YASM_HOME}/bin:${BISON_HOME}/bin:$PATH
+# PATH=${LOCAL}/jadx/bin:$PATH
+
+export PATH
+
+source $ZSH/oh-my-zsh.sh
+
+unalias mvn
+# unalias mvnd
+
+# ########################################## User Alias Commond #####################################
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias pin='ping -c 6 $1'
+alias wgetnc='wget --no-check-certificate'
+alias zshconfig="sl ~/.zshrc"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias week='date +%V'
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+# alias recaf="${JAVA_11_HOME}/bin/java -Dapplication.home=${JAVA_11_HOME} -jar ${JARS}/recaf.jar >/dev/null 2>&1 &"
+# alias bcv="${JAVA_11_HOME}/bin/java -Dapplication.home=${JAVA_11_HOME} -jar ${JARS}/Bytecode-Viewer.jar >/dev/null 2>&1 &"
+alias reset_master="git reset . && git checkout -- . && git checkout origin/master &&  git branch -D master && git status && git checkout master && git status"
+alias reset_main="git reset . && git checkout -- . && git checkout origin/main && git branch -D main && git checkout main && git status"
+# alias pg="ps aux|rg $1"
+# alias jpg="jps -lv|rg $1"
+alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Volumes/sm"
+alias cat=bat
+alias ydll="ydl --proxy socks5://127.0.0.1:1080 --write-sub --all-subs --yes-playlist "
+alias yl="echo `pbpaste `; ydl --proxy socks5://127.0.0.1:7890 `pbpaste`"
+alias curlc="curl -C - -k -L "
+
+
+MVN_MB="-Dmaven.compiler.fork=true -T12"
+MVN_TEMPLATE="mvn clean package -DskipTests ${1} -U "
+MVN_COMPILE_TEMPLATE="mvn clean compile -DskipTests ${1} -U "
+alias mvnc="${M2_HOME}/bin/mvn clean"
+alias mvnsrc="${M2_HOME}/bin/mvn dependency:sources"
+alias mvndocs="${M2_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc"
+alias mvncpackage="${MVN_TEMPLATE}"
+# alias mvncpstc="${MVN_TEMPLATE} -Pmaven2 ; mvn clean"
+alias mvna="${M2_HOME}/bin/mvn dependency:sources -Paliyun ; ${M2_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc -Paliyun ; ${MVN_COMPILE_TEMPLATE} -Paliyun ; mvn dependency:resolve-plugins -DskipTests -U ; ${M2_HOME}/bin/mvn clean"
+# alias mvna24="mvn -T24 dependency:sources -Papache; mvn -T24 dependency:resolve -Dclassifier=javadoc -Papache; ${MVN_COMPILE_TEMPLATE} -T24 -Pmaven2 ; mvn clean -Papache"
+# alias mvnversion="mvn versions:display-plugin-updates -Pspring -Papache ; mvn -T24 versions:display-property-updates -Pspring -Papache"
+
+# alias mx="mx --user-home=${VLM_REPOS}/mx"
+# alias schemescript='scheme --script'
+# alias clojure='java -jar ${LOCAL_LIB_DIR}/clojure/clojure.jar'
+
+#alias hg="source ${VLM_REPOS}/venv/hg/bin/activate"
+#alias hgd='deactivate'
+
+########################################### rustup ##################################################
+alias rnr="rustup run nightly cargo --color always "
+alias rsr="rustup run stable cargo --color always "
+alias rbr="rustup run beta cargo --color always "
+alias ru="rustup update ; rustup self update "
+
+############################################ alias ##################################################
+#alias rm="rm -v "
+alias bs="brew search --desc -v"
+alias g="git fetch --prune --tag; git fetch --tags --prune origin; git pull --all"
+alias gcr="git clone --recurse-submodules "
+alias egcr="echo `pbpaste` ; git clone --recurse-submodules `pbpaste`"
+alias gcr1="git clone --recurse-submodules --depth 1 "
+alias antlr4='java -Xmx500M -cp "/Volumes/sm/app/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.smol'
+alias grun='java -Xmx500M -cp "/Volumes/sm/app/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
+alias ssh2="ssh -p2222 "
+# alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+# alias cproxy="export ALL_PROXY=socks5://127.0.0.1:7890"
+alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias cproxy="export ALL_PROXY=127.0.0.1:7890"
+alias cargo_proxy="export CARGO_HTTP_PROXY=127.0.0.1:7890"
+
+# export ALL_PROXY=socks5://127.0.0.1:7890
+
+unalias gg
+function gg() {
+    git_url=${1}
+    repo_name=${2}
+    repo_dir=''
+    if [[ ! -z "$repo_name" ]]; then
+        repo_dir=$repo_name
+    else
+        temp=${git_url##*/}
+        repo_dir=${temp%*.git}
+    fi
+    remain_str=${git_url##*https://github.com/}
+    head_str="https://github.com.cnpmjs.org/"
+    `git clone --recurse-submodules ${head_str}${remain_str}`
+    echo "$repo_dir $git_url"
+    cd $repo_dir
+    git_remote=`git remote`
+    git remote remove ${git_remote}
+    git remote add ${git_remote} ${git_url}
+    cd -
+}
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+ # source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ 
+ # OPAM configuration
+# . ${VLM_REPOS}/opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+#[ -s "/Users/yakir/local/jabba/jabba.sh" ] && source "/Users/yakir/local/jabba/jabba.sh"
+export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
+
+
+#  zsh config
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
+export HISTSIZE=999999999999999999
+export SAVEHIST=999999999999999999
+setopt hist_ignore_all_dups
+
+# export TIUP_HOME=/Volumes/sm/servers/tidb
+# export PATH=/Volumes/sm/servers/tidb/bin:$PATH
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/yakir/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/yakir/local/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/yakir/local/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/yakir/local/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+

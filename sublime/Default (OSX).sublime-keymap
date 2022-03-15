@@ -1,0 +1,15 @@
+[
+    { "keys": ["super+d"], "command": "duplicate_line" },
+    { "keys": ["alt+shift+up"], "command": "swap_line_up" },
+    { "keys": ["alt+shift+down"], "command": "swap_line_down" },
+    { "keys": ["ctrl+x"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+    { "keys": ["super+alt+l"], "command": "reindent" },
+    { "keys": ["super+shift+u"], "command": "swap_case" },
+    {
+        "command": "rust_doc", "keys": ["ctrl+j"], "context": [
+            {"key": "selector", "operator": "equal", "operand": "source.rust"}
+        ]
+    },
+    { "keys": ["ctrl+g"], "command": "find_under_expand" },
+    { "keys": ["super+alt+l"], "command": "reindent" }
+]

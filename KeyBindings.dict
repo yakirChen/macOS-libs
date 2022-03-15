@@ -1,0 +1,8 @@
+// /Applications/TextMate.app/Contents/Resources/KeyBindings.dict
+// ~/Library/Application\ Support/TextMate/KeyBindings.dict
+// /System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict
+{
+    "^x" = ("moveToEndOfLine:", "deleteToBeginningOfLine:");
+	"@U" = "uppercaseWord:";
+	"@u" = "lowercaseWord:";
+}

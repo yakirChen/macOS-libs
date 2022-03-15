@@ -1,0 +1,7 @@
+*/.DS_STORE
+zsh_history
+zsh_history_back
+*.userdb.txt
+OmegaOptions.bak
+vim/autoload/
+vim/plugged/

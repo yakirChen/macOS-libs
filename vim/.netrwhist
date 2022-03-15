@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/yakir/Developer/paas/pamirs-agent/script/env'
+let g:netrw_dirhist_4='/Users/yakir/Developer/think/xbow'
+let g:netrw_dirhist_3='/Users/yakir/Developer/think/xbow/src'
+let g:netrw_dirhist_2='/Users/yakir/Developer/think/xbow'
+let g:netrw_dirhist_1='/Volumes/sm/github/tools/xi-mac/build'

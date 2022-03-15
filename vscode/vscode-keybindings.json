@@ -1,0 +1,66 @@
+[
+    // 拆分编辑器
+    {
+        "command": "workbench.action.splitEditor",
+        "key": "cmd+alt+2"
+    },
+    // 删除行
+    {
+        "command": "editor.action.deleteLines",
+        "key": "ctrl+x",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // 更改所有匹配项
+    {
+        "command": "editor.action.changeAll",
+        "key": "shift+f6",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // 格式化文件
+    {
+        "command": "editor.action.formatDocument",
+        "key": "cmd+alt+l",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    // 下移行
+    {
+        "key": "shift+alt+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // 上移行
+    {
+        "key": "shift+alt+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+d",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // 大写
+    {
+        "key": "shift+cmd+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    // 小写
+    {
+        "key": "cmd+u",
+        "command": "editor.action.transformToLowercase"
+    },
+    // 关闭其他编辑器
+    {
+        "key": "alt+cmd+w",
+        "command": "workbench.action.closeOtherEditors"
+    },
+    // 查找当前选中的内容
+    {
+        "key": "ctrl+g",
+        "command": "actions.findWithSelection"
+    },
+    {
+        "key": "alt+f12",
+        "command": "workbench.action.terminal.toggleTerminal"
+    }
+]

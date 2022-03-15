@@ -1,0 +1,139 @@
+{
+    "window.newWindowDimensions": "inherit",
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.iconTheme": "vscode-icons",
+    "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+    // 字体
+    "editor.fontFamily": "Hack",
+    "editor.renderWhitespace": "all",
+    // 控制行高。使用 0 通过字号计算行高。
+    "editor.lineHeight": 12,
+    // 显示控制字符
+    "editor.renderControlCharacters": true,
+    "editor.cursorStyle": "line-thin",
+    "editor.wordWrapColumn": 120,
+    "editor.fontLigatures": true,
+    "editor.trimAutoWhitespace": false,
+    "editor.find.autoFindInSelection": true,
+    "editor.formatOnPaste": true,
+    "editor.tabCompletion": "on",
+    "editor.maxTokenizationLineLength": 999999,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "files.defaultLanguage": "jsonc",
+    "files.autoSaveDelay": 10000,
+    // 文件类型和语言模式映射
+    "files.associations": {
+        "*.properties": "properties",
+        "*.conf": "properties",
+        "*.options": "properties",
+        "*.json": "jsonc",
+        "*.toml": "toml"
+    },
+    "workbench.commandPalette.history": 99999999,
+    // 启动新建文档
+    "workbench.startupEditor": "newUntitledFile",
+    // 控制编辑器的选项卡关闭按钮的位置，或当设置为 "off" 时禁用关闭它们。
+    "workbench.editor.tabCloseButton": "right",
+    "workbench.editor.enablePreview": false,
+    // 控制工作台中字体的渲染方式
+    // - default: 次像素平滑字体。将在大多数非 retina 显示器上显示最清晰的文字
+    // - antialiased: 进行像素而不是次像素级别的字体平滑。可能会导致字体整体显示得更细
+    // - none: 禁用字体平滑。将显示边缘粗糙、有锯齿的文字
+    // - auto: 根据显示器 DPI 自动应用 "default" 或 "antialiased" 选项。
+    "workbench.fontAliasing": "auto",
+    // 控制 Quick Open 是否应在失去焦点时自动关闭。
+    "workbench.quickOpen.closeOnFocusLost": false,
+    "workbench.statusBar.feedback.visible": false,
+    "explorer.confirmDelete": true,
+    // php
+    "php.suggest.basic": false,
+    "php.validate.enable": false,
+    // Java Perform settings
+    "java.debug.logLevel": "info",
+    "java.trace.server": "messages",
+    "java.referencesCodeLens.enabled": true,
+    "java.signatureHelp.enabled": true,
+    "java.implementationsCodeLens.enabled": true,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "java.configuration.maven.userSettings": "/Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/maven/settings.xml",
+    "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home",
+    "extensions.ignoreRecommendations": false,
+    "update.mode": "manual",
+    "update.enableWindowsBackgroundUpdates": false,
+    // feedback
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    // markdown折行关闭
+    "[markdown]": {
+        "editor.wordWrap": "off",
+        "editor.quickSuggestions": true
+    },
+    // 控制 Markdown 预览中使用的字号(以像素为单位)。
+    "markdown.preview.fontSize": 12,
+    // markdown预览行高
+    "markdown.preview.lineHeight": 1,
+    "markdown.preview.fontFamily": "-apple-system, Hack, BlinkMacSystemFont, 'Source Code Pro', 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
+    "editor.tokenColorCustomizations": {},
+    "scm.diffDecorationsGutterWidth": 1,
+    "rust-client.channel": "nightly",
+    // "rust-client.channel": "stable",
+    "rust.unstable_features": true,
+    "C_Cpp.default.cppStandard": "c++20",
+    // 等价于 c18
+    "C_Cpp.default.cStandard": "c17",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.CVS": true,
+        "**/.factorypath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/CVS": false
+    },
+    "leetcode.endpoint": "leetcode",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "rust.all_features": true,
+    "rust.cfg_test": true,
+    "rust-client.revealOutputChannelOn": "info",
+    "workbench.tree.indent": 8,
+    "breadcrumbs.enabled": true,
+    "workbench.editor.tabSizing": "shrink",
+    "files.insertFinalNewline": true,
+    "files.maxMemoryForLargeFilesMB": 40960,
+    "workbench.enableExperiments": false,
+    "workbench.list.horizontalScrolling": true,
+    "debug.console.fontSize": 11,
+    "debug.inlineValues": true,
+    "terminal.explorerKind": "external",
+    "terminal.integrated.cursorStyle": "line",
+    "asciidoc.preview.fontSize": 12,
+    "asciidoc.preview.lineHeight": 1,
+    "explorer.openEditors.visible": 0,
+    "C_Cpp.updateChannel": "Insiders",
+    "cmake.cmakePath": "/Users/yakir/local/brew/bin/cmake",
+    "rust-client.rustupPath": "/Users/yakir/local/rust/bin/rustup",
+    "materialTheme.accent": "Bright Teal",
+    "http.proxySupport": "off",
+    "explorer.confirmDragAndDrop": false,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": false,
+    "workbench.tips.enabled": false,
+    "workbench.tree.renderIndentGuides": "always",
+    "window.openFilesInNewWindow": "on",
+    "editor.scrollBeyondLastColumn": 6,
+    "editor.smoothScrolling": true,
+    "C_Cpp.default.includePath": [
+        "/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home/include",
+        "/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home/include/darwin"
+    ],
+    "redhat.telemetry.enabled": false,
+    "cmake.configureOnOpen": true,
+    "editor.fontSize": 11,
+    "security.workspace.trust.untrustedFiles": "open",
+    "telemetry.telemetryLevel": "off",
+    // "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/yakir/.vscode/extensions/gabrielbb.vscode-lombok-0.9.9/server/lombok.jar\"",
+}

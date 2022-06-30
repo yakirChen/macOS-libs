@@ -77,5 +77,5 @@ let g:NERDTreeIndicatorMapCustom = {
 "\ 'Ignored'   : '☒',
 
 
-source /Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vim/plugins.vim
+"source /Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vim/plugins.vim
 source /Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vim/mappings.vim

@@ -1,25 +1,29 @@
 -server
 -ea
--verbose:class
--Xms1024M
--Xmx1536m
+# -verbose:class
+-Xms2048M
+-Xmx2048m
 
+# -Xverify:none
 -Xdiag
 # -Xlog:gc*:/Volumes/sm/logs/idea/gc_%p.log
 
 -XX:+UseG1GC
+# -XX:+PrintCodeCache
+-XX:+UnlockDiagnosticVMOptions
+# -XX:+PrintCodeHeapAnalytics
 -XX:ReservedCodeCacheSize=512m
 -XX:SoftRefLRUPolicyMSPerMB=50
 -XX:+AggressiveOpts
 # -XX:InitialCodeCacheSize=256m
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
--XX:ErrorFile=/Volumes/sm/logs/idea/java_error_in_idea_%p.log
--XX:HeapDumpPath=/Volumes/sm/logs/idea/dump/java_error_in_idea.hprof
+# -XX:ErrorFile=/Volumes/sm/logs/idea/java_error_in_idea_%p.log
+# -XX:HeapDumpPath=/Volumes/sm/logs/idea/dump/java_error_in_idea.hprof
 #-XX:OnStackReplacePercentage=6
 # -XX:+LogTouchedMethods
-#-XX:+PrintCompilation
-#-XX:+PrintInlining
+# -XX:+PrintCompilation
+# -XX:+PrintInlining
 # -XX:+UseGCLogFileRotation
 # -XX:NumberOfGCLogFiles=9
 # -XX:GCLogFileSize=1024m
@@ -34,19 +38,19 @@
 -XX:+DoEscapeAnalysis
 
 # -XX:+EnableJVMCI
-#-XX:+UseJVMCICompiler
+# -XX:+UseJVMCICompiler
 # -XX:+AutoBoxCacheMax=512
 
--XX:G1HeapRegionSize=2M
+-XX:G1HeapRegionSize=1M
 # -XX:+PrintHeapAtGC
--XX:MetaspaceSize=640M
--XX:MaxMetaspaceSize=640m
+# -XX:MetaspaceSize=640M
+-XX:MaxMetaspaceSize=768M
 -XX:MaxMetaspaceFreeRatio=70
 -XX:MinMetaspaceFreeRatio=40
 -XX:MinMetaspaceExpansion=332K
 -XX:MaxMetaspaceExpansion=5M
--XX:ParallelGCThreads=10
--XX:ConcGCThreads=3
+-XX:ParallelGCThreads=4
+-XX:ConcGCThreads=2
 -XX:SurvivorRatio=8
 -XX:MaxGCPauseMillis=100
 -XX:G1HeapWastePercent=5
@@ -70,4 +74,28 @@
 -Djdk.module.illegalAccess.silent=true
 -Djdk.attach.allowAttachSelf=true
 -Dkotlinx.coroutines.debug=off
+
+--illegal-access=warn
 -Dsun.java2d.metal=true
+
+
+--add-opens=java.desktop/java.awt.event=ALL-UNNAMED
+--add-opens=java.desktop/sun.font=ALL-UNNAMED
+--add-opens=java.desktop/java.awt=ALL-UNNAMED
+--add-opens=java.desktop/sun.awt=ALL-UNNAMED
+--add-exports=java.desktop/sun.awt.image=ALL-UNNAMED
+--add-opens=java.base/java.lang=ALL-UNNAMED
+--add-opens=java.base/java.util=ALL-UNNAMED
+--add-opens=java.desktop/javax.swing=ALL-UNNAMED
+--add-opens=java.desktop/sun.swing=ALL-UNNAMED
+--add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED
+--add-opens=java.desktop/java.awt.peer=ALL-UNNAMED
+--add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED
+--add-exports=java.desktop/sun.font=ALL-UNNAMED
+--add-exports=java.desktop/com.apple.eawt=ALL-UNNAMED
+--add-exports=java.desktop/com.apple.laf=ALL-UNNAMED
+--add-exports=java.desktop/com.apple.eawt.event=ALL-UNNAMED
+
+
+-Djanf.debug=1
+-javaagent:/Users/yakir/local/jars/ja-netfilter/ja-netfilter.jar

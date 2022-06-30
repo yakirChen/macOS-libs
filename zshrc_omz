@@ -65,7 +65,9 @@ export RUBY_HOME=${LOCAL}/ruby
 # export PY2_HOME=${LOCAL}/python2
 export PY3_HOME=${BREW_OPT}/python3
 export GOROOT=${LOCAL}/go
-#export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export GOPATH=${VLM_REPOS}/go/gopath
+export GOCACHE=${VLM_REPOS}/go/gocache
 export ERL_HOME=${LOCAL}/otp
 # export RUST_HOME=${LOCAL}/rust
 export CARGO_HOME=${LOCAL}/rust
@@ -136,8 +138,6 @@ export BOOST_ROOT=${VLM_SERVERS}/boost
 export BOOSTDIR=${BOOST_ROOT}/include
 # export OPAMROOT=${VLM_REPOS}/opam
 # export OCAML_TOPLEVEL_PATH=${VLM_REPOS}/ocaml
-export GOPATH=${VLM_REPOS}/go/gopath
-export GOCACHE=${VLM_REPOS}/go/gocache
 
 # 打包编译工具
 export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
@@ -175,20 +175,17 @@ export GNUPG_HOME=${LOCAL}/gnupg
 
 export ARTHAS_HOME=${LOCAL}/arthas
 
-# java 多版本切换
-#export JAVA_8_HOME=
-#export JAVA_11_HOME=
-    
+# JDK 多版本切换
 # alias jdk8="export JAVA_VERSION=1.8 && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
 # alias jdk11="export JAVA_VERSION=11 && export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
 
-export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_321)
+export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_333)
 export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
 export JAVA_17_HOME=$(/usr/libexec/java_home -v 17)
-export JAVA_18_HOME=$(/usr/libexec/java_home -v 18)
+export JAVA_19_HOME=$(/usr/libexec/java_home -v 19)
 export JAVA_SEMERU_HOME=/Library/Java/JavaVirtualMachines/semeru-jdk1.8.0_312.jdk/Contents/Home
-export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
-export JAVA_ZERO_FASTDEBUG_HOME=${HOME}/local/jdk/jdk-17.fastdebug.jdk/Contents/Home
+# export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
+# export JAVA_ZERO_FASTDEBUG_HOME=${HOME}/local/jdk/jdk-17.fastdebug.jdk/Contents/Home
 export GRAALVM_HOME=/Users/yakir/local/graalvm
 #export JAVA_ADOPT_HOT_14_HOME=/Users/yakir/local/jdk/jdk-14.0.1+7/Contents/Home/
 #export JAVA_ZERO_HOME=/Users/yakir/local/jdk-15.jdk/Contents/Home
@@ -203,7 +200,7 @@ export GRAALVM_HOME=/Users/yakir/local/graalvm
 alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
 alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
 alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
-alias jdk18="export JAVA_HOME=${JAVA_18_HOME}"
+alias jdk19="export JAVA_HOME=${JAVA_19_HOME}"
 alias jdksemeru="export JAVA_HOME=${JAVA_SEMERU_HOME}"
 alias zeroslow="export JAVA_HOME=${JAVA_ZERO_SLOWDEBUG_HOME}"
 alias zerofast="export JAVA_HOME=${JAVA_ZERO_FASTDEBUG_HOME}"
@@ -319,8 +316,10 @@ alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Vo
 alias cat=bat
 alias ydll="ydl --proxy socks5://127.0.0.1:1080 --write-sub --all-subs --yes-playlist "
 alias yl="echo `pbpaste `; ydl --proxy socks5://127.0.0.1:7890 `pbpaste`"
-alias curlc="curl -C - -k -L "
 
+function  curlc() {
+    curl -C - -k -L $1 -o $2
+}
 
 MVN_MB="-Dmaven.compiler.fork=true -T12"
 MVN_TEMPLATE="mvn clean package -DskipTests ${1} -U "
@@ -333,6 +332,9 @@ alias mvncpackage="${MVN_TEMPLATE}"
 alias mvna="${M2_HOME}/bin/mvn dependency:sources -Paliyun ; ${M2_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc -Paliyun ; ${MVN_COMPILE_TEMPLATE} -Paliyun ; mvn dependency:resolve-plugins -DskipTests -U ; ${M2_HOME}/bin/mvn clean"
 # alias mvna24="mvn -T24 dependency:sources -Papache; mvn -T24 dependency:resolve -Dclassifier=javadoc -Papache; ${MVN_COMPILE_TEMPLATE} -T24 -Pmaven2 ; mvn clean -Papache"
 # alias mvnversion="mvn versions:display-plugin-updates -Pspring -Papache ; mvn -T24 versions:display-property-updates -Pspring -Papache"
+function mvnrun(){
+    mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=-Plifecycle=INSTALL -Pshushi
+}
 
 # alias mx="mx --user-home=${VLM_REPOS}/mx"
 # alias schemescript='scheme --script'
@@ -354,13 +356,13 @@ alias g="git fetch --prune --tag; git fetch --tags --prune origin; git pull --al
 alias gcr="git clone --recurse-submodules "
 alias egcr="echo `pbpaste` ; git clone --recurse-submodules `pbpaste`"
 alias gcr1="git clone --recurse-submodules --depth 1 "
-alias antlr4='java -Xmx500M -cp "/Volumes/sm/app/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.smol'
-alias grun='java -Xmx500M -cp "/Volumes/sm/app/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
+# alias antlr4='java -Xmx500M -cp "/Volumes/sm/app/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.smol'
+# alias grun='java -Xmx500M -cp "/Volumes/sm/app/antlr-4.7.2-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
 alias ssh2="ssh -p2222 "
 # alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 # alias cproxy="export ALL_PROXY=socks5://127.0.0.1:7890"
 alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
-alias cproxy="export ALL_PROXY=127.0.0.1:7890"
+alias cproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias cargo_proxy="export CARGO_HTTP_PROXY=127.0.0.1:7890"
 
 # export ALL_PROXY=socks5://127.0.0.1:7890

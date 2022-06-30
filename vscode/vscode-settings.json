@@ -3,7 +3,7 @@
     "editor.fontSize": 11,
     "editor.fontFamily": "Hack",//, Menlo, Monaco, 'Courier New', monospace",
     "workbench.editor.untitled.hint": "hidden",
-    "workbench.colorTheme": "Light High Contrast",
+    "workbench.colorTheme": "Default High Contrast Light",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.maxTokenizationLineLength": 99999999,
@@ -17,5 +17,24 @@
     "rust-analyzer.server.path": "/Users/yakir/local/rust/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer",
     "rust-analyzer.enableCargoWatchOnStartup": "true", // 打开项目时自动开启 cargo watch
     "rust-analyzer.highlightingOn": true, // 覆盖内建语法高亮
-    "rust-analyzer.lruCapacity": 1000, // 分析器最大缓存深度
+    "rust-analyzer.lruCapacity": 1000,
+    "json.maxItemsComputed": 5000000,
+    "editor.foldingMaximumRegions": 65000, // 分析器最大缓存深度
+    "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "debug.console.fontSize": 11,
+    "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+    "sourcekit-lsp.trace.server": "messages",
+    "editor.accessibilitySupport": "on",
+    "audioCues.lineHasBreakpoint": "off",
+    "audioCues.lineHasError": "off",
+    "audioCues.lineHasFoldedArea": "off",
+    "audioCues.lineHasInlineSuggestion": "off",
+    "audioCues.noInlayHints": "off",
+    "audioCues.onDebugBreak": "off",
+    // 修改.build位置
+    // "sde.swiftBuildingParams": [
+    //     "build",
+    //     "--build-path",
+    //     "../swift-build"
+    //   ]
 }

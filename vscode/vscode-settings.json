@@ -31,6 +31,11 @@
     "audioCues.lineHasInlineSuggestion": "off",
     "audioCues.noInlayHints": "off",
     "audioCues.onDebugBreak": "off",
+    "editor.largeFileOptimizations": false,
+    "explorer.confirmDelete": false,
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.workspaceParsingPriority": "high",
+    "C_Cpp.intelliSenseEngine": "Disabled",
     // 修改.build位置
     // "sde.swiftBuildingParams": [
     //     "build",

@@ -1,7 +1,6 @@
-prefix=/Volumes/sm/repos/npm
-cache=/Volumes/sm/repos/npm/cache
+prefix=/Volumes/sm/repos/npm/node_global
+cache=/Volumes/sm/repos/npm/node_cache
 #registry=https://registry.npm.taobao.org/
-#registry=https://mirrors.huaweicloud.com/repository/npm/
 ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 ELECTRON_CACHE=/Volumes/sm/repos/electron
 SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/

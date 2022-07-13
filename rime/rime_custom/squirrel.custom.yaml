@@ -201,6 +201,7 @@ patch:
       corner_radius: 6
       border_height: 6
       border_width: 6
+      # font_face: "LXGW WenKai"
       font_point: 18
       label_font_point: 12
       back_color: 0x222222

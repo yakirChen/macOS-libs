@@ -1,14 +1,17 @@
 -server
 # -verbose:class
 -Xms2048M
--Xmx2048M
--Xss1M
+-Xmx2048m
+-Xss512k
 
+# -Xverify:none
+-Xdiag
 # -Xlog:gc*:/Volumes/sm/logs/idea/gc_%p.log
 
--XX:+UnlockExperimentalVMOptions
 # -XX:+PrintCodeCache
 -XX:+UnlockDiagnosticVMOptions
+# -XX:+PrintCodeHeapAnalytics
+-XX:+AggressiveOpts
 # -XX:InitialCodeCacheSize=256m
 # -XX:ErrorFile=/Volumes/sm/logs/idea/java_error_in_idea_%p.log
 # -XX:HeapDumpPath=/Volumes/sm/logs/idea/dump/java_error_in_idea.hprof
@@ -16,6 +19,9 @@
 # -XX:+LogTouchedMethods
 # -XX:+PrintCompilation
 # -XX:+PrintInlining
+# -XX:+UseGCLogFileRotation
+# -XX:NumberOfGCLogFiles=9
+# -XX:GCLogFileSize=1024m
 
 -XX:+TieredCompilation
 -XX:CompileThreshold=10000
@@ -32,10 +38,12 @@
 -XX:SafepointTimeoutDelay=1000
 # -XX:+EnableJVMCI
 # -XX:+UseJVMCICompiler
-# -XX:AutoBoxCacheMax=512
+# -XX:+AutoBoxCacheMax=512
 
+-XX:+UseG1GC
 -XX:+DisableExplicitGC
 -XX:G1HeapRegionSize=1M
+# -XX:+PrintHeapAtGC
 # -XX:MetaspaceSize=640M
 -XX:MaxMetaspaceSize=768M
 -XX:MaxMetaspaceFreeRatio=70
@@ -53,6 +61,8 @@
 # -XX:G1NewSizePercent=5
 # -XX:G1ReservePercent=10
 
+# -XX:+FlightRecorder
+
 -Dos.detected.name=osx
 -Dos.detected.arch=x86_64
 -Dos.detected.classifier=osx-x86_64
@@ -61,6 +71,7 @@
 -Daction.aware.typeAhead=false
 
 --illegal-access=warn
+-Dsun.java2d.metal=true
 
 
 --add-opens java.base/java.lang=ALL-UNNAMED

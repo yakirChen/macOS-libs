@@ -1,7 +1,7 @@
 {
     "redhat.telemetry.enabled": false,
     "editor.fontSize": 11,
-    "editor.fontFamily": "Hack",//, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Hack", //, Menlo, Monaco, 'Courier New', monospace",
     "workbench.editor.untitled.hint": "hidden",
     "workbench.colorTheme": "Default High Contrast Light",
     "editor.suggestSelection": "first",
@@ -9,15 +9,18 @@
     "editor.maxTokenizationLineLength": 99999999,
     "workbench.startupEditor": "none",
     "security.workspace.trust.untrustedFiles": "open",
-    "rust-client.revealOutputChannelOn": "info",
-    "rust.all_features": true,
-    "rust.cfg_test": true,
-    "rust-analyzer.updates.channel": "nightly",
-    "rust-analyzer.updates.askBeforeDownload": false,
+    // https://rust-analyzer.github.io/manual.html
+    "rust-analyzer.server.extraEnv": {
+        "RUSTUP_TOOLCHAIN": "nightly"
+    },
+    "rust-analyzer.checkOnSave.command": "check",
     "rust-analyzer.server.path": "/Users/yakir/local/rust/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer",
-    "rust-analyzer.enableCargoWatchOnStartup": "true", // 打开项目时自动开启 cargo watch
-    "rust-analyzer.highlightingOn": true, // 覆盖内建语法高亮
-    "rust-analyzer.lruCapacity": 1000,
+    "rust-analyzer.semanticHighlighting.strings.enable": true,
+    "rust-analyzer.highlightRelated.breakPoints.enable": true,
+    "rust-analyzer.highlightRelated.references.enable": true,
+    "rust-analyzer.inlayHints.closingBraceHints.enable": true,
+    "rust-analyzer.cargo.features": "all",
+    "rust-analyzer.lru.capacity": 1000,
     "json.maxItemsComputed": 5000000,
     "editor.foldingMaximumRegions": 65000, // 分析器最大缓存深度
     "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",

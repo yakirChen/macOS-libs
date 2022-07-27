@@ -1,45 +1,33 @@
-[user]
-	name = yakirChen
-	email = iamyakirchen@outlook.com
 [core]
 	excludesfile = /Users/yakir/.gitignore_global
+	quotepath = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[user]
+	name = yakirChen
+	email = iamyakirchen@outlook.com
 [commit]
 	template = /Users/yakir/.stCommitMsg
+[pull]
+	rebase = false
+[http]
+[http "https://github.com"]
+	proxy = http://127.0.0.1:7890
+	sslVerify = false
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[fetch]
-	prune = true
-[pull]
-	rebase = false
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-
-[color "diff"]
-	meta = yellow bold
-	frag = magenta
-	plain = white bold
-	old = red bold
-	new = green bold
-	commit = yellow bold
-	func = green dim
-	#plain = white bold
-
-[color "status"]
-	added = green bold
-	changed = red
-	untracked = cyan
-
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	ll = log --graph --date=short
+[color]
+	status = true
+	diff = true
+	branch = true
+	interactive = true

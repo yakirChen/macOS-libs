@@ -1,14 +1,14 @@
 -server
 # -verbose:class
--Xms2048M
+-Xms1024M
 -Xmx2048M
--Xss1M
+-Xss512K
 
 # -Xlog:gc*:/Volumes/sm/logs/idea/gc_%p.log
 
 -XX:+UnlockExperimentalVMOptions
-# -XX:+PrintCodeCache
 -XX:+UnlockDiagnosticVMOptions
+# -XX:+PrintCodeCache
 # -XX:InitialCodeCacheSize=256m
 # -XX:ErrorFile=/Volumes/sm/logs/idea/java_error_in_idea_%p.log
 # -XX:HeapDumpPath=/Volumes/sm/logs/idea/dump/java_error_in_idea.hprof
@@ -17,38 +17,39 @@
 # -XX:+PrintCompilation
 # -XX:+PrintInlining
 
--XX:+TieredCompilation
--XX:CompileThreshold=10000
--XX:+BackgroundCompilation
--XX:CICompilerCount=4
--XX:+ParallelRefProcEnabled
--XX:+UseCodeCacheFlushing
--XX:+DoEscapeAnalysis
+# -XX:+TieredCompilation
+# -XX:CompileThreshold=10000
+# -XX:+BackgroundCompilation
+# -XX:CICompilerCount=4
+# -XX:+ParallelRefProcEnabled
+# -XX:+UseCodeCacheFlushing
+# -XX:+DoEscapeAnalysis
 
--XX:-UseBiasedLocking
--XX:GuaranteedSafepointInterval=0
--XX:+UseCountedLoopSafepoints
--XX:+SafepointTimeout
--XX:SafepointTimeoutDelay=1000
+# -XX:-UseBiasedLocking
+# -XX:GuaranteedSafepointInterval=0
+# -XX:+UseCountedLoopSafepoints
+# -XX:+SafepointTimeout
+# -XX:SafepointTimeoutDelay=1000
 # -XX:+EnableJVMCI
 # -XX:+UseJVMCICompiler
 # -XX:AutoBoxCacheMax=512
 
--XX:+DisableExplicitGC
--XX:G1HeapRegionSize=1M
+-XX:+UseShenandoahGC
+-XX:ConcGCThreads=4
+# -XX:+DisableExplicitGC
+# -XX:G1HeapRegionSize=1M
 # -XX:MetaspaceSize=640M
--XX:MaxMetaspaceSize=768M
--XX:MaxMetaspaceFreeRatio=70
--XX:MinMetaspaceFreeRatio=40
--XX:MinMetaspaceExpansion=332K
--XX:MaxMetaspaceExpansion=5M
--XX:MaxDirectMemorySize=1024M
--XX:ParallelGCThreads=4
--XX:ConcGCThreads=2
--XX:SurvivorRatio=8
--XX:MaxGCPauseMillis=100
--XX:G1HeapWastePercent=5
--XX:InitiatingHeapOccupancyPercent=30
+# -XX:MaxMetaspaceSize=768M
+# -XX:MaxMetaspaceFreeRatio=70
+# -XX:MinMetaspaceFreeRatio=40
+# -XX:MinMetaspaceExpansion=332K
+# -XX:MaxMetaspaceExpansion=5M
+# -XX:MaxDirectMemorySize=1024M
+# -XX:ParallelGCThreads=4
+# -XX:SurvivorRatio=8
+# -XX:MaxGCPauseMillis=100
+# -XX:G1HeapWastePercent=5
+# -XX:InitiatingHeapOccupancyPercent=30
 # -XX:G1MixedGCLiveThresholdPercent=60
 # -XX:G1NewSizePercent=5
 # -XX:G1ReservePercent=10

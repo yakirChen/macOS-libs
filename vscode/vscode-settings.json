@@ -39,6 +39,7 @@
     "C_Cpp.formatting": "clangFormat",
     "C_Cpp.workspaceParsingPriority": "high",
     "C_Cpp.intelliSenseEngine": "Disabled",
+    "window.commandCenter": true,
     // 修改.build位置
     // "sde.swiftBuildingParams": [
     //     "build",

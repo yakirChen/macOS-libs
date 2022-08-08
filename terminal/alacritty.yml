@@ -21,7 +21,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -60,7 +60,7 @@ window:
   #
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background, but no title bar buttons
+  #     - buttonless: Title bar, transparent background and no title bar buttons
   decorations: full
 
   # Background opacity
@@ -81,7 +81,7 @@ window:
   startup_mode: Windowed
 
   # Window title
-  title: Alacritty
+  #title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
@@ -111,49 +111,49 @@ scrolling:
 font:
   # Normal (roman) font face
   #normal:
-  # Font family
-  #
-  # Default:
-  #   - (macOS) Menlo
-  #   - (Linux/BSD) monospace
-  #   - (Windows) Consolas
-  #family: monospace
+    # Font family
+    #
+    # Default:
+    #   - (macOS) Menlo
+    #   - (Linux/BSD) monospace
+    #   - (Windows) Consolas
+    #family: monospace
 
-  # The `style` can be specified to pick a specific face.
-  #style: Regular
+    # The `style` can be specified to pick a specific face.
+    #style: Regular
 
   # Bold font face
   #bold:
-  # Font family
-  #
-  # If the bold family is not specified, it will fall back to the
-  # value specified for the normal font.
-  #family: monospace
+    # Font family
+    #
+    # If the bold family is not specified, it will fall back to the
+    # value specified for the normal font.
+    #family: monospace
 
-  # The `style` can be specified to pick a specific face.
-  #style: Bold
+    # The `style` can be specified to pick a specific face.
+    #style: Bold
 
   # Italic font face
   #italic:
-  # Font family
-  #
-  # If the italic family is not specified, it will fall back to the
-  # value specified for the normal font.
-  #family: monospace
+    # Font family
+    #
+    # If the italic family is not specified, it will fall back to the
+    # value specified for the normal font.
+    #family: monospace
 
-  # The `style` can be specified to pick a specific face.
-  #style: Italic
+    # The `style` can be specified to pick a specific face.
+    #style: Italic
 
   # Bold italic font face
   #bold_italic:
-  # Font family
-  #
-  # If the bold italic family is not specified, it will fall back to the
-  # value specified for the normal font.
-  #family: monospace
+    # Font family
+    #
+    # If the bold italic family is not specified, it will fall back to the
+    # value specified for the normal font.
+    #family: monospace
 
-  # The `style` can be specified to pick a specific face.
-  #style: Bold Italic
+    # The `style` can be specified to pick a specific face.
+    #style: Bold Italic
 
   # Point size
   size: 11.0
@@ -166,17 +166,18 @@ font:
     y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the right,
-  # increasing `y` moves the glyph upwards.
+  # the default being at the bottom. Increasing `x` moves the glyph to the
+  # right, increasing `y` moves the glyph upward.
   glyph_offset:
     x: 0
     y: 0
 
-  # Thin stroke font rendering (macOS only)
+  # Use built-in font for box drawing characters.
   #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`.
-  use_thin_strokes: true
+  # If `true`, Alacritty will use a custom built-in font for box drawing
+  # characters (Unicode points 2500 - 259f).
+  #
+  #builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -184,18 +185,64 @@ draw_bold_text_with_bright_colors: true
 # Colors (Tomorrow Night)
 colors:
   # Default colors
+  bar:
+    background: '#434c5e'
+    foreground: '#d8dee9'
   primary:
+    background: '#1E1E1E'
+    foreground: '#E6D4A3'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+  normal:
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
+  bright:
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
   #  background: '#1d1f21'
   #  foreground: '#c5c8c6'
 
-  # Bright and dim foreground colors
-  #
-  # The dimmed foreground color is calculated automatically if it is not
-  # present. If the bright foreground color is not set, or
-  # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-  # color will be used.
-  #dim_foreground: '#828482'
-  #bright_foreground: '#eaeaea'
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not
+    # present. If the bright foreground color is not set, or
+    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
+    # color will be used.
+    #dim_foreground: '#828482'
+    #bright_foreground: '#eaeaea'
 
   # Cursor colors
   #
@@ -221,36 +268,32 @@ colors:
   #
   # Colors used for the search bar and match highlighting.
   #search:
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #matches:
-  #  foreground: '#000000'
-  #  background: '#ffffff'
-  #focused_match:
-  #  foreground: '#ffffff'
-  #  background: '#000000'
+    # Allowed values are CellForeground/CellBackground, which reference the
+    # affected cell, or hexadecimal colors like #ff00ff.
+    #matches:
+    #  foreground: '#000000'
+    #  background: '#ffffff'
+    #focused_match:
+    #  foreground: '#ffffff'
+    #  background: '#000000'
 
-  #bar:
-  #  background: '#c5c8c6'
-  #  foreground: '#1d1f21'
-
-  # Keyboard regex hints
+  # Keyboard hints
   #hints:
-  # First character in the hint label
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #start:
-  #  foreground: '#1d1f21'
-  #  background: '#e9ff5e'
+    # First character in the hint label
+    #
+    # Allowed values are CellForeground/CellBackground, which reference the
+    # affected cell, or hexadecimal colors like #ff00ff.
+    #start:
+    #  foreground: '#1d1f21'
+    #  background: '#e9ff5e'
 
-  # All characters after the first one in the hint label
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #end:
-  #  foreground: '#e9ff5e'
-  #  background: '#1d1f21'
+    # All characters after the first one in the hint label
+    #
+    # Allowed values are CellForeground/CellBackground, which reference the
+    # affected cell, or hexadecimal colors like #ff00ff.
+    #end:
+    #  foreground: '#e9ff5e'
+    #  background: '#1d1f21'
 
   # Line indicator
   #
@@ -261,6 +304,15 @@ colors:
   #line_indicator:
   #  foreground: None
   #  background: None
+
+  # Footer bar
+  #
+  # Color used for the footer bar on the bottom, used by search regex input,
+  # hyperlink URI preview, etc.
+  #
+  #footer_bar:
+  #  background: '#c5c8c6'
+  #  foreground: '#1d1f21'
 
   # Selection colors
   #
@@ -306,54 +358,7 @@ colors:
   #  blue:    '#556a7d'
   #  magenta: '#75617b'
   #  cyan:    '#5b7d78'
-#  white:   '#828482'
-  primary:
-    background: '#1E1E1E'
-    foreground: '#E6D4A3'
-    dim_foreground: '#a5abb6'
-  cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
-  vi_mode_cursor:
-    text: '#2e3440'
-    cursor: '#d8dee9'
-  selection:
-    text: CellForeground
-    background: '#4c566a'
-  search:
-    matches:
-      foreground: CellBackground
-      background: '#88c0d0'
-    bar:
-      background: '#434c5e'
-      foreground: '#d8dee9'
-  normal:
-    black: '#3b4252'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#88c0d0'
-    white: '#e5e9f0'
-  bright:
-    black: '#4c566a'
-    red: '#bf616a'
-    green: '#a3be8c'
-    yellow: '#ebcb8b'
-    blue: '#81a1c1'
-    magenta: '#b48ead'
-    cyan: '#8fbcbb'
-    white: '#eceff4'
-  dim:
-    black: '#373e4d'
-    red: '#94545d'
-    green: '#809575'
-    yellow: '#b29e75'
-    blue: '#68809a'
-    magenta: '#8c738c'
-    cyan: '#6d96a5'
-    white: '#aeb3bb'
+  #  white:   '#828482'
 
   # Indexed Colors
   #
@@ -421,23 +426,15 @@ colors:
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-#selection:
-  # This string contains all characters that are used as separators for
-  # "semantic words" in Alacritty.
-  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
-
 cursor:
-  # Cursor style
+#   Cursor style
   style:
-  # Cursor shape
-  #
-  # Values for `shape`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
+#     Cursor shape
+    
+#     Values for `shape`:
+#       - ▇ Block
+#       - _ Underline
+#       - | Beam
     shape: Underline
 
     # Cursor blinking state
@@ -460,6 +457,11 @@ cursor:
   # Cursor blinking interval in milliseconds.
   #blink_interval: 750
 
+  # Time after which cursor stops blinking, in seconds.
+  #
+  # Specifying '0' will disable timeout for blinking.
+  #blink_timeout: 5
+
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
   #unfocused_hollow: true
@@ -468,37 +470,36 @@ cursor:
   # from `0.0` to `1.0`.
   #thickness: 0.15
 
-  # Live config reload (changes require restart)
-  #live_config_reload: true
+# Live config reload (changes require restart)
+#live_config_reload: true
 
-  # Shell
-  #
-  # You can set `shell.program` to the path of your favorite shell, e.g.
-  # `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the
-  # shell.
-  #
-  # Default:
-  #   - (macOS) /bin/bash --login
-  #   - (Linux/BSD) user login shell
-  #   - (Windows) powershell
-  #shell:
-  #  program: /bin/bash
-  #  args:
-  #    - --login
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g.
+# `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the
+# shell.
+#
+# Default:
+#   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
+#   - (Windows) powershell
+#shell:
+#  program: /bin/bash
+#  args:
+#    - --login
 
-  # Startup directory
-  #
-  # Directory the shell is started in. If this is unset, or `None`, the working
-  # directory of the parent process will be used.
-  #working_directory: None
+# Startup directory
+#
+# Directory the shell is started in. If this is unset, or `None`, the working
+# directory of the parent process will be used.
+#working_directory: None
 
-  # Send ESC (\x1b) before characters when alt is pressed.
-  #alt_send_esc: true
+# Send ESC (\x1b) before characters when alt is pressed.
+#alt_send_esc: true
 
-  # Offer IPC using `alacritty msg` (unix only)
-  #ipc_socket: true
+# Offer IPC using `alacritty msg` (unix only)
+#ipc_socket: true
 
-  #mouse:
+#mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -510,18 +511,22 @@ cursor:
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
 
-  # Regex hints
-  #
-  # Terminal hints can be used to find text in the visible part of the terminal
-  # and pipe it to other applications.
-  #hints:
+# Hints
+#
+# Terminal hints can be used to find text or hyperlink in the visible part of
+# the terminal and pipe it to other applications.
+#hints:
   # Keys used for the hint labels.
   #alphabet: "jfkdls;ahgurieowpq"
 
   # List with all available hints
   #
-  # Each hint must have a `regex` and either an `action` or a `command` field.
-  # The fields `mouse`, `binding` and `post_processing` are optional.
+  # Each hint must have any of `regex` or `hyperlinks` field and either an
+  # `action` or a `command` field. The fields `mouse`, `binding` and
+  # `post_processing` are optional.
+  #
+  # The `hyperlinks` option will cause OSC 8 escape sequence hyperlinks to be
+  # highlighted.
   #
   # The fields `command`, `binding.key`, `binding.mods`, `binding.mode` and
   # `mouse.mods` accept the same values as they do in the `key_bindings` section.
@@ -531,7 +536,8 @@ cursor:
   #
   # If the `post_processing` field is set to `true`, heuristics will be used to
   # shorten the match if there are characters likely not to be part of the hint
-  # (e.g. a trailing `.`). This is most useful for URIs.
+  # (e.g. a trailing `.`). This is most useful for URIs and applies only to
+  # `regex` matches.
   #
   # Values for `action`:
   #   - Copy
@@ -545,6 +551,7 @@ cursor:
   #enabled:
   # - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
   #           [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+  #   hyperlinks: true
   #   command: xdg-open
   #   post_processing: true
   #   mouse:
@@ -554,253 +561,255 @@ cursor:
   #     key: U
   #     mods: Control|Shift
 
-  # Mouse bindings
-  #
-  # Mouse bindings are specified as a list of objects, much like the key
-  # bindings further below.
-  #
-  # To trigger mouse bindings when an application running within Alacritty
-  # captures the mouse, the `Shift` modifier is automatically added as a
-  # requirement.
-  #
-  # Each mouse binding will specify a:
-  #
-  # - `mouse`:
-  #
-  #   - Middle
-  #   - Left
-  #   - Right
-  #   - Numeric identifier such as `5`
-  #
-  # - `action` (see key bindings for actions not exclusive to mouse mode)
-  #
-  # - Mouse exclusive actions:
-  #
-  #   - ExpandSelection
-  #       Expand the selection to the current mouse cursor location.
-  #
-  # And optionally:
-  #
-  # - `mods` (see key bindings)
-  #mouse_bindings:
-  #  - { mouse: Right,                 action: ExpandSelection }
-  #  - { mouse: Right,  mods: Control, action: ExpandSelection }
-  #  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
+# Mouse bindings
+#
+# Mouse bindings are specified as a list of objects, much like the key
+# bindings further below.
+#
+# To trigger mouse bindings when an application running within Alacritty
+# captures the mouse, the `Shift` modifier is automatically added as a
+# requirement.
+#
+# Each mouse binding will specify a:
+#
+# - `mouse`:
+#
+#   - Middle
+#   - Left
+#   - Right
+#   - Numeric identifier such as `5`
+#
+# - `action` (see key bindings for actions not exclusive to mouse mode)
+#
+# - Mouse exclusive actions:
+#
+#   - ExpandSelection
+#       Expand the selection to the current mouse cursor location.
+#
+# And optionally:
+#
+# - `mods` (see key bindings)
+#mouse_bindings:
+#  - { mouse: Right,                 action: ExpandSelection }
+#  - { mouse: Right,  mods: Control, action: ExpandSelection }
+#  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
 
-  # Key bindings
-  #
-  # Key bindings are specified as a list of objects. For example, this is the
-  # default paste binding:
-  #
-  # `- { key: V, mods: Control|Shift, action: Paste }`
-  #
-  # Each key binding will specify a:
-  #
-  # - `key`: Identifier of the key pressed
-  #
-  #    - A-Z
-  #    - F1-F24
-  #    - Key0-Key9
-  #
-  #    A full list with available key codes can be found here:
-  #    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
-  #
-  #    Instead of using the name of the keys, the `key` field also supports using
-  #    the scancode of the desired key. Scancodes have to be specified as a
-  #    decimal number. This command will allow you to display the hex scancodes
-  #    for certain keys:
-  #
-  #       `showkey --scancodes`.
-  #
-  # Then exactly one of:
-  #
-  # - `chars`: Send a byte sequence to the running application
-  #
-  #    The `chars` field writes the specified string to the terminal. This makes
-  #    it possible to pass escape sequences. To find escape codes for bindings
-  #    like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside
-  #    of tmux. Note that applications use terminfo to map escape sequences back
-  #    to keys. It is therefore required to update the terminfo when changing an
-  #    escape sequence.
-  #
-  # - `action`: Execute a predefined action
-  #
-  #   - ToggleViMode
-  #   - SearchForward
-  #       Start searching toward the right of the search origin.
-  #   - SearchBackward
-  #       Start searching toward the left of the search origin.
-  #   - Copy
-  #   - Paste
-  #   - IncreaseFontSize
-  #   - DecreaseFontSize
-  #   - ResetFontSize
-  #   - ScrollPageUp
-  #   - ScrollPageDown
-  #   - ScrollHalfPageUp
-  #   - ScrollHalfPageDown
-  #   - ScrollLineUp
-  #   - ScrollLineDown
-  #   - ScrollToTop
-  #   - ScrollToBottom
-  #   - ClearHistory
-  #       Remove the terminal's scrollback history.
-  #   - Hide
-  #       Hide the Alacritty window.
-  #   - Minimize
-  #       Minimize the Alacritty window.
-  #   - Quit
-  #       Quit Alacritty.
-  #   - ToggleFullscreen
-  #   - SpawnNewInstance
-  #       Spawn a new instance of Alacritty.
-  #   - CreateNewWindow
-  #       Create a new Alacritty window from the current process.
-  #   - ClearLogNotice
-  #       Clear Alacritty's UI warning and error notice.
-  #   - ClearSelection
-  #       Remove the active selection.
-  #   - ReceiveChar
-  #   - None
-  #
-  # - Vi mode exclusive actions:
-  #
-  #   - Open
-  #       Perform the action of the first matching hint under the vi mode cursor
-  #       with `mouse.enabled` set to `true`.
-  #   - ToggleNormalSelection
-  #   - ToggleLineSelection
-  #   - ToggleBlockSelection
-  #   - ToggleSemanticSelection
-  #       Toggle semantic selection based on `selection.semantic_escape_chars`.
-  #
-  # - Vi mode exclusive cursor motion actions:
-  #
-  #   - Up
-  #       One line up.
-  #   - Down
-  #       One line down.
-  #   - Left
-  #       One character left.
-  #   - Right
-  #       One character right.
-  #   - First
-  #       First column, or beginning of the line when already at the first column.
-  #   - Last
-  #       Last column, or beginning of the line when already at the last column.
-  #   - FirstOccupied
-  #       First non-empty cell in this terminal row, or first non-empty cell of
-  #       the line when already at the first cell of the row.
-  #   - High
-  #       Top of the screen.
-  #   - Middle
-  #       Center of the screen.
-  #   - Low
-  #       Bottom of the screen.
-  #   - SemanticLeft
-  #       Start of the previous semantically separated word.
-  #   - SemanticRight
-  #       Start of the next semantically separated word.
-  #   - SemanticLeftEnd
-  #       End of the previous semantically separated word.
-  #   - SemanticRightEnd
-  #       End of the next semantically separated word.
-  #   - WordLeft
-  #       Start of the previous whitespace separated word.
-  #   - WordRight
-  #       Start of the next whitespace separated word.
-  #   - WordLeftEnd
-  #       End of the previous whitespace separated word.
-  #   - WordRightEnd
-  #       End of the next whitespace separated word.
-  #   - Bracket
-  #       Character matching the bracket at the cursor's location.
-  #   - SearchNext
-  #       Beginning of the next match.
-  #   - SearchPrevious
-  #       Beginning of the previous match.
-  #   - SearchStart
-  #       Start of the match to the left of the vi mode cursor.
-  #   - SearchEnd
-  #       End of the match to the right of the vi mode cursor.
-  #
-  # - Search mode exclusive actions:
-  #   - SearchFocusNext
-  #       Move the focus to the next search match.
-  #   - SearchFocusPrevious
-  #       Move the focus to the previous search match.
-  #   - SearchConfirm
-  #   - SearchCancel
-  #   - SearchClear
-  #       Reset the search regex.
-  #   - SearchDeleteWord
-  #       Delete the last word in the search regex.
-  #   - SearchHistoryPrevious
-  #       Go to the previous regex in the search history.
-  #   - SearchHistoryNext
-  #       Go to the next regex in the search history.
-  #
-  # - macOS exclusive actions:
-  #   - ToggleSimpleFullscreen
-  #       Enter fullscreen without occupying another space.
-  #
-  # - Linux/BSD exclusive actions:
-  #
-  #   - CopySelection
-  #       Copy from the selection buffer.
-  #   - PasteSelection
-  #       Paste from the selection buffer.
-  #
-  # - `command`: Fork and execute a specified command plus arguments
-  #
-  #    The `command` field must be a map containing a `program` string and an
-  #    `args` array of command line parameter strings. For example:
-  #       `{ program: "alacritty", args: ["-e", "vttest"] }`
-  #
-  # And optionally:
-  #
-  # - `mods`: Key modifiers to filter binding actions
-  #
-  #    - Command
-  #    - Control
-  #    - Option
-  #    - Super
-  #    - Shift
-  #    - Alt
-  #
-  #    Multiple `mods` can be combined using `|` like this:
-  #       `mods: Control|Shift`.
-  #    Whitespace and capitalization are relevant and must match the example.
-  #
-  # - `mode`: Indicate a binding for only specific terminal reported modes
-  #
-  #    This is mainly used to send applications the correct escape sequences
-  #    when in different modes.
-  #
-  #    - AppCursor
-  #    - AppKeypad
-  #    - Search
-  #    - Alt
-  #    - Vi
-  #
-  #    A `~` operator can be used before a mode to apply the binding whenever
-  #    the mode is *not* active, e.g. `~Alt`.
-  #
-  # Bindings are always filled by default, but will be replaced when a new
-  # binding with the same triggers is defined. To unset a default binding, it can
-  # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
-  # a no-op if you do not wish to receive input characters for that binding.
-  #
-  # If the same trigger is assigned to multiple actions, all of them are executed
-  # in the order they were defined in.
-  #key_bindings:
+# Key bindings
+#
+# Key bindings are specified as a list of objects. For example, this is the
+# default paste binding:
+#
+# `- { key: V, mods: Control|Shift, action: Paste }`
+#
+# Each key binding will specify a:
+#
+# - `key`: Identifier of the key pressed
+#
+#    - A-Z
+#    - F1-F24
+#    - Key0-Key9
+#
+#    A full list with available key codes can be found here:
+#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#
+#    Instead of using the name of the keys, the `key` field also supports using
+#    the scancode of the desired key. Scancodes have to be specified as a
+#    decimal number. This command will allow you to display the hex scancodes
+#    for certain keys:
+#
+#       `showkey --scancodes`.
+#
+# Then exactly one of:
+#
+# - `chars`: Send a byte sequence to the running application
+#
+#    The `chars` field writes the specified string to the terminal. This makes
+#    it possible to pass escape sequences. To find escape codes for bindings
+#    like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside
+#    of tmux. Note that applications use terminfo to map escape sequences back
+#    to keys. It is therefore required to update the terminfo when changing an
+#    escape sequence.
+#
+# - `action`: Execute a predefined action
+#
+#   - ToggleViMode
+#   - SearchForward
+#       Start searching toward the right of the search origin.
+#   - SearchBackward
+#       Start searching toward the left of the search origin.
+#   - Copy
+#   - Paste
+#   - IncreaseFontSize
+#   - DecreaseFontSize
+#   - ResetFontSize
+#   - ScrollPageUp
+#   - ScrollPageDown
+#   - ScrollHalfPageUp
+#   - ScrollHalfPageDown
+#   - ScrollLineUp
+#   - ScrollLineDown
+#   - ScrollToTop
+#   - ScrollToBottom
+#   - ClearHistory
+#       Remove the terminal's scrollback history.
+#   - Hide
+#       Hide the Alacritty window.
+#   - Minimize
+#       Minimize the Alacritty window.
+#   - Quit
+#       Quit Alacritty.
+#   - ToggleFullscreen
+#   - SpawnNewInstance
+#       Spawn a new instance of Alacritty.
+#   - CreateNewWindow
+#       Create a new Alacritty window from the current process.
+#   - ClearLogNotice
+#       Clear Alacritty's UI warning and error notice.
+#   - ClearSelection
+#       Remove the active selection.
+#   - ReceiveChar
+#   - None
+#
+# - Vi mode exclusive actions:
+#
+#   - Open
+#       Perform the action of the first matching hint under the vi mode cursor
+#       with `mouse.enabled` set to `true`.
+#   - ToggleNormalSelection
+#   - ToggleLineSelection
+#   - ToggleBlockSelection
+#   - ToggleSemanticSelection
+#       Toggle semantic selection based on `selection.semantic_escape_chars`.
+#   - CenterAroundViCursor
+#       Center view around vi mode cursor
+#
+# - Vi mode exclusive cursor motion actions:
+#
+#   - Up
+#       One line up.
+#   - Down
+#       One line down.
+#   - Left
+#       One character left.
+#   - Right
+#       One character right.
+#   - First
+#       First column, or beginning of the line when already at the first column.
+#   - Last
+#       Last column, or beginning of the line when already at the last column.
+#   - FirstOccupied
+#       First non-empty cell in this terminal row, or first non-empty cell of
+#       the line when already at the first cell of the row.
+#   - High
+#       Top of the screen.
+#   - Middle
+#       Center of the screen.
+#   - Low
+#       Bottom of the screen.
+#   - SemanticLeft
+#       Start of the previous semantically separated word.
+#   - SemanticRight
+#       Start of the next semantically separated word.
+#   - SemanticLeftEnd
+#       End of the previous semantically separated word.
+#   - SemanticRightEnd
+#       End of the next semantically separated word.
+#   - WordLeft
+#       Start of the previous whitespace separated word.
+#   - WordRight
+#       Start of the next whitespace separated word.
+#   - WordLeftEnd
+#       End of the previous whitespace separated word.
+#   - WordRightEnd
+#       End of the next whitespace separated word.
+#   - Bracket
+#       Character matching the bracket at the cursor's location.
+#   - SearchNext
+#       Beginning of the next match.
+#   - SearchPrevious
+#       Beginning of the previous match.
+#   - SearchStart
+#       Start of the match to the left of the vi mode cursor.
+#   - SearchEnd
+#       End of the match to the right of the vi mode cursor.
+#
+# - Search mode exclusive actions:
+#   - SearchFocusNext
+#       Move the focus to the next search match.
+#   - SearchFocusPrevious
+#       Move the focus to the previous search match.
+#   - SearchConfirm
+#   - SearchCancel
+#   - SearchClear
+#       Reset the search regex.
+#   - SearchDeleteWord
+#       Delete the last word in the search regex.
+#   - SearchHistoryPrevious
+#       Go to the previous regex in the search history.
+#   - SearchHistoryNext
+#       Go to the next regex in the search history.
+#
+# - macOS exclusive actions:
+#   - ToggleSimpleFullscreen
+#       Enter fullscreen without occupying another space.
+#
+# - Linux/BSD exclusive actions:
+#
+#   - CopySelection
+#       Copy from the selection buffer.
+#   - PasteSelection
+#       Paste from the selection buffer.
+#
+# - `command`: Fork and execute a specified command plus arguments
+#
+#    The `command` field must be a map containing a `program` string and an
+#    `args` array of command line parameter strings. For example:
+#       `{ program: "alacritty", args: ["-e", "vttest"] }`
+#
+# And optionally:
+#
+# - `mods`: Key modifiers to filter binding actions
+#
+#    - Command
+#    - Control
+#    - Option
+#    - Super
+#    - Shift
+#    - Alt
+#
+#    Multiple `mods` can be combined using `|` like this:
+#       `mods: Control|Shift`.
+#    Whitespace and capitalization are relevant and must match the example.
+#
+# - `mode`: Indicate a binding for only specific terminal reported modes
+#
+#    This is mainly used to send applications the correct escape sequences
+#    when in different modes.
+#
+#    - AppCursor
+#    - AppKeypad
+#    - Search
+#    - Alt
+#    - Vi
+#
+#    A `~` operator can be used before a mode to apply the binding whenever
+#    the mode is *not* active, e.g. `~Alt`.
+#
+# Bindings are always filled by default, but will be replaced when a new
+# binding with the same triggers is defined. To unset a default binding, it can
+# be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
+# a no-op if you do not wish to receive input characters for that binding.
+#
+# If the same trigger is assigned to multiple actions, all of them are executed
+# in the order they were defined in.
+#key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
-  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp,  }
+  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
-  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
+  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
@@ -826,6 +835,7 @@ cursor:
   #- { key: V,      mods: Control,       mode: Vi|~Search, action: ToggleBlockSelection    }
   #- { key: V,      mods: Alt,           mode: Vi|~Search, action: ToggleSemanticSelection }
   #- { key: Return,                      mode: Vi|~Search, action: Open                    }
+  #- { key: Z,                           mode: Vi|~Search, action: CenterAroundViCursor    }
   #- { key: K,                           mode: Vi|~Search, action: Up                      }
   #- { key: J,                           mode: Vi|~Search, action: Down                    }
   #- { key: H,                           mode: Vi|~Search, action: Left                    }
@@ -904,7 +914,7 @@ cursor:
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-  #debug:
+#debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
 
@@ -924,3 +934,6 @@ cursor:
 
   # Print all received window events.
   #print_events: false
+
+  # Highlight window damage information.
+  #highlight_damage: false

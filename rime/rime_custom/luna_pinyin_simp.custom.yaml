@@ -8,11 +8,11 @@ patch:
     - name: show_emoji
       reset: 1
       states: [ "🈚️️\uFE0E", "🈶️️\uFE0F" ]
-    - name: zh_simp                      # (※1) 繁简转换
+    - name: zh_simp # (※1) 繁简转换
       reset: 1
       states: ["漢字", "汉字"]
     - options: ["utf8", "gbk", "gb2312"] # (※2)字符集选单
-      reset: 0                           #     默认 UTF8
+      reset: 0 # 默认 UTF8
       states:
         - UTF-8
         - GBK
@@ -21,13 +21,33 @@ patch:
     option_name: zh_simp
     
   engine/filters:
-      - simplifier
-      - simplifier@emoji_conversion
-      - uniquifier
-      - charset_filter@gbk              # (※3) GBK 过滤
-      - single_char_filter
+    - simplifier
+    - simplifier@emoji_conversion
+    - uniquifier
+    - single_char_filter
+    # - charset_filter@gbk # (※3) GBK 过滤
 
   emoji_conversion:
     opencc_config: emoji.json
     option_name: show_emoji
     tags: abc
+  
+  # 载入朙月拼音扩充词库
+  "translator/dictionary": luna_pinyin.extended
+
+  # 加载easy_en依赖
+  # "schema/dependencies/@1": easy_en
+  # 载入翻译英文的码表翻译器，取名为 english
+  # "engine/translators/@4": table_translator@english
+  # english翻译器的设定项
+  # english:
+  #   dictionary: easy_en
+  #   spelling_hints: 9
+  #   enable_completion: false # 是否启用英文输入联想补全
+  #   enable_sentence: false # 混输时不出现带有图案的英文
+  #   initial_quality: -0.5 # 英文候选词的位置, 数值越大越靠前。
+__patch:
+# Rx: emoji:customize:schema=luna_pinyin_simp {
+  - patch/+:
+      __include: emoji_suggestion:/patch
+# }

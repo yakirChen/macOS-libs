@@ -46,4 +46,5 @@
     //     "--build-path",
     //     "../swift-build"
     //   ]
+    "python.defaultInterpreterPath": "/Users/yakir/local/brew/bin/python3"
 }

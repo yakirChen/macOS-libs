@@ -1,0 +1,32 @@
+api:
+  dashboard: true
+log:
+  level: DEBUG
+
+entryPoints:
+  web:
+    address: ":80"
+    proxyProtocol:
+      insecure: true
+
+
+http:
+  routers:
+    api:
+      entryPoints:
+        - "web"
+      rule: "Host(`pamirs.bc.local`)"
+      service: api@internal
+    whoami:
+      entryPoints:
+        - "web"
+      rule: "Host(`pamirs.bc.local`) && Path(`/pamirs`)"
+      service: whoami@docker
+    ghost:
+      entryPoints:
+        - "web"
+      rule: "Host(`ghost.pbeta.cn`) "
+      service: ghost
+
+serversTransport:
+  insecureSkipVerify: true

@@ -47,4 +47,4 @@
 	hunk-header-line-number-style = "#067a00"
 	hunk-header-style = file line-number syntax
 [init]
-	defaultBranch = main
+	defaultBranch = master

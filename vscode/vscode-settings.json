@@ -47,8 +47,8 @@
     //     "../swift-build"
     //   ]
     "python.defaultInterpreterPath": "/Users/yakir/local/brew/bin/python3",
-    "http.proxy": "http://127.0.0.1:7890",
-    "http.proxySupport": "on",
-    "https.proxy": "http://127.0.0.1:7890",
-    "https.proxySupport": "on"
+    // "http.proxy": "http://127.0.0.1:7890",
+    // "http.proxySupport": "off",
+    // "https.proxy": "http://127.0.0.1:7890",
+    // "https.proxySupport": "off"
 }

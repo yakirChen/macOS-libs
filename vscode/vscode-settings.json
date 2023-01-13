@@ -47,6 +47,7 @@
     //     "../swift-build"
     //   ]
     "python.defaultInterpreterPath": "/Users/yakir/local/brew/bin/python3",
+    "terminal.integrated.fontSize": 11,
     // "http.proxy": "http://127.0.0.1:7890",
     // "http.proxySupport": "off",
     // "https.proxy": "http://127.0.0.1:7890",

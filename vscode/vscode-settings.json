@@ -13,7 +13,6 @@
     "rust-analyzer.server.extraEnv": {
         "RUSTUP_TOOLCHAIN": "nightly"
     },
-    "rust-analyzer.checkOnSave.command": "check",
     "rust-analyzer.server.path": "/Users/yakir/local/rust/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer",
     "rust-analyzer.semanticHighlighting.strings.enable": true,
     "rust-analyzer.highlightRelated.breakPoints.enable": true,
@@ -38,7 +37,7 @@
     "explorer.confirmDelete": false,
     "C_Cpp.formatting": "clangFormat",
     "C_Cpp.workspaceParsingPriority": "high",
-    "C_Cpp.intelliSenseEngine": "Disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
     "window.commandCenter": true,
     // 修改.build位置
     // "sde.swiftBuildingParams": [

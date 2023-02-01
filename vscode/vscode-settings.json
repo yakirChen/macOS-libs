@@ -39,6 +39,7 @@
     "C_Cpp.workspaceParsingPriority": "high",
     "C_Cpp.intelliSenseEngine": "disabled",
     "window.commandCenter": true,
+    "clangd.path": "/Users/yakir/local/bin/clangd",
     // 修改.build位置
     // "sde.swiftBuildingParams": [
     //     "build",

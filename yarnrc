@@ -2,6 +2,7 @@
 # yarn lockfile v1
 
 
+registry "https://registry.npmmirror.com/"
 cache-folder "/Volumes/sm/repos/yarn"
 global-folder "/Volumes/sm/repos/yarn"
 lastUpdateCheck 1667287354661

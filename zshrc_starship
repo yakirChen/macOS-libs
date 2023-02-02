@@ -3,40 +3,7 @@ setopt no_nomatch
 HIST_STAMPS="yyyy-mm-dd"
 DISABLE_UPDATE_PROMPT=true
 DISABLE_AUTO_UPDATE=true
-export ZSH=${HOME}/.ohmyzsh
-ZSH_THEME="jtriley"
-plugins=(
-    # ant
-    mvn
-    # osx
-    # xcode
-    git
-    git-extras
-    git-lfs
-    gitfast
-    # git-prompt
-    # spring
-    rust
-    fd
-    ripgrep
-    golang
-    # textmate
-    # npm
-    brew
-    # history
-    # history-substring-search
-    # docker
-    # swiftpm
-    # zsh-completions
-    # zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
-    # zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-    zsh-navigation-tools
-    # zsh-history-substring-search
-    # colored-man-pages
-    # colorize
-    # torrent
-    # docker-compose
-)
+
 
 # export PROMPT_COMMAND='echo -n [$(date +%H:%M:%S)]'
 # export PS1="\u@\h [\$(date +%H:%M:%S)]> "
@@ -53,9 +20,9 @@ export BREW=${HOME}/local/brew
 export BREW_OPT=${HOME}/local/brew/opt
 export LOCAL=${HOME}/local
 export VLM=/Volumes/sm
-export VLM_REPOS=${VLM}/repos
+export VLM_REPOS=/Volumes/sm/repos
 # export TVLM_REPOS=/Volumes/To/repos
-export VLM_SERVERS=${VLM}/servers
+export VLM_SERVERS=/Volumes/sm/servers
 export JARS=${LOCAL}/jars
 # export CHEAT_USER_DIR='/Users/yakir/app/cheats'
 # export CHEAT_PATH='/Users/yakir/app/cheats'
@@ -73,7 +40,7 @@ export ERL_HOME=${LOCAL}/otp
 # export RUST_HOME=${LOCAL}/rust
 export CARGO_HOME=${LOCAL}/rust
 # export SRCROOT=${LOCAL}/rust
-export CARGO_PATH=${CARGO_HOME}
+export CARGO_PATH=${CARGO_HOME}/
 export RUSTUP_HOME=${LOCAL}/rust
 # export RUSTUP_TRACE_DIR=${LOCAL}/rust/trace
 export RUSTFLAGS='-C target-cpu=native'
@@ -105,18 +72,18 @@ export RUSTUP_TOOLCHAIN=nightly
 export JADX_HOME=${LOCAL}/jadx
 export VIM_CONFIG_PATH=${HOME}/.vim
 export SQLITE=${LOCAL}/sqlite
-export MYSQL_BASE_DIR=${VLM_SERVERS}/mysql
-export MYSQL_COMMON_DIR=${VLM_SERVERS}/mysql
-export MYSQL_DATA_DIR=${VLM_SERVERS}/mysql/data
-export MYSQL_LOGS_DIR=${VLM_SERVERS}/mysql/logs
+export MYSQL_BASE_DIR=/Volumes/sm/servers/mysql
+export MYSQL_COMMON_DIR=/Volumes/sm/repos/mysql
+export MYSQL_DATA_DIR=/Volumes/sm/repos/mysql/data
+export MYSQL_LOGS_DIR=/Volumes/sm/repos/mysql/logs
 export METAL_DEVICE_WRAPPER_TYPE=1
 export MTL_SHADER_VALIDATION=1
 
-# export PGSOCKET=/Volumes/sm/repos/pgsql
-# export PGDATA=/Volumes/sm/repos/pgsql/data
-# export PGWAL=/Volumes/sm/repos/pgsql/wal
-# export PGLOG=/Volumes/sm/repos/pgsql/pglog.log
-# export PGCTLLOG=/Volumes/sm/repos/pgsql/pgctllog.log
+export PGSOCKET=/Volumes/sm/repos/pgsql
+export PGDATA=/Volumes/sm/repos/pgsql/data
+export PGWAL=/Volumes/sm/repos/pgsql/wal
+export PGLOG=/Volumes/sm/repos/pgsql/pglog.log
+export PGCTLLOG=/Volumes/sm/repos/pgsql/pgctllog.log
 
 export NGINX_HOME=/Users/yakir/local/nginx
 # export BTRACE_HOME=${LOCAL}/btrace
@@ -145,10 +112,11 @@ export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
 export CMAKE_HOME=${LOCAL}/cmake
 export M2_HOME=${LOCAL}/maven                   # maven
 # export M2_HOME=${LOCAL}/mvnd                   # maven
-# export SBT_HOME=${LOCAL}/sbt                   # maven
+# export M2_HOME=${LOCAL}/maven4                   # maven
+export SBT_HOME=${LOCAL}/sbt                   # maven
 export MAVEN_CONFIG=${M2_HOME}/conf
 export MAVEN_SKIP_RC=true
-export MAVEN_REPOSITORY=${VLM_REPOS}/m2/repository
+export MAVEN_REPOSITORY=/Volumes/sm/repos/m2/repository
 export SBT_OPTS="-Dsbt.global.base=/Volumes/sm/repos/sbt -Dsbt.ivy.home=/Volumes/sm/repos/ivy2"
 export ANT_HOME=${LOCAL}/ant                    # ant
 export GRADLE_HOME=${LOCAL}/gradle              # gradle
@@ -306,9 +274,6 @@ PATH=${NASM_HOME}:${YASM_HOME}/bin:${BISON_HOME}/bin:$PATH
 
 export PATH
 
-source $ZSH/oh-my-zsh.sh
-
-unalias mvn
 # unalias mvnd
 
 # ########################################## User Alias Commond #####################################
@@ -404,7 +369,6 @@ alias cargo_proxy="export CARGO_HTTP_PROXY=127.0.0.1:7890"
 
 # export ALL_PROXY=socks5://127.0.0.1:7890
 
-unalias gg
 function gg() {
     git_url=${1}
     repo_name=${2}
@@ -442,23 +406,12 @@ export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
 #  zsh config
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
-export HISTSIZE=99999999
-export SAVEHIST=${HISTSIZE}
+export HISTSIZE=999999999999999999
+export SAVEHIST=999999999999999999
 setopt hist_ignore_all_dups
-setopt EXTENDED_HISTORY
-setopt HIST_SAVE_NO_DUPS
+
+# export TIUP_HOME=/Volumes/sm/servers/tidb
+# export PATH=/Volumes/sm/servers/tidb/bin:$PATH
 
 
-# setopt BANG_HIST                 # Treat the '!' character specially during expansion.
-# setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
-# setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-# setopt SHARE_HISTORY             # Share history between all sessions.
-# setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
-# setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
-# setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
-# setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
-# setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
-# setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
-# setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
-# setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-# setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+eval "$(starship init zsh)"

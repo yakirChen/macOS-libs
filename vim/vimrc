@@ -7,14 +7,15 @@ set showcmd
 set foldenable
 set foldmethod=manual
 set cc=100
-set foldmethod=marker
+"set foldmethod=marker
 set autoindent
 set cindent
 set equalalways "分隔窗口始终平分
 "set mouse=a
 set background=light
-colorscheme peachpuff
-colo peachpuff
+colorscheme desert
+"colorscheme peachpuff
+"colo peachpuff
 set termguicolors
 set laststatus=2 " 总是显示状态栏
 set ruler " 显示光标当前位置
@@ -57,6 +58,8 @@ let g:racer_experimental_completer = 1
 let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 let g:go_version_warning = 0
+
+"let g:terminal_ansi_colors
 
 " Plugin indentLine settings.
 let g:indentLine_char = "┆"

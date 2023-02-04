@@ -401,6 +401,8 @@ alias ssh2="ssh -p2222 "
 alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias cproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias cargo_proxy="export CARGO_HTTP_PROXY=127.0.0.1:7890"
+unalias la
+alias ls="lsd --color=always --icon=never"
 
 # export ALL_PROXY=socks5://127.0.0.1:7890
 

@@ -327,12 +327,18 @@ alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Vo
 # alias ydll="ydl --proxy socks5://127.0.0.1:1080 --write-sub --all-subs --yes-playlist "
 
 function reset_git() {
+    branch=$(git status | grep "On branch" | awk '/On branch/ {print $3}')
+    echo "branch is ${branch}"
+    if [[ ! "main" -eq ${branch} && ! "master" -eq ${branch} && ! "develop" -eq ${branch} ]]; then
+        echo "not support branch"
+        return -1
+    fi
     git reset . && \
     git checkout -- . && \
-    git checkout origin/$1 &&  \
-    git branch -D $1 ; \
+    git checkout origin/${branch} &&  \
+    git branch -D ${branch} ; \
     git status && \
-    git checkout $1 && \
+    git checkout ${branch} && \
     git status
 }
 
@@ -389,7 +395,12 @@ alias bs="brew search --desc -v"
 alias g="git fetch --prune --tag; git fetch --tags --prune origin -f ; git pull --all"
 function gcr(){
     echo ${1}
-    git clone --recurse-submodules ${1}
+    if [[ -z ${2} ]]; then
+        git clone --recurse-submodules ${1}
+    else
+        echo ${2}
+        git clone --recurse-submodules ${1} ${2}
+    fi
 }
 alias gcr1="git clone --recurse-submodules --depth 1 "
 

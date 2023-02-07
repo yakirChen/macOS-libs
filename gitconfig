@@ -36,6 +36,7 @@
 	interactive = true
 [delta]
 	features = decorations
+    side-by-side = true
 [delta "interactive"]
 	keep-plus-minus-markers = false
 [delta "decorations"]

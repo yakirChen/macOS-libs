@@ -23,16 +23,16 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. Both lines and columns
   # must be non-zero for this to take effect. The number of columns must be at
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  dimensions:
+    columns: 160
+    lines: 82
 
   # Window position (changes require restart)
   #
@@ -68,7 +68,7 @@
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  #opacity: 1.0
+  opacity: 0.98
 
   # Startup Mode (changes require restart)
   #
@@ -88,9 +88,9 @@
   #dynamic_title: true
 
   # Window class (Linux/BSD only):
-  #class:
+  class:
     # Application instance name
-    #instance: Alacritty
+    instance: Alacritty
     # General application class
     #general: Alacritty
 
@@ -106,12 +106,12 @@
   #   - OnlyRight
   #   - Both
   #   - None (default)
-  #option_as_alt: None
+  option_as_alt: OnlyLeft
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 100000
 
   # Scrolling distance multiplier.
   #multiplier: 3
@@ -798,17 +798,18 @@ key_bindings:
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   # - { key: L,         mods: Command,                    action: ClearHistory }
-  # - { key: L,         mods: Command, mode: ~Vi|~Search, chars: "\x0c"          }
   #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
-  - { key: N, mods: Command, action: CreateNewWindow }
-  - { key: N, mods: Command|Shift, action: SpawnNewInstance }
-  - { key: T, mods: Command, action: CreateNewTab }
-  - { key: Tab, mods: Control, action: SelectNextTab }
-  - { key: Tab, mods: Control|Shift, action: SelectPreviousTab }
+  #- { key: L,         mods: Command, mode: ~Vi|~Search,  chars: "\x0c"              }
+  - { key: L,         mods: Command|Alt,                 action: ClearHistory       }
+  - { key: N,         mods: Command,                     action: CreateNewWindow    }
+  - { key: N,         mods: Command|Shift,               action: SpawnNewInstance   }
+  - { key: T,         mods: Command,                     action: CreateNewTab       }
+  - { key: Tab,       mods: Control,                     action: SelectNextTab      }
+  - { key: Tab,       mods: Control|Shift,               action: SelectPreviousTab  }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
@@ -892,7 +893,7 @@ key_bindings:
 
   # (macOS only)
   #- { key: K,              mods: Command, mode: ~Vi|~Search, chars: "\x0c"                 }
-  - { key: K,              mods: Command, mode: ~Vi|~Search, action: ClearHistory          }
+  #- { key: K,              mods: Command, mode: ~Vi|~Search, action: ClearHistory          }
   #- { key: Key0,           mods: Command,                    action: ResetFontSize         }
   #- { key: Equals,         mods: Command,                    action: IncreaseFontSize      }
   #- { key: Plus,           mods: Command,                    action: IncreaseFontSize      }

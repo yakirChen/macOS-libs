@@ -2,6 +2,7 @@ scriptencoding utf-8
 
 " set packpath+=$VIM_CONFIG_PATH
 set nocompatible " 关闭vi兼容模式
+set noswapfile " 关闭.swp文件
 set t_Co=256 " 开启终端256色 terminal Color
 set showcmd
 set foldenable
@@ -20,6 +21,7 @@ set termguicolors
 set laststatus=2 " 总是显示状态栏
 set ruler " 显示光标当前位置
 set number " 开启行号显示
+set colorcolumn=60
 set cursorline " 高亮显示当前行/列
 set cursorcolumn
 set showmode

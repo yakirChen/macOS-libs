@@ -352,9 +352,13 @@ function yl() {
 }
 
 function  curlc() {
-    echo "$1"
-    echo "$2"
-    curl -C - -k -L $1 -o $2
+    echo "${1}"
+    if [[ -z ${2} ]]; then
+        curl -O -C - -k -L $1
+    else
+        echo "$2"
+        curl -C - -k -L $1 -o $2
+    fi
 }
 
 MVN_MB="-Dmaven.compiler.fork=true -T12"

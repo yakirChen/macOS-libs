@@ -17,6 +17,8 @@ plugins=(
     # git-prompt
     # spring
     rust
+    rustup
+    curl
     fd
     ripgrep
     golang
@@ -102,7 +104,7 @@ export RUSTUP_TOOLCHAIN=nightly
 # export IGV_HOME=${LOCAL}/igv
 
 # 开发辅助
-export JADX_HOME=${LOCAL}/jadx
+# export JADX_HOME=${LOCAL}/jadx
 export VIM_CONFIG_PATH=${HOME}/.vim
 export SQLITE=${LOCAL}/sqlite
 export MYSQL_BASE_DIR=${VLM_SERVERS}/mysql
@@ -125,10 +127,10 @@ export NGINX_HOME=/Users/yakir/local/nginx
 
 # 运行时环境变量
 export PKG_CONFIG=${BREW_OPT}/pkg-config/bin/pkg-config       # pkg-config
-export PKG_CONFIG_PATH="${BREW_OPT}/libressl/lib/pkgconfig"
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/libffi/lib/pkgconfig/"
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/ncurses/lib/pkgconfig"
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/guile@2/lib/pkgconfig"
+# export PKG_CONFIG_PATH="${BREW_OPT}/libressl/lib/pkgconfig"
+# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/libffi/lib/pkgconfig/"
+# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/ncurses/lib/pkgconfig"
+# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/guile@2/lib/pkgconfig"
 # export PKG_CONFIG_LIBDIR=${LOCAL}/lib/pkgconfig
 # export CFLAGS="-I${LOCAL}/include -I${LOCAL}/include/openssl" # -I${LOCAL}/include/readline -I${LOCAL}/include/sodium -I${LOCAL}/include/freetype2"
 # # -I${LOCAL}/include/lzma -I${LOCAL}/include/freetype2
@@ -141,7 +143,7 @@ export BOOSTDIR=${BOOST_ROOT}/include
 # export OCAML_TOPLEVEL_PATH=${VLM_REPOS}/ocaml
 
 # 打包编译工具
-export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
+# export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
 export CMAKE_HOME=${LOCAL}/cmake
 export M2_HOME=${LOCAL}/maven                   # maven
 # export M2_HOME=${LOCAL}/mvnd                   # maven
@@ -149,7 +151,7 @@ export M2_HOME=${LOCAL}/maven                   # maven
 export MAVEN_CONFIG=${M2_HOME}/conf
 export MAVEN_SKIP_RC=true
 export MAVEN_REPOSITORY=${VLM_REPOS}/m2/repository
-export SBT_OPTS="-Dsbt.global.base=/Volumes/sm/repos/sbt -Dsbt.ivy.home=/Volumes/sm/repos/ivy2"
+# export SBT_OPTS="-Dsbt.global.base=/Volumes/sm/repos/sbt -Dsbt.ivy.home=/Volumes/sm/repos/ivy2"
 export ANT_HOME=${LOCAL}/ant                    # ant
 export GRADLE_HOME=${LOCAL}/gradle              # gradle
 # export JAVACC_HOME=${LOCAL}/javacc
@@ -171,17 +173,17 @@ export GEM_PATH=${VLM_REPOS}/gem
 # export ARIA2_HOME=${LOCAL}/aria2              # aria2
 export HUB_HOME=${LOCAL}/hub
 export FFMPEG_HOME=${LOCAL}/ffmpeg
-export GNUPG_HOME=${LOCAL}/gnupg
-export NMAP_HOME=${LOCAL}/nmap
-export SPRING_HOME=${LOCAL}/spring
+# export GNUPG_HOME=${LOCAL}/gnupg
+# export NMAP_HOME=${LOCAL}/nmap
+# export SPRING_HOME=${LOCAL}/spring
 
-export ARTHAS_HOME=${LOCAL}/arthas
+# export ARTHAS_HOME=${LOCAL}/arthas
 
 # JDK 多版本切换
 # alias jdk8="export JAVA_VERSION=1.8 && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
 # alias jdk11="export JAVA_VERSION=11 && export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
 
-export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8.0_361)
+export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
 # export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
 export JAVA_17_HOME=$(/usr/libexec/java_home -v 17)
 export JAVA_19_HOME=$(/usr/libexec/java_home -v 19)
@@ -255,7 +257,7 @@ export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
 
 export ANT_ARGS="-nouserlib -lib ${LOCAL}/ant/lib"
 export ANT_OPTS="-Djava.io.tmpdir=${VLM_REPOS}/javaiotmp -Divy_install_path=${LOCAL}/ant/lib -Ddest=${VLM_REPOS}/ivy -Divy.default.ivy.user.dir=${VLM_REPOS}/ivy -DdefaultCacheDir=${VLM_REPOS}/ivy"
-export SBT_OPTS="-Dsbt.global.base=${VLM_SERVERS}/sbt -Dsbt.version=1.0.4 -Dsbt.boot.directory=${VLM_REPOS}/sbt/boot -Dsbt.ivy.home=${VLM_REPOS}/ivy2 -Dsbt.override.build.repos=true -Dsbt.repository.config=${VLM_REPOS}/sbt/repositories"
+# export SBT_OPTS="-Dsbt.global.base=${VLM_SERVERS}/sbt -Dsbt.version=1.0.4 -Dsbt.boot.directory=${VLM_REPOS}/sbt/boot -Dsbt.ivy.home=${VLM_REPOS}/ivy2 -Dsbt.override.build.repos=true -Dsbt.repository.config=${VLM_REPOS}/sbt/repositories"
 
 # for HTTP_METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 #     alias "${HTTP_METHOD}"="lwp-request -m '${HTTP_METHOD}'"
@@ -264,13 +266,13 @@ export SBT_OPTS="-Dsbt.global.base=${VLM_SERVERS}/sbt -Dsbt.version=1.0.4 -Dsbt.
 
 ########################################### OpenSSL ##################################################
 # export OPENSSL_CFLAGS=${BREW_OPT}/libressl/include        # libressl
-export OPENSSL_CFLAGS=${BREW_OPT}/openssl@1.1/include        # openssl
+export OPENSSL_ROOT_DIR=${BREW_OPT}/openssl@3        # openssl
+export OPENSSL_CFLAGS=${OPENSSL_ROOT_DIR}/include        # openssl
 # export OPENSSL_LIBS=${HOME}/local/lib/                 # openssl lib 貌似要所有的动态链接库都列出来
 export OPENSSL_INCLUDE_DIR=${OPENSSL_CFLAGS}
 export DEP_OPENSSL_INCLUDE=${OPENSSL_CFLAGS}
 # export OPENSSL_LIB_DIR=${BREW_OPT}/libressl/lib/
-export OPENSSL_LIB_DIR=${BREW_OPT}/openssl@1.1/lib
-export OPENSSL_ROOT_DIR=${OPENSSL_INCLUDE_DIR}
+export OPENSSL_LIB_DIR=${OPENSSL_ROOT_DIR}/lib
 
 SILVER=(status:black:white dir:blue:black git:green:black cmdtime:magenta:black)
 export SILVER_SHELL=$0
@@ -278,7 +280,7 @@ export SILVER_SHELL=$0
 # ############################################ PATH #################################################
 PATH=${LOCAL}/bin:${LOCAL}/kits:${BREW}/bin:$PATH
 PATH=${COURSIER_INSTALL_DIR}:$PATH
-PATH=${JADX_HOME}/bin:$PATH
+# PATH=${JADX_HOME}/bin:$PATH
 PATH=${HUB_HOME}/bin:$PATH
 PATH=${CMAKE_HOME}/bin:${FLATBUFFERS_HOME}/bin:$PATH
 PATH=${CARGO_HOME}/bin:${M2_HOME}/bin:${SBT_HOME}/bin:${GRADLE_HOME}/bin:${ANT_HOME}/bin:$PATH

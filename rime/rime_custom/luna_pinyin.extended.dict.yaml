@@ -10,5 +10,10 @@ use_preset_vocabulary: true     # true 或 false，选择是否导入预设词�
 
 import_tables:
   - luna_pinyin
+  - luna_pinyin.base
   - luna_pinyin.sogou
   - luna_pinyin.tencent
+  - luna_pinyin.8105
+  - luna_pinyin.ext
+  - luna_pinyin.others
+  - luna_pinyin.cn_en

@@ -43,6 +43,8 @@ patch:
       ascii_mode: true
     org.alacritty:
       ascii_mode: true
+    ingToolbox.WindTerm:
+      ascii_mode: true
     # com.jetbrains.intellij:
     #   ascii_mode: true
     # com.jetbrains.intellij.ce:

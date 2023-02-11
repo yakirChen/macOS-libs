@@ -31,24 +31,24 @@ window:
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
   dimensions:
-    columns: 160
-    lines: 82
+    columns: 130
+    lines: 86
 
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  #position:
-  #  x: 0
-  #  y: 0
+  position:
+   x: 1
+   y: 1
 
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 1
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -63,12 +63,13 @@ window:
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
   #decorations: full
+  decorations: transparent
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.98
+  # opacity: 0.98
 
   # Startup Mode (changes require restart)
   #
@@ -99,7 +100,7 @@ window:
   # Override the variant of the System theme/GTK theme/Wayland client side
   # decorations. Commonly supported values are `Dark`, `Light`, and `None` for
   # auto pick-up. Set this to `None` to use the default theme variant.
-  #decorations_theme_variant: None
+  decorations_theme_variant: None
 
   # Make `Option` key behave as `Alt` (macOS only):
   #   - OnlyLeft
@@ -113,6 +114,7 @@ scrolling:
   # Specifying '0' will disable scrolling.
   history: 100000
 
+  # 滚动行数
   # Scrolling distance multiplier.
   #multiplier: 3
 
@@ -189,7 +191,7 @@ font:
   #builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: false
 
 colors:
   # Default colors
@@ -465,7 +467,7 @@ cursor:
   #thickness: 0.15
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #
@@ -807,9 +809,10 @@ key_bindings:
   - { key: L,         mods: Command|Alt,                 action: ClearHistory       }
   - { key: N,         mods: Command,                     action: CreateNewWindow    }
   - { key: N,         mods: Command|Shift,               action: SpawnNewInstance   }
-  - { key: T,         mods: Command,                     action: CreateNewTab       }
-  - { key: Tab,       mods: Control,                     action: SelectNextTab      }
-  - { key: Tab,       mods: Control|Shift,               action: SelectPreviousTab  }
+  # - { key: T,         mods: Command,                     action: CreateNewTab       }
+  - { key: T,         mods: Command,                     action: CreateNewWindow    }
+  # - { key: Tab,       mods: Control,                     action: SelectNextTab      }
+  # - { key: Tab,       mods: Control|Shift,               action: SelectPreviousTab  }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
@@ -913,9 +916,9 @@ key_bindings:
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-#debug:
+# debug:
   # Display the time it takes to redraw each frame.
-  #render_timer: false
+  # render_timer: false
 
   # Keep the log file after quitting Alacritty.
   #persistent_logging: false

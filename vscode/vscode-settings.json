@@ -3,7 +3,7 @@
     "editor.fontSize": 11,
     "editor.fontFamily": "Hack", //, Menlo, Monaco, 'Courier New', monospace",
     "workbench.editor.untitled.hint": "hidden",
-    "workbench.colorTheme": "Default High Contrast Light",
+    "workbench.colorTheme": "Default Light+ Experimental",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.maxTokenizationLineLength": 99999999,
@@ -48,8 +48,18 @@
     //   ]
     "python.defaultInterpreterPath": "/Users/yakir/local/brew/bin/python3",
     "terminal.integrated.fontSize": 11,
+    "workbench.activityBar.visible": false,
+    "git.openRepositoryInParentFolders": "never",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "editor.minimap.enabled": false,
+    // https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css
+    // "vscode_custom_css.imports": [
+    //     "file:///Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vscode/vscode.css"
+    // ],
     // "http.proxy": "http://127.0.0.1:7890",
     // "http.proxySupport": "off",
     // "https.proxy": "http://127.0.0.1:7890",
-    // "https.proxySupport": "off"
+    // "https.proxySupport": "off",
 }

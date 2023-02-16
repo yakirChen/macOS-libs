@@ -31,16 +31,16 @@ window:
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
   dimensions:
-    columns: 130
-    lines: 86
+    columns: 150
+    lines: 80
 
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   position:
-   x: 1
-   y: 1
+   x: 20
+   y: 20
 
   # Window padding (changes require restart)
   #
@@ -107,7 +107,7 @@ window:
   #   - OnlyRight
   #   - Both
   #   - None (default)
-  option_as_alt: OnlyLeft
+  #option_as_alt: OnlyLeft
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -478,10 +478,14 @@ live_config_reload: true
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /bin/zsh
+  args:
+    - --login
+    - -c
+    - "/Users/yakir/local/brew/bin/tmux new-session -A -D -s main"
+    # - "/Users/yakir/local/rust/bin/zellij -d attach --index 0 --create options --mouse-mode=true"
+
 
 # Startup directory
 #
@@ -805,12 +809,46 @@ key_bindings:
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
+  ##########  tmux #########
+  - { key: T, mods: Command, chars: "\x1cc" } # new tab with default shell
+  - { key: W, mods: Command, chars: "\x1c&" } # close the tab
+  - { key: X, mods: Command, chars: "\x1cx" } # close the tab
+  - { key: S, mods: Command, chars: "\x1ct" } # time
+  - { key: N, mods: Command, chars: "\x1c%" } # time
+  - { key: LBracket, mods: Command|Shift, chars: "\x1cp" } # go to previous tab
+  - { key: RBracket, mods: Command|Shift, chars: "\x1cn" } # go to next tab
+
+
+  # https://www.physics.udel.edu/~watson/scen103/ascii.html
+
+  ##########  zellij #########
+  # - { key: T, mods: Command, chars: "\x14\x6e" } # new tab with default shell
+  # - { key: W, mods: Command, chars: "\x14\x78" } # close the tab
+  # - { key: N, mods: Command, chars: "\x10\x6e" } # close the tab
+  # - { key: X, mods: Command, chars: "\x10\x78" } # close the tab
+  # - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" } # go to previous tab
+  # - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" } # go to next tab
+    # - { key: T, mods: Command, chars: "\x02\x63" } # new tab with default shell
+  # - { key: W, mods: Command, chars: "\x02\x78" } # close the tab
+  # - { key: C, mods: Command, chars: "\x14\x6e" } # new tab with default shell
+
+  # - { key: Key1, mods: Command, chars: "\x02\x31" }
+  # - { key: Key2, mods: Command, chars: "\x02\x32" }
+  # - { key: Key3, mods: Command, chars: "\x02\x33" }
+  # - { key: Key4, mods: Command, chars: "\x02\x34" }
+  # - { key: Key5, mods: Command, chars: "\x02\x35" }
+  # - { key: Key6, mods: Command, chars: "\x02\x36" }
+  # - { key: Key7, mods: Command, chars: "\x02\x37" }
+  # - { key: Key8, mods: Command, chars: "\x02\x38" }
+  # - { key: Key9, mods: Command, chars: "\x02\x39" }
+ 
+ 
   #- { key: L,         mods: Command, mode: ~Vi|~Search,  chars: "\x0c"              }
   - { key: L,         mods: Command|Alt,                 action: ClearHistory       }
-  - { key: N,         mods: Command,                     action: CreateNewWindow    }
+  # - { key: N,         mods: Command,                     action: CreateNewWindow    }
   - { key: N,         mods: Command|Shift,               action: SpawnNewInstance   }
   # - { key: T,         mods: Command,                     action: CreateNewTab       }
-  - { key: T,         mods: Command,                     action: CreateNewWindow    }
+  # - { key: T,         mods: Command,                     action: CreateNewWindow    }
   # - { key: Tab,       mods: Control,                     action: SelectNextTab      }
   # - { key: Tab,       mods: Control|Shift,               action: SelectPreviousTab  }
 

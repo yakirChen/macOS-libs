@@ -1,0 +1,66 @@
+/* braces */
+.mtk1 {
+    color: #d4d4d4;
+    text-shadow: #d4d4d4 0 0 10px;
+  }
+  
+  /* comments .mtk4 {
+    color: #6a9955;
+  } */
+  
+  /* numbers/floats
+  .mtk6 {
+    color: #b5cea8;
+    text-shadow: #b5cea8 0 0 10px;
+  } */
+  
+  /* html attribute / json keys
+  .mtk9 {
+    color: #9cdcfe;
+    text-shadow: #9cdcfe 0 0 10px;
+  } */
+  
+  /* fn / async / const / null */
+  .mtk5 {
+    color: #569cd6;
+    text-shadow: #569cd6 0 0 10px;
+  }
+  
+  /* string */
+  
+  /* .mtk11 {
+    color: #ce9178;
+    text-shadow: #ce9178 0 0 10px;
+  } */
+  
+  /* unknown rn 
+  .mtk12 {
+  } */
+  
+  /* unknown rn
+  .mtk13 {
+  } */
+  
+  /* method */
+  .mtk15 {
+    color: #dcdcaa;
+    text-shadow: #dcdcaa 0 0 10px;
+  }
+  
+  /* types
+  .mtk16 {
+    color: #4ec9b0;
+    text-shadow: #4ec9b0 0 0 10px;
+  } */
+  
+  /* keywords */
+  .mtk17 {
+    color: #c586c0;
+    text-shadow: #c586c0 0 0 10px;
+  }
+  
+  /* variable
+    .mtk18 {
+    color: #4fc1ff;
+    text-shadow: #4fc1ff 0 0 10px;
+  } */

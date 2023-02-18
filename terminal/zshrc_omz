@@ -350,7 +350,7 @@ function prune_remote() {
 
 function yl() {
     echo "$1" 
-    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 $1
+    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -U $1
 }
 
 function  curlc() {

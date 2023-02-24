@@ -3,7 +3,7 @@ shell:
   args:
     - --login
     - --command
-    - "tmux new-session -A -D -s main"
+    - "tmux new-session -A -D -s alacritty"
 
 # Colors (Aura Theme)
 colors:

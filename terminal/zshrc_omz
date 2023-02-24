@@ -382,6 +382,21 @@ function mvnrunu(){
     mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=-Plifecycle=INSTALL -Pshushi -U
 }
 
+function thinrun(){
+    workspace=$1
+    jar=$2
+    cd ${workspace}
+    java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=18881 \
+      -Dloader.path=${workspace}/lib,${workspace}/extlib \
+      -jar \
+      -Duser.timezone=GMT+08:00 \
+      -Dhttps.protocols=TLSv1.2 \
+      -Dspring.profiles.active=sstest \
+      ${workspace}/${jar} \
+      --spring.config.location=${workspace}/application-sstest.yml \
+      -Plifecycle=INSTALL
+}
+
 # alias mx="mx --user-home=${VLM_REPOS}/mx"
 # alias schemescript='scheme --script'
 # alias clojure='java -jar ${LOCAL_LIB_DIR}/clojure/clojure.jar'

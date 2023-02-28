@@ -7,4 +7,4 @@
 *.tgz filter=lfs diff=lfs merge=lfs -text
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
 *.jar filter=lfs diff=lfs merge=lfs -text
-*.sogou.dict.yaml filter=lfs diff=lfs merge=lfs -text
+*.dict.yaml filter=lfs diff=lfs merge=lfs -text

@@ -8,9 +8,38 @@
 #
 ---
 name: others
-version: "2022-10-03"
+version: "2023-02-27"
 sort: by_weight
 ...
+##### 大写字母
+A	A
+B	B
+C	C
+D	D
+E	E
+F	F
+G	G
+H	H
+I	I
+J	J
+K	K
+L	L
+M	M
+N	N
+O	O
+P	P
+Q	Q
+R	R
+S	S
+T	T
+U	U
+V	V
+W	W
+X	X
+Y	Y
+Z	Z
+
+
 ##### 容错词
 # 「血xue、xie」「谁shui、shei」「露lu、lou」「熟shu、shou」「密钥yao、yue」已在 base 中实现
 # ---
@@ -227,7 +256,6 @@ sort: by_weight
 三个䖝	san ge chong
 三个丿	san ge pie
 三个户
-三个日
 三个瓜
 三个鸟
 三个米
@@ -249,7 +277,6 @@ sort: by_weight
 四个魚	si ge yu
 四个月
 四个日
-四个曰
 四个林
 四个水
 四个石

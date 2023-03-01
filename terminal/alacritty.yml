@@ -788,6 +788,7 @@ key_bindings:
   - { key: S, mods: Command, chars: "\x1ct" } # time
   - { key: N, mods: Command, chars: "\x1c%" } # 创建垂直分割面板
   - { key: N, mods: Control|Shift, chars: "\x1c\"" } # 创建水平分割面板
+  - { key: L, mods: Command, chars: "\x1cM" } # 创建垂直分割面板
   - { key: LBracket, mods: Command|Shift, chars: "\x1cp" } # go to previous tab
   - { key: RBracket, mods: Command|Shift, chars: "\x1cn" } # go to next tab
   - { key: Key1, mods: Command, chars: "\x1c1" }
@@ -826,9 +827,9 @@ key_bindings:
  
  
   #- { key: L,         mods: Command, mode: ~Vi|~Search,  chars: "\x0c"              }
-  - { key: L,         mods: Command|Alt,                 action: ClearHistory       }
+  # - { key: L,         mods: Command|Alt,                 action: ClearHistory       }
   # - { key: N,         mods: Command,                     action: CreateNewWindow    }
-  - { key: N,         mods: Command|Shift,               action: SpawnNewInstance   }
+  # - { key: N,         mods: Command|Shift,               action: SpawnNewInstance   }
   # - { key: T,         mods: Command,                     action: CreateNewTab       }
   # - { key: T,         mods: Command,                     action: CreateNewWindow    }
   # - { key: Tab,       mods: Control,                     action: SelectNextTab      }

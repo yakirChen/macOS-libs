@@ -80,8 +80,8 @@ export RUSTUP_HOME=${LOCAL}/rust
 # export RUSTUP_TRACE_DIR=${LOCAL}/rust/trace
 export RUSTFLAGS='-C target-cpu=native'
 # export RUSTFLAGS='-C prefer-dynamic'
-#export RUSTUP_TOOLCHAIN=stable
-export RUSTUP_TOOLCHAIN=nightly
+export RUSTUP_TOOLCHAIN=stable
+# export RUSTUP_TOOLCHAIN=nightly
 # export MIRI_SYSROOT=${VLM_REPOS}/miri
 #export RUSTUP_DIST_SERVER=https://static.rust-lang.org
 #export RUSTUP_UPDATE_ROOT=https://static.rust-lang.org/rustup

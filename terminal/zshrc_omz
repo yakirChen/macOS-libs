@@ -16,8 +16,8 @@ plugins=(
     gitfast
     # git-prompt
     # spring
-    rust
     rustup
+    cargo
     curl
     fd
     ripgrep
@@ -68,7 +68,7 @@ export RUBY_HOME=${LOCAL}/ruby
 # export PY2_HOME=${LOCAL}/python2
 export PY3_HOME=${BREW_OPT}/python3
 export GOROOT=${LOCAL}/go
-# export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
 export GOPATH=${VLM_REPOS}/go/gopath
 export GOCACHE=${VLM_REPOS}/go/gocache
 export ERL_HOME=${LOCAL}/otp
@@ -76,6 +76,7 @@ export ERL_HOME=${LOCAL}/otp
 export CARGO_HOME=${LOCAL}/rust
 # export SRCROOT=${LOCAL}/rust
 export CARGO_PATH=${CARGO_HOME}
+export CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 export RUSTUP_HOME=${LOCAL}/rust
 # export RUSTUP_TRACE_DIR=${LOCAL}/rust/trace
 export RUSTFLAGS='-C target-cpu=native'
@@ -184,15 +185,14 @@ export FFMPEG_HOME=${LOCAL}/ffmpeg
 # alias jdk11="export JAVA_VERSION=11 && export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
 
 export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
-# export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
 export JAVA_17_HOME=$(/usr/libexec/java_home -v 17)
-export JAVA_19_HOME=$(/usr/libexec/java_home -v 19)
 export JAVA_21_HOME=$(/usr/libexec/java_home -v 21)
 # export JAVA_SEMERU_HOME=/Library/Java/JavaVirtualMachines/semeru/Contents/Home
 # export JAVA_ZULU_HOME=/Library/Java/JavaVirtualMachines/zulu/Contents/Home
 # export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
 # export JAVA_ZERO_FASTDEBUG_HOME=${HOME}/local/jdk/jdk-17.fastdebug.jdk/Contents/Home
-# export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm/Contents/Home
+export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17/Contents/Home
 #export JAVA_ADOPT_HOT_14_HOME=/Users/yakir/local/jdk/jdk-14.0.1+7/Contents/Home/
 #export JAVA_ZERO_HOME=/Users/yakir/local/jdk-15.jdk/Contents/Home
 #export JDK_18_HOME=${JAVA_8_HOME}
@@ -205,15 +205,14 @@ export JAVA_21_HOME=$(/usr/libexec/java_home -v 21)
 
 alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
 # alias jdkzulu="export JAVA_HOME=${JAVA_ZULU_HOME}"
-# alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
+alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
 alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
-alias jdk19="export JAVA_HOME=${JAVA_19_HOME}"
 alias jdk21="export JAVA_HOME=${JAVA_21_HOME}"
 
-# function graal() {
-    # export JAVA_HOME=${GRAALVM_HOME}
-    # export PATH=$JAVA_HOME/bin:$PATH
-# }
+function graal() {
+    export JAVA_HOME=${GRAALVM_HOME}
+    export PATH=$JAVA_HOME/bin:$PATH
+}
 
 # alias jdksemeru="export JAVA_HOME=${JAVA_SEMERU_HOME}"
 # alias zeroslow="export JAVA_HOME=${JAVA_ZERO_SLOWDEBUG_HOME}"
@@ -229,14 +228,14 @@ alias jdk21="export JAVA_HOME=${JAVA_21_HOME}"
 jdk8
 
 # node 多版本切换
-export NODE16_PATH=${LOCAL}/node16
 export NODE18_PATH=${LOCAL}/node18
+# export NODE20_PATH=${LOCAL}/node20
 export NODE_HOME=${LOCAL}/node
 export NODE_OPTIONS="--max_old_space_size=4096"
 export NPM_GLOBAL=${VLM_REPOS}/npm/node_global
 # export NPM_CACHE=${VLM_REPOS}/npm_cache
-alias node16="rm -f ${LOCAL}/node; ln -sf ${NODE16_PATH} ${LOCAL}/node"
 alias node18="rm -f ${LOCAL}/node; ln -sf ${NODE18_PATH} ${LOCAL}/node"
+# alias node20="rm -f ${LOCAL}/node; ln -sf ${NODE16_PATH} ${LOCAL}/node"
 export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
 
 # export _JAVA_LAUNCHER_DEBUG=1
@@ -350,7 +349,12 @@ function prune_remote() {
 
 function yl() {
     echo "$1" 
-    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -U $1
+    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -U $1 --sub-langs "zh.*,en*" --write-auto-subs --write-subs
+}
+
+function yla() {
+    echo "$1" 
+    /Users/yakir/local/bin/yt-dlp_macos -U $1
 }
 
 function  curlc() {
@@ -375,11 +379,15 @@ alias mvna="${M2_HOME}/bin/mvn dependency:sources -Paliyun ; ${M2_HOME}/bin/mvn 
 # alias mvna24="mvn -T24 dependency:sources -Papache; mvn -T24 dependency:resolve -Dclassifier=javadoc -Papache; ${MVN_COMPILE_TEMPLATE} -T24 -Pmaven2 ; mvn clean -Papache"
 # alias mvnversion="mvn versions:display-plugin-updates -Pspring -Papache ; mvn -T24 versions:display-property-updates -Pspring -Papache"
 function mvnrun(){
-    mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=-Plifecycle=INSTALL -Pshushi
+    mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=-Plifecycle=INSTALL -Pshushi -P$1
+}
+
+function mvnload(){
+    mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=-Plifecycle=RELOAD -Pshushi -P$1
 }
 
 function mvnrunu(){
-    mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=-Plifecycle=INSTALL -Pshushi -U
+    mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=-Plifecycle=INSTALL -Pshushi -P$1 -U
 }
 
 function thinrun(){

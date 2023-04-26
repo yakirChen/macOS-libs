@@ -36,7 +36,7 @@ patch:
   #"speller/algebra/@before 0": xform/^([b-df-hj-np-tv-z])$/$1_/
   
   # 载入朙月拼音扩充词库
-  "translator/dictionary": luna_pinyin.extended
+  #"translator/dictionary": luna_pinyin.extended
 
   # 加载easy_en依赖
   # "schema/dependencies/@1": easy_en

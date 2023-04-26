@@ -61,6 +61,7 @@
     "msg.editor.wordWrapColumn": 220,
     "msg.dbEditor.defaultEditor": "script",
     "msg.shellSession.startLanguage": "sql",
+    "workbench.activityBar.visible": false,
     // https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css
     // "vscode_custom_css.imports": [
     //     "file:///Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vscode/vscode.css"

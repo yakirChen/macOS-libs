@@ -2,6 +2,7 @@
 	excludesfile = /Users/yakir/.gitignore_global
 	quotepath = false
 	pager = delta
+	editor = hx
 [interactive]
 	diffFilter = delta --color-only --features=interactive
 [difftool "sourcetree"]
@@ -19,7 +20,10 @@
 	rebase = false
 [http]
 [http "https://github.com"]
-	proxy = http://127.0.0.1:7890
+	proxy = socks5://127.0.0.1:7890
+	sslVerify = false
+[http "https://www.privoxy.org"]
+	proxy = socks5://127.0.0.1:7890
 	sslVerify = false
 [filter "lfs"]
 	clean = git-lfs clean -- %f

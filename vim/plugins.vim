@@ -30,6 +30,7 @@ Plug 'google/vim-glaive'
 "  Plug 'roxma/nvim-yarp'
 "  Plug 'roxma/vim-hug-neovim-rpc'
 "endif
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 call plug#end()
 "call glaive#Install()

@@ -3,7 +3,7 @@
     "editor.fontSize": 11,
     "editor.fontFamily": "Hack", //, Menlo, Monaco, 'Courier New', monospace",
     "workbench.editor.untitled.hint": "hidden",
-    "workbench.colorTheme": "Default Light+ Experimental",
+    "workbench.colorTheme": "Default Light Modern",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.maxTokenizationLineLength": 99999999,

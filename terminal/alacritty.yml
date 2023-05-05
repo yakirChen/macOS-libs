@@ -41,9 +41,9 @@ window:
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  position:
-   x: 20
-   y: 20
+  # position:
+  #  x: 20
+  #  y: 20
 
   # Window padding (changes require restart)
   #
@@ -51,7 +51,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 1
-    y: 2
+    y: 1
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -772,14 +772,6 @@ shell:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  #- { key: Paste,                                       action: Paste          }
-  #- { key: Copy,                                        action: Copy           }
-  #- { key: L,         mods: Control,                    action: ClearLogNotice }
-  # - { key: L,         mods: Command,                    action: ClearHistory }
-  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
-  #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
-  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
-  #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   ##########  tmux #########
   - { key: T, mods: Command, chars: "\x1cc" } # new tab with default shell
@@ -826,14 +818,14 @@ key_bindings:
   # - { key: Key9, mods: Command, chars: "\x02\x39" }
  
  
-  #- { key: L,         mods: Command, mode: ~Vi|~Search,  chars: "\x0c"              }
-  # - { key: L,         mods: Command|Alt,                 action: ClearHistory       }
-  # - { key: N,         mods: Command,                     action: CreateNewWindow    }
-  # - { key: N,         mods: Command|Shift,               action: SpawnNewInstance   }
-  # - { key: T,         mods: Command,                     action: CreateNewTab       }
-  # - { key: T,         mods: Command,                     action: CreateNewWindow    }
-  # - { key: Tab,       mods: Control,                     action: SelectNextTab      }
-  # - { key: Tab,       mods: Control|Shift,               action: SelectPreviousTab  }
+  #- { key: Paste,                                       action: Paste          }
+  #- { key: Copy,                                        action: Copy           }
+  #- { key: L,         mods: Control,                    action: ClearLogNotice }
+  #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
+  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
+  #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
+  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
+  #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
@@ -933,6 +925,8 @@ key_bindings:
   #- { key: Q,              mods: Command,                    action: Quit                  }
   #- { key: W,              mods: Command,                    action: Quit                  }
   #- { key: N,              mods: Command,                    action: CreateNewWindow       }
+  # - { key: T,              mods: Command,                    action: CreateNewWindow       }
+  # - { key: N,              mods: Command,                    action: SpawnNewInstance       }
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }

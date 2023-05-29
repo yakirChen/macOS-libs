@@ -103,7 +103,12 @@ window:
   # Override the variant of the System theme/GTK theme/Wayland client side
   # decorations. Commonly supported values are `Dark`, `Light`, and `None` for
   # auto pick-up. Set this to `None` to use the default theme variant.
-  decorations_theme_variant: Dark
+  decorations_theme_variant: None
+
+  # Resize increments
+  #
+  # Prefer resizing window by discrete steps equal to cell dimensions.
+  #resize_increments: false
 
   # Make `Option` key behave as `Alt` (macOS only):
   #   - OnlyLeft
@@ -783,6 +788,7 @@ key_bindings:
   - { key: L, mods: Command|Alt, chars: "\x1cM" } # 创建垂直分割面板
   - { key: LBracket, mods: Command|Shift, chars: "\x1cp" } # go to previous tab
   - { key: RBracket, mods: Command|Shift, chars: "\x1cn" } # go to next tab
+  - { key: C, mods: Command|Shift, chars: "\x1c[" } # 复制模式
   - { key: Key1, mods: Command, chars: "\x1c1" }
   - { key: Key2, mods: Command, chars: "\x1c2" }
   - { key: Key3, mods: Command, chars: "\x1c3" }
@@ -925,8 +931,6 @@ key_bindings:
   #- { key: Q,              mods: Command,                    action: Quit                  }
   #- { key: W,              mods: Command,                    action: Quit                  }
   #- { key: N,              mods: Command,                    action: CreateNewWindow       }
-  # - { key: T,              mods: Command,                    action: CreateNewWindow       }
-  # - { key: N,              mods: Command,                    action: SpawnNewInstance       }
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }

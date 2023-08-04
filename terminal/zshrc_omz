@@ -58,7 +58,8 @@ export VLM=/Volumes/sm
 export VLM_REPOS=${VLM}/repos
 # export TVLM_REPOS=/Volumes/To/repos
 export VLM_SERVERS=${VLM}/servers
-export JARS=${LOCAL}/jars
+export VLM_SERVERS=${VLM}/servers
+export PODMAN_HOME=${LOCAL}/podman
 # export CHEAT_USER_DIR='/Users/yakir/app/cheats'
 # export CHEAT_PATH='/Users/yakir/app/cheats'
 # export CHEAT_COLORS=true
@@ -147,6 +148,7 @@ export BOOSTDIR=${BOOST_ROOT}/include
 # export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
 export CMAKE_HOME=${LOCAL}/cmake
 export M2_HOME=${LOCAL}/maven                   # maven
+export MD_HOME=${LOCAL}/mvnd                   # maven
 # export M2_HOME=${LOCAL}/mvnd                   # maven
 # export SBT_HOME=${LOCAL}/sbt                   # maven
 export MAVEN_CONFIG=${M2_HOME}/conf
@@ -192,7 +194,7 @@ export JAVA_21_HOME=$(/usr/libexec/java_home -v 21)
 # export JAVA_ZULU_HOME=/Library/Java/JavaVirtualMachines/zulu/Contents/Home
 # export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
 # export JAVA_ZERO_FASTDEBUG_HOME=${HOME}/local/jdk/jdk-17.fastdebug.jdk/Contents/Home
-export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17/Contents/Home
+export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm/Contents/Home
 #export JAVA_ADOPT_HOT_14_HOME=/Users/yakir/local/jdk/jdk-14.0.1+7/Contents/Home/
 #export JAVA_ZERO_HOME=/Users/yakir/local/jdk-15.jdk/Contents/Home
 #export JDK_18_HOME=${JAVA_8_HOME}
@@ -283,6 +285,7 @@ PATH=${COURSIER_INSTALL_DIR}:$PATH
 PATH=${HUB_HOME}/bin:$PATH
 PATH=${CMAKE_HOME}/bin:${FLATBUFFERS_HOME}/bin:$PATH
 PATH=${CARGO_HOME}/bin:${M2_HOME}/bin:${SBT_HOME}/bin:${GRADLE_HOME}/bin:${ANT_HOME}/bin:$PATH
+PATH=${MD_HOME}/bin:$PATH
 PATH=${ERL_HOME}/bin:$PATH
 PATH=${SQLITE}/bin:$MYSQL_BASE_DIR/bin:$MYSQL_BASE_DIR/support-files:$PATH
 PATH=$KOTLIN_HOME/bin:$PATH
@@ -349,12 +352,12 @@ function prune_remote() {
 
 function yl() {
     echo "$1" 
-    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -U $1 --sub-langs "zh.*,en*" --write-auto-subs --write-subs
+    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 --sub-langs "zh.*,en*" --write-auto-subs --write-subs $1
 }
 
 function yla() {
     echo "$1" 
-    /Users/yakir/local/bin/yt-dlp_macos -U $1
+    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 --sub-langs "zh.*,en*" --cookies-from-browser chrome --write-auto-subs --write-subs $1
 }
 
 function  curlc() {
@@ -441,6 +444,7 @@ alias ssh2="ssh -p2222 "
 # alias cproxy="export ALL_PROXY=socks5://127.0.0.1:7890"
 alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias cproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
+alias pproxy="export https_proxy=http://127.0.0.1:1080 http_proxy=http://127.0.0.1:1080 all_proxy=socks5://127.0.0.1:1080"
 alias cargo_proxy="export CARGO_HTTP_PROXY=127.0.0.1:7890"
 unalias la
 alias ls="lsd --color=always --icon=never"

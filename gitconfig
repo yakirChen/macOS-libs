@@ -21,9 +21,11 @@
 [http]
 [http "https://github.com"]
 	proxy = socks5://127.0.0.1:7890
+	# proxy = socks5://127.0.0.1:1080
 	sslVerify = false
 [http "https://www.privoxy.org"]
 	proxy = socks5://127.0.0.1:7890
+	# proxy = socks5://127.0.0.1:1080
 	sslVerify = false
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative

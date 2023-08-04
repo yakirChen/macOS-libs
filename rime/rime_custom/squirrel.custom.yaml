@@ -72,13 +72,14 @@ patch:
       text_orientation: horizontal
       inline_preedit: true
       translucency: true
-      corner_radius: 12.0
-      hilited_corner_radius: 12.0
+      corner_radius: 14.0
+      hilited_corner_radius: 14.0
       border_height: -8.0
       border_width: -8.0
-      alpha: 0.88
-      color_space: srgb
+      alpha: 0.90
+      color_space: display_p3
       back_color: 0xBBFFFFFF
+      # back_color: 0x1AFFFFFF
       candidate_text_color: 0x080808
       comment_text_color: 0x606CFF
       label_color: 0xE85A5A5A
@@ -138,7 +139,7 @@ patch:
       translucency: true
       candidate_list_layout: linear
       text_orientation: horizontal
-      color_space: srgb
+      color_space: display_p3
       # candidate_format: "%c %@"
       candidate_format: '%c. %@'
       corner_radius: 5
@@ -176,7 +177,7 @@ patch:
       border_height: -8.0
       border_width: -8.0
       alpha: 0.88
-      color_space: srgb
+      color_space: display_p3
       back_color: 0x222222
       candidate_text_color: 0xd8e3e6
       hilited_text_color: 0xffcf9a

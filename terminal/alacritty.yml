@@ -785,7 +785,7 @@ key_bindings:
   - { key: S, mods: Command, chars: "\x1ct" } # time
   - { key: N, mods: Command, chars: "\x1c%" } # 创建垂直分割面板
   - { key: N, mods: Control|Shift, chars: "\x1c\"" } # 创建水平分割面板
-  - { key: L, mods: Command|Alt, chars: "\x1cM" } # 创建垂直分割面板
+  - { key: L, mods: Command|Alt, chars: "\x1cM" } # 清除
   - { key: LBracket, mods: Command|Shift, chars: "\x1cp" } # go to previous tab
   - { key: RBracket, mods: Command|Shift, chars: "\x1cn" } # go to next tab
   - { key: C, mods: Command|Shift, chars: "\x1c[" } # 复制模式
@@ -809,7 +809,6 @@ key_bindings:
   # - { key: X, mods: Command, chars: "\x10\x78" } # close the tab
   # - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" } # go to previous tab
   # - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" } # go to next tab
-    # - { key: T, mods: Command, chars: "\x02\x63" } # new tab with default shell
   # - { key: W, mods: Command, chars: "\x02\x78" } # close the tab
   # - { key: C, mods: Command, chars: "\x14\x6e" } # new tab with default shell
 

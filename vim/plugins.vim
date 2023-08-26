@@ -31,6 +31,8 @@ Plug 'google/vim-glaive'
 "  Plug 'roxma/vim-hug-neovim-rpc'
 "endif
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 
 call plug#end()
 "call glaive#Install()

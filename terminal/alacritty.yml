@@ -11,8 +11,8 @@
 #import:
 #  - /path/to/alacritty.yml
 
-import:
-  - /Users/yakir/.config/alacritty-theme/themes/gruvbox_dark.yaml
+# import:
+  # - /Users/yakir/.config/alacritty-theme/themes/gruvbox_dark.yaml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -124,7 +124,7 @@ scrolling:
 
   # 滚动行数
   # Scrolling distance multiplier.
-  #multiplier: 3
+  multiplier: 2
 
 # Font configuration
 font:
@@ -202,11 +202,14 @@ font:
 draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-#colors:
+# Colors (Gruvbox dark)
+colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  primary:
+    # hard contrast: background = '0x1d2021'
+    background: '#282828'
+    # soft contrast: background = '0x32302f'
+    foreground: '#ebdbb2'
 
     # Bright and dim foreground colors
     #
@@ -240,33 +243,33 @@ draw_bold_text_with_bright_colors: false
   # Search colors
   #
   # Colors used for the search bar and match highlighting.
-  #search:
+  search:
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
-    #matches:
-    #  foreground: '#000000'
-    #  background: '#ffffff'
-    #focused_match:
-    #  foreground: '#ffffff'
-    #  background: '#000000'
+    matches:
+      foreground: '#FF003C'
+      background: '#F8B8B8'
+    focused_match:
+      foreground: '#ebdbb2'
+      background: '#FF003C'
 
   # Keyboard hints
-  #hints:
+  hints:
     # First character in the hint label
     #
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
-    #start:
-    #  foreground: '#1d1f21'
-    #  background: '#e9ff5e'
+    start:
+      foreground: '#FF003C'
+      background: '#F8B8B8'
 
     # All characters after the first one in the hint label
     #
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
-    #end:
-    #  foreground: '#e9ff5e'
-    #  background: '#1d1f21'
+    end:
+      foreground: '#F8B8B8'
+      background: '#FF003C'
 
   # Line indicator
   #
@@ -286,6 +289,10 @@ draw_bold_text_with_bright_colors: false
   #footer_bar:
   #  background: '#c5c8c6'
   #  foreground: '#1d1f21'
+  
+  footer_bar:
+    background: '#ebdbb2'
+    foreground: '#282828'
 
   # Selection colors
   #
@@ -307,6 +314,15 @@ draw_bold_text_with_bright_colors: false
   #  magenta: '#b294bb'
   #  cyan:    '#8abeb7'
   #  white:   '#c5c8c6'
+  normal:
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
 
   # Bright colors
   #bright:
@@ -318,6 +334,15 @@ draw_bold_text_with_bright_colors: false
   #  magenta: '#c397d8'
   #  cyan:    '#70c0b1'
   #  white:   '#eaeaea'
+  bright:
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
 
   # Dim colors
   #
@@ -460,7 +485,8 @@ shell:
   args:
     - --login
     - -c
-    - "/Users/yakir/local/brew/bin/tmux new-session -A -D -s ' 🌵 '"
+    - "/Users/yakir/local/brew/bin/tmux new-session -A -D -s ' '"
+    # - "/Users/yakir/local/brew/bin/tmux new-session -A -D -s ' 🌻 '"
     # - "/Users/yakir/local/rust/bin/zellij -d attach --index 0 --create options --mouse-mode=true"
 
 # Startup directory
@@ -785,6 +811,8 @@ key_bindings:
   - { key: S, mods: Command, chars: "\x1ct" } # time
   - { key: N, mods: Command, chars: "\x1c%" } # 创建垂直分割面板
   - { key: N, mods: Control|Shift, chars: "\x1c\"" } # 创建水平分割面板
+  - { key: F, mods: Control, chars: "\x1cz" } # 放大缩小面板
+  - { key: S, mods: Control, chars: "\x1co" } # 面板跳转
   - { key: L, mods: Command|Alt, chars: "\x1cM" } # 清除
   - { key: LBracket, mods: Command|Shift, chars: "\x1cp" } # go to previous tab
   - { key: RBracket, mods: Command|Shift, chars: "\x1cn" } # go to next tab
@@ -934,12 +962,12 @@ key_bindings:
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-# debug:
+#debug:
   # Display the time it takes to redraw each frame.
-  # render_timer: false
+#  render_timer: true
 
   # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
+#  persistent_logging: false
 
   # Log level
   #
@@ -950,7 +978,7 @@ key_bindings:
   #   - Info
   #   - Debug
   #   - Trace
-  #log_level: Warn
+#  log_level: Trace
 
   # Renderer override.
   #   - glsl3
@@ -959,7 +987,7 @@ key_bindings:
   #renderer: None
 
   # Print all received window events.
-  #print_events: false
+#  print_events: true
 
   # Highlight window damage information.
-  #highlight_damage: false
+#  highlight_damage: true

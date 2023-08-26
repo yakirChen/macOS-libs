@@ -1,8 +1,7 @@
 {
     "redhat.telemetry.enabled": false,
     "editor.fontSize": 11,
-    "editor.fontFamily": "Hack", //, Menlo, Monaco, 'Courier New', monospace",
-    "workbench.editor.untitled.hint": "hidden",
+    "editor.fontFamily": "Hack",
     "workbench.colorTheme": "Default Light Modern",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -11,7 +10,7 @@
     "security.workspace.trust.untrustedFiles": "open",
     // https://rust-analyzer.github.io/manual.html
     "rust-analyzer.server.extraEnv": {
-        "RUSTUP_TOOLCHAIN": "nightly"
+        "RUSTUP_TOOLCHAIN": "stable"
     },
     "rust-analyzer.server.path": "/Users/yakir/local/rust/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer",
     "rust-analyzer.semanticHighlighting.strings.enable": true,
@@ -24,8 +23,8 @@
     "editor.foldingMaximumRegions": 65000, // 分析器最大缓存深度
     "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
     "debug.console.fontSize": 11,
-    "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-    "sourcekit-lsp.trace.server": "messages",
+    "swift.sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+    "swift.sourcekit-lsp.trace.server": "messages",
     "editor.accessibilitySupport": "on",
     "audioCues.lineHasBreakpoint": "off",
     "audioCues.lineHasError": "off",
@@ -38,6 +37,7 @@
     "C_Cpp.formatting": "clangFormat",
     "C_Cpp.workspaceParsingPriority": "high",
     "C_Cpp.intelliSenseEngine": "disabled",
+    "FSharp.dotnetRoot": "/Volumes/sm/servers/dotnet",
     "window.commandCenter": true,
     "clangd.path": "/usr/bin/clangd",
     // 修改.build位置
@@ -61,6 +61,28 @@
     "msg.editor.wordWrapColumn": 220,
     "msg.dbEditor.defaultEditor": "script",
     "msg.shellSession.startLanguage": "sql",
+    "workbench.editor.empty.hint": "hidden",
+    "[ruby]": {
+        "editor.defaultFormatter": "Shopify.ruby-lsp",
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "editor.rulers": [
+            120
+        ],
+        "editor.semanticHighlighting.enabled": true
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "workbench.editorAssociations": {
+        "*.plist": "default"
+    },
+    "update.showReleaseNotes": false,
     // https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css
     // "vscode_custom_css.imports": [
     //     "file:///Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vscode/vscode.css"

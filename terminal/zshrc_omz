@@ -57,8 +57,9 @@ plugins=(
 # }
 
 # ########################################## User Configuration #####################################
-export BREW=${HOME}/local/brew
-export BREW_OPT=${HOME}/local/brew/opt
+export BREW=/usr/local
+export HOMEBREW_CELLAR=/usr/local/Cellar
+export BREW_OPT=/usr/local/opt
 export LOCAL=${HOME}/local
 export VLM=/Volumes/sm
 export VLM_REPOS=${VLM}/repos
@@ -396,7 +397,7 @@ alias mvna="${M2_HOME}/bin/mvn dependency:sources ; ${MVN_COMPILE_TEMPLATE} ; mv
 # alias mvna24="mvn -T24 dependency:sources -Papache; mvn -T24 dependency:resolve -Dclassifier=javadoc -Papache; ${MVN_COMPILE_TEMPLATE} -T24 -Pmaven2 ; mvn clean -Papache"
 alias mvnupdate="mvn versions:display-plugin-updates ; mvn versions:display-property-updates"
 alias mvnupdateShushi="mvn versions:display-plugin-updates -Pshushi ; mvn versions:display-property-updates -Pshushi"
-alias mvnupdateResolve="mvn versions:display-plugin-updates ; mvn versions:display-property-updates ; mvn versions:display-dependency-updates"
+alias mvnupdateResolve="mvn versions:display-plugin-updates ; mvn versions:display-property-updates ; mvn versions:display-dependency-updates | grep 'newer versions'"
 alias mvncs="mvn  -gs ~/.m2/settingscs.xml -s ~/.m2/settingscs.xml -Poinone "
 
 function mvnrun(){
@@ -443,6 +444,9 @@ alias ru="rustup update ; rustup self update "
 #alias rm="rm -v "
 alias bs="brew search --desc -v --eval-all"
 alias g="git fetch --prune --tag; git fetch --tags --prune origin -f ; git pull --all"
+function gitauthors(){
+    git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | grep "\(.html\|.java\|.xml\|.properties\|.css\|.js\|.txt\)$" | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+}
 #alias zj="zellij options --simplified-ui true --disable-mouse-mode"
 function gcr(){
     echo ${1}

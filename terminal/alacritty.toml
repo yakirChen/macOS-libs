@@ -49,9 +49,69 @@ foreground = "#FF003C"
 
 [cursor.style]
 shape = "Underline"
+blinking = "Off"
+
+[env]
+TERM = "xterm-256color"
 
 [font]
 size = 11
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ClearHistory"
+key = "L"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\""
+key = "D"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C-"
+key = "D"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C%"
+key = "Return"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C|"
+key = "Return"
+mods = "Command|Shift"
 
 [[keyboard.bindings]]
 chars = "\u001Cc"
@@ -59,34 +119,171 @@ key = "T"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u001C&"
+chars = "\u001CC"
+key = "T"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CS"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Command|Shift"
+
+[keyboard.bindings.command]
+args = ["msg", "create-window", "--login", "-c", "tmux-sessions --all"]
+program = "/Applications/Alacritty.app/Contents/MacOS/alacritty"
+
+[[keyboard.bindings]]
+chars = "\u001Cx"
 key = "W"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u001Cx"
-key = "X"
+chars = "\u001C&"
+key = "W"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Cd"
+key = "Q"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u001Ct"
+chars = "\u001C[/"
+key = "F"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001C[?"
+key = "F"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CG"
+key = "G"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CA"
+key = "A"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CR"
+key = "R"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CE"
+key = "R"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CO"
+key = "P"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CP"
+key = "P"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Cz"
+key = "Z"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001CX"
+key = "Z"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = """
+\u001B:w
+"""
 key = "S"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u001C%"
-key = "N"
-mods = "Command"
+chars = """
+\u001B:wa
+"""
+key = "S"
+mods = "Command|Shift"
 
 [[keyboard.bindings]]
-chars = "\u001C\""
-key = "N"
+chars = "\u001CH"
+key = "H"
 mods = "Control|Shift"
 
 [[keyboard.bindings]]
-chars = "\u001Cz"
-key = "F"
-mods = "Control"
+chars = "\u001CJ"
+key = "J"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CK"
+key = "K"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CL"
+key = "L"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CH"
+key = "Left"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CJ"
+key = "Down"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CK"
+key = "Up"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CL"
+key = "Right"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C["
+key = "C"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001CM"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Ch"
+key = "Left"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cj"
+key = "Down"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Ck"
+key = "Up"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Cl"
+key = "Right"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001Co"
@@ -94,24 +291,24 @@ key = "S"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u001CM"
-key = "L"
-mods = "Command|Alt"
+chars = "\u001Cz"
+key = "S"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C^"
+key = "B"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001Cp"
 key = "LBracket"
-mods = "Command|Shift"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001Cn"
 key = "RBracket"
-mods = "Command|Shift"
-
-[[keyboard.bindings]]
-chars = "\u001C["
-key = "C"
-mods = "Command|Shift"
+mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001C1"
@@ -158,25 +355,69 @@ chars = "\u001C9"
 key = "Key9"
 mods = "Command"
 
+[[keyboard.bindings]]
+chars = "\u001C!"
+key = "B"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B1"
+key = "Key1"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B2"
+key = "Key2"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B3"
+key = "Key3"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B4"
+key = "Key4"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B5"
+key = "Key5"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B6"
+key = "Key6"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B7"
+key = "Key7"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B8"
+key = "Key8"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001C\u001B9"
+key = "Key9"
+mods = "Command|Shift"
+
 [scrolling]
 history = 100000
 multiplier = 2
 
 [shell]
-args = ["--login", "-c", "/Users/yakir/local/brew/bin/tmux new-session -A -D -s ' '"]
+args = ["--login", "-c", "/usr/local/bin/tmux new-session -A -D -s ' '"]
 program = "/bin/zsh"
 
 [window]
+blur = true
 decorations = "buttonless"
 decorations_theme_variant = "None"
-
-[window.class]
-instance = "Alacritty"
-
-[window.dimensions]
-columns = 150
-lines = 86
-
-[window.padding]
-x = 1
-y = 1
+option_as_alt = "None"
+class = { instance = "Alacritty" }
+dimensions = { columns = 150, lines = 86 }
+padding = { x = 1, y = 1 }

@@ -1,9 +1,4 @@
 #!/usr/bin/env zsh
-# zmodload zsh/zprof
-setopt no_nomatch
-HIST_STAMPS="yyyy-mm-dd"
-DISABLE_UPDATE_PROMPT=true
-DISABLE_AUTO_UPDATE=true
 export ZSH=${HOME}/.ohmyzsh
 ZSH_THEME="jtriley"
 plugins=(
@@ -26,7 +21,7 @@ plugins=(
     # textmate
     # npm
     brew
-    tmux
+    # tmux
     # history
     # docker
     # swiftpm
@@ -38,10 +33,21 @@ plugins=(
     zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
     # zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
     F-Sy-H
+    H-S-MW
+    # zsh-history-substring-search
     # zsh-navigation-tools
     # torrent
     # docker-compose
 )
+
+zstyle :plugin:history-search-multi-word reset-prompt-protect 1
+zstyle ":history-search-multi-word" page-size "15"                     # Number of entries to show (default is $LINES/3)
+zstyle ":history-search-multi-word" highlight-color "fg=yellow,bold"   # Color in which to highlight matched, searched text (default bg=17 on 256-color terminals)
+zstyle ":plugin:history-search-multi-word" synhl "yes"                 # Whether to perform syntax highlighting (default true)
+zstyle ":plugin:history-search-multi-word" active "underline"          # Effect on active history entry. Try: standout, bold, bg=blue (default underline)
+zstyle ":plugin:history-search-multi-word" check-paths "yes"           # Whether to check paths for existence and mark with magenta (default true)
+zstyle ":plugin:history-search-multi-word" clear-on-cancel "no"        # Whether pressing Ctrl-C or ESC should clear entered query
+
 
 # autoload znt-history-widget
 # zle -N znt-history-widget
@@ -58,9 +64,9 @@ plugins=(
 # }
 
 # ########################################## User Configuration #####################################
-export BREW=/usr/local
-export HOMEBREW_CELLAR=/usr/local/Cellar
-export BREW_OPT=/usr/local/opt
+export BREW=/opt/homebrew/
+export HOMEBREW_CELLAR=/opt/homebrew//Cellar
+export BREW_OPT=/opt/homebrew//opt
 export LOCAL=${HOME}/local
 export VLM=/Volumes/sm
 export VLM_REPOS=${VLM}/repos
@@ -111,13 +117,13 @@ export RUSTUP_TOOLCHAIN=stable
 # export IGV_HOME=${LOCAL}/igv
 
 # 开发辅助
-# export JADX_HOME=${LOCAL}/jadx
+export JADX_HOME=${LOCAL}/jadx
 export VIM_CONFIG_PATH=${HOME}/.vim
 export SQLITE=${LOCAL}/sqlite
 export MYSQL_BASE_DIR=${VLM_SERVERS}/mysql
 export MYSQL_COMMON_DIR=${VLM_SERVERS}/mysql
-export MYSQL_DATA_DIR=${VLM_SERVERS}/mysql/data
-export MYSQL_LOGS_DIR=${VLM_SERVERS}/mysql/logs
+export MYSQL_DATA_DIR=${VLM_REPOS}/mysql/data
+export MYSQL_LOGS_DIR=${VLM_REPOS}/mysql/logs
 export METAL_DEVICE_WRAPPER_TYPE=1
 export MTL_SHADER_VALIDATION=1
 export MYSQL_SHELL=${LOCAL}/mysql-shell
@@ -189,10 +195,18 @@ export SPRING_HOME=${LOCAL}/spring
 # alias jdk8="export JAVA_VERSION=1.8 && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
 # alias jdk11="export JAVA_VERSION=11 && export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
 
-export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
-export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
-export JAVA_17_HOME=$(/usr/libexec/java_home -v 17)
-export JAVA_21_HOME=$(/usr/libexec/java_home -v 21)
+# export JAVA_8_HOME=$(/usr/libexec/java_home -v 1.8)
+# export JAVA_11_HOME=$(/usr/libexec/java_home -v 11)
+# export JAVA_17_HOME=$(/usr/libexec/java_home -v 17)
+# export JAVA_21_HOME=$(/usr/libexec/java_home -v 21)
+# export JAVA_22_HOME=$(/usr/libexec/java_home -v 22)
+
+export JAVA_8_HOME="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home"
+export JAVA_11_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
+export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
+export JAVA_21_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
+export JAVA_22_HOME="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home"
+
 # export JAVA_SEMERU_HOME=/Library/Java/JavaVirtualMachines/semeru/Contents/Home
 # export JAVA_ZULU_HOME=/Library/Java/JavaVirtualMachines/zulu/Contents/Home
 # export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
@@ -213,6 +227,7 @@ alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
 alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
 alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
 alias jdk21="export JAVA_HOME=${JAVA_21_HOME}"
+alias jdk22="export JAVA_HOME=${JAVA_22_HOME}"
 
 function graal() {
     export JAVA_HOME=${GRAALVM_HOME}
@@ -222,14 +237,12 @@ function graal() {
 jdk8
 
 # node 多版本切换
-export NODE18_PATH=${LOCAL}/node18
 export NODE20_PATH=${LOCAL}/node20
 export NODE_HOME=${LOCAL}/node
 export NODE_OPTIONS="--max_old_space_size=4096"
 export NPM_GLOBAL=${VLM_REPOS}/npm/node_global
 # export NPM_CACHE=${VLM_REPOS}/npm_cache
-alias node18="rm -f ${LOCAL}/node; ln -sf ${NODE18_PATH} ${LOCAL}/node"
-# alias node20="rm -f ${LOCAL}/node; ln -sf ${NODE16_PATH} ${LOCAL}/node"
+alias node20="rm -f ${LOCAL}/node; ln -sf ${NODE20_PATH} ${LOCAL}/node"
 export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
 
 # export _JAVA_LAUNCHER_DEBUG=1
@@ -276,7 +289,7 @@ export SILVER_SHELL=$0
 
 # ############################################ PATH #################################################
 PATH=${LOCAL}/bin:${LOCAL}/kits:${BREW}/bin:$PATH
-# PATH=${JADX_HOME}/bin:$PATH
+PATH=${JADX_HOME}/bin:$PATH
 PATH=${CMAKE_HOME}/bin:$PATH
 PATH=${CARGO_HOME}/bin:${M2_HOME}/bin:${SBT_HOME}/bin:${GRADLE_HOME}/bin:$PATH
 PATH=${SQLITE}/bin:$MYSQL_BASE_DIR/bin:$MYSQL_BASE_DIR/support-files:$PATH
@@ -298,11 +311,36 @@ PATH=${NMAP_HOME}/bin:$PATH
 # PATH=${FFMPEG_HOME}/bin:$PATH
 PATH=${SPRING_HOME}/bin:$PATH
 # PATH=${NASM_HOME}:${YASM_HOME}/bin:${BISON_HOME}/bin:$PATH
-# PATH=${LOCAL}/jadx/bin:$PATH
 
 export PATH
 
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 source $ZSH/oh-my-zsh.sh
+
+# zmodload zsh/zprof
+# zsh config
+HIST_STAMPS="yyyy-mm-dd"
+DISABLE_UPDATE_PROMPT=true
+DISABLE_AUTO_UPDATE=true
+HISTSIZE=1000000000
+SAVEHIST=$HISTSIZE
+HISTFILESIZE=$HISTSIZE
+setopt NO_NOMATCH
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+
 
 unalias mvn
 # unalias mvnd
@@ -321,8 +359,10 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # alias jpg="jps -lv|rg $1"
 alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Volumes/sm"
 # alias ydll="ydl --proxy socks5://127.0.0.1:1080 --write-sub --all-subs --yes-playlist "
+alias luamake="/Users/yakir/local/luamake/luamake"
 
 function reset_git() {
+    rm -rf 
     branch=$(git status | grep "On branch" | awk '/On branch/ {print $3}')
     echo "branch is ${branch}"
     if [[ ! "main" -eq ${branch} && ! "master" -eq ${branch} && ! "develop" -eq ${branch} ]]; then
@@ -344,12 +384,12 @@ function prune_remote() {
 
 function yl() {
     echo "$1" 
-    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 --sub-langs "zh.*,en*" --write-auto-subs --write-subs $1
+    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --write-auto-subs --write-subs $1
 }
 
 function yla() {
     echo "$1" 
-    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 --sub-langs "zh.*,en*" --cookies-from-browser chrome --write-auto-subs --write-subs $1
+    /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --cookies-from-browser chrome --write-auto-subs --write-subs $1
 }
 
 function  curlc() {
@@ -368,11 +408,11 @@ function  curlc() {
 #     export JAVA_HOME=${JAVA_8_HOME}
 # }
 
-# function jadx(){
-#     export JAVA_HOME=${JAVA_17_HOME}
-#     /Users/yakir/local/bin/jadx-gui  >/dev/null 2>&1 &
-#     export JAVA_HOME=${JAVA_8_HOME}
-# }
+function jadx(){
+    export JAVA_HOME=${JAVA_21_HOME}
+    ${JADX_HOME}/bin/jadx-gui  >/dev/null 2>&1 &
+    export JAVA_HOME=${JAVA_8_HOME}
+}
 
 MVN_MB="-Dmaven.compiler.fork=true -T12"
 MVN_TEMPLATE="mvn clean package -DskipTests ${1} -U "
@@ -380,8 +420,8 @@ MVN_COMPILE_TEMPLATE="mvn clean compile -DskipTests ${1} -U "
 alias mvnc="${M2_HOME}/bin/mvn clean"
 alias mvnsrc="${M2_HOME}/bin/mvn dependency:sources"
 alias mvndocs="${M2_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc"
-alias mvnupdate="mvn versions:display-plugin-updates -T12 ; mvn versions:display-property-updates -T12"
-alias mvnupdateShushi="mvn versions:display-plugin-updates -Pshushi ; mvn versions:display-property-updates -Pshushi"
+alias mvnupdate="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -T12 ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -T12"
+alias mvnupdateShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi"
 alias mvncs="mvn  -gs ~/.m2/settingscs.xml -s ~/.m2/settingscs.xml -Poinone "
 
 function mvna(){
@@ -407,9 +447,9 @@ function mvnupdateResolve(){
     if [[ -n $pt ]]; then
         t="-T$pt"
     fi
-    mvn versions:display-plugin-updates $p $t ; \
-    mvn versions:display-property-updates $p $t ; \
-    mvn versions:display-dependency-updates $p $t
+    mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates $p $t ; \
+    mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates $p $t ; \
+    mvn org.codehaus.mojo:versions-maven-plugin:display-dependency-updates $p $t
 }
 
 function mvnrun(){
@@ -456,7 +496,8 @@ alias ru="rustup update ; rustup self update "
 ############################################ alias ##################################################
 #alias rm="rm -v "
 alias bs="brew search --desc -v --eval-all"
-alias g="git fetch --prune --tag; git fetch --tags --prune origin -f ; git pull --all"
+# alias g="git fetch --prune --tag --progress; git fetch --tags --prune origin -f ; git pull --all"
+alias g="git fetch --tags --prune --tag --progress -f; git pull --all"
 function gitauthors(){
     git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | grep "\(.html\|.java\|.xml\|.properties\|.css\|.js\|.txt\)$" | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
 }
@@ -482,8 +523,8 @@ alias cproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0
 
 # alias pproxy="export https_proxy=http://127.0.0.1:1080 http_proxy=http://127.0.0.1:1080 all_proxy=socks5://127.0.0.1:1080"
 # alias cargo_proxy="export CARGO_HTTP_PROXY=127.0.0.1:7890"
-unalias la
-alias ls="lsd --color=always --icon=never"
+# unalias la
+# alias ls="lsd --color=always --icon=never"
 
 # alias atrust="export https_proxy=http://127.0.0.1:8888 http_proxy=http://127.0.0.1:8888 all_proxy=socks5://127.0.0.1:9080"
 
@@ -511,10 +552,6 @@ alias ls="lsd --color=always --icon=never"
 #     cd -
 # }
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
-
  # source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
  
  # OPAM configuration
@@ -522,16 +559,6 @@ fi
 
 #[ -s "/Users/yakir/local/jabba/jabba.sh" ] && source "/Users/yakir/local/jabba/jabba.sh"
 export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
-
-
-#  zsh config
-setopt inc_append_history     # add commands to HISTFILE in order of execution
-setopt share_history          # share command history data
-export HISTSIZE=99999999
-export SAVEHIST=${HISTSIZE}
-setopt hist_ignore_all_dups
-setopt EXTENDED_HISTORY
-setopt HIST_SAVE_NO_DUPS
 
 # ============快捷键设置===================
 # 详见 http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
@@ -550,7 +577,18 @@ setopt HIST_SAVE_NO_DUPS
 # setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 # setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 # setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-#export MCFLY_LIGHT=TRUE
-#export MCFLY_RESULTS=50
-#eval "$(mcfly init zsh)"
+
+
+# mcfly
+# export MCFLY_LIGHT=TRUE
+# export MCFLY_RESULTS=50
+# eval "$(mcfly init zsh)"
 # zprof
+
+# HSTR configuration - add this to ~/.zshrc
+# alias hh=hstr                    # hh to be alias for hstr
+# setopt histignorespace           # skip cmds w/ leading space from history
+# bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+# export HSTR_TIOCSTI=y
+# export HSTR_CONFIG=hicolor,prompt-bottom,raw-history-view
+

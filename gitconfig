@@ -2,7 +2,7 @@
 	excludesfile = /Users/yakir/.gitignore_global
 	quotepath = false
 	# pager = delta
-	editor = hx
+	editor = vim
 # [interactive]
 	# diffFilter = delta --color-only --features=interactive
 [difftool "sourcetree"]
@@ -27,8 +27,8 @@
 	proxy = socks5://127.0.0.1:7890
 	# proxy = socks5://127.0.0.1:1080
 	sslVerify = false
-# [http "https://www.privoxy.org"]
-	# proxy = socks5://127.0.0.1:7890
+[http "https://www.privoxy.org"]
+	proxy = socks5://127.0.0.1:7890
 	# proxy = socks5://127.0.0.1:1080
 	sslVerify = false
 [alias]

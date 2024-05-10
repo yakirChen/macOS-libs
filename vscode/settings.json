@@ -5,7 +5,7 @@
     "workbench.colorTheme": "Default Light Modern",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "editor.maxTokenizationLineLength": 99999999,
+    "editor.maxTokenizationLineLength": 1000000000000000000,
     "workbench.startupEditor": "none",
     "security.workspace.trust.untrustedFiles": "open",
     // https://rust-analyzer.github.io/manual.html
@@ -25,7 +25,7 @@
     "debug.console.fontSize": 11,
     "swift.sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
     "swift.sourcekit-lsp.trace.server": "messages",
-    "editor.accessibilitySupport": "on",
+    "editor.accessibilitySupport": "off",
     "editor.largeFileOptimizations": false,
     "explorer.confirmDelete": false,
     "C_Cpp.formatting": "clangFormat",

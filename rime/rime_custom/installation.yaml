@@ -1,8 +1,8 @@
 distribution_code_name: Squirrel
 distribution_name: "鼠鬚管"
-distribution_version: 0.17.2
-install_time: "Tue Apr 18 10:03:42 2023"
+distribution_version: 1.0.2
+install_time: "Fri Jun  7 14:01:20 2024"
 installation_id: rime_custom
-rime_version: 1.11.0
+rime_version: 1.11.2
 sync_dir: "/Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/rime"
-update_time: "Mon Apr  1 18:20:14 2024"
+update_time: "Tue Jun 11 11:49:06 2024"

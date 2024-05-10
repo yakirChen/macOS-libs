@@ -11,6 +11,9 @@ patch:
     com.apple.Terminal:
       ascii_mode: true
       no_inline: true
+    com.github.wez.wezterm:
+      ascii_mode: true
+      #no_inline: true
     # com.googlecode.iterm2:
       # ascii_mode: true
       # no_inline: true
@@ -48,8 +51,6 @@ patch:
     com.googlecode.iterm2:
       ascii_mode: true
     com.postmanlabs.mac:
-      ascii_mode: true
-    com.apple.dt.Xcode:
       ascii_mode: true
     org.alacritty:
       ascii_mode: true

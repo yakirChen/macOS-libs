@@ -129,14 +129,6 @@ key = "N"
 mods = "Command"
 
 [[keyboard.bindings]]
-key = "N"
-mods = "Command|Shift"
-
-[keyboard.bindings.command]
-args = ["msg", "create-window", "--login", "-c", "tmux-sessions --all"]
-program = "/Applications/Alacritty.app/Contents/MacOS/alacritty"
-
-[[keyboard.bindings]]
 chars = "\u001Cx"
 key = "W"
 mods = "Command"
@@ -410,7 +402,7 @@ history = 100000
 multiplier = 2
 
 [shell]
-args = ["--login", "-c", "/opt/homebrew//bin/tmux new-session -A -D -s ' '"]
+args = ["--login", "-c", "/Users/yakir/local/rust/bin/zellij -d attach --index 0 --create"]
 program = "/bin/zsh"
 
 [window]

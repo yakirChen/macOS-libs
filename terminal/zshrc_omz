@@ -11,7 +11,8 @@ plugins=(
     git-lfs
     gitfast
     # git-prompt
-    spring
+    #spring
+    rust
     # rustup
     # cargo
     # curl
@@ -64,9 +65,9 @@ zstyle ":plugin:history-search-multi-word" clear-on-cancel "no"        # Whether
 # }
 
 # ########################################## User Configuration #####################################
-export BREW=/opt/homebrew/
-export HOMEBREW_CELLAR=/opt/homebrew//Cellar
-export BREW_OPT=/opt/homebrew//opt
+export BREW=/opt/homebrew
+export HOMEBREW_CELLAR=${BREW}/Cellar
+export BREW_OPT=${BREW}/opt
 export LOCAL=${HOME}/local
 export VLM=/Volumes/sm
 export VLM_REPOS=${VLM}/repos
@@ -591,4 +592,3 @@ export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
 # bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
 # export HSTR_TIOCSTI=y
 # export HSTR_CONFIG=hicolor,prompt-bottom,raw-history-view
-

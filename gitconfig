@@ -3,6 +3,7 @@
 	quotepath = false
 	# pager = delta
 	editor = vim
+	fsmonitor = false
 # [interactive]
 	# diffFilter = delta --color-only --features=interactive
 [difftool "sourcetree"]
@@ -59,3 +60,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff]
+	algorithm = patience

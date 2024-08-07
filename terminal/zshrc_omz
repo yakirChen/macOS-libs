@@ -4,6 +4,7 @@ ZSH_THEME="jtriley"
 plugins=(
     # ant
     mvn
+    urltools
     # osx
     # xcode
     git
@@ -16,8 +17,6 @@ plugins=(
     # rustup
     # cargo
     # curl
-    fd
-    ripgrep
     # golang
     # textmate
     # npm
@@ -31,7 +30,7 @@ plugins=(
     # nmap
     # zsh-completions
     # history-substring-search
-    zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+    #zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
     # zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
     F-Sy-H
     H-S-MW
@@ -189,6 +188,7 @@ export FFMPEG_HOME=${LOCAL}/ffmpeg
 # export GNUPG_HOME=${LOCAL}/gnupg
 # export NMAP_HOME=${LOCAL}/nmap
 export SPRING_HOME=${LOCAL}/spring
+export DOCKER_HOME=${HOME}/.docker
 
 # export ARTHAS_HOME=${LOCAL}/arthas
 
@@ -203,6 +203,9 @@ export SPRING_HOME=${LOCAL}/spring
 # export JAVA_22_HOME=$(/usr/libexec/java_home -v 22)
 
 export JAVA_8_HOME="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home"
+# export ZULU_8_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
+export BELL_8_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home"
+export BELL_21_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-21-full.jdk/Contents/Home"
 export JAVA_11_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
 export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 export JAVA_21_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
@@ -224,6 +227,9 @@ export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-community-openjdk-
 # export GRAALVM_HOME=${LOCAL}/graalvm-ce-java11-20.3.0/Contents/Home
 
 alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
+# alias zulu8="export JAVA_HOME=${ZULU_8_HOME}"
+alias bell8="export JAVA_HOME=${BELL_8_HOME}"
+alias bell21="export JAVA_HOME=${BELL_21_HOME}"
 # alias jdkzulu="export JAVA_HOME=${JAVA_ZULU_HOME}"
 alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
 alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
@@ -235,7 +241,9 @@ function graal() {
     export PATH=$JAVA_HOME/bin:$PATH
 }
 
-jdk8
+# jdk8
+# zulu8
+bell8
 
 # node 多版本切换
 export NODE20_PATH=${LOCAL}/node20
@@ -311,6 +319,7 @@ PATH=${NMAP_HOME}/bin:$PATH
 # PATH=$CBC_HOME/bin:$JAVACC_HOME/bin:$GCC_HOME/bin:$PATH
 # PATH=${FFMPEG_HOME}/bin:$PATH
 PATH=${SPRING_HOME}/bin:$PATH
+PATH=${DOCKER_HOME}/bin:$PATH
 # PATH=${NASM_HOME}:${YASM_HOME}/bin:${BISON_HOME}/bin:$PATH
 
 export PATH
@@ -403,6 +412,17 @@ function  curlc() {
     fi
 }
 
+function jgc() {
+    pname=""
+    if [[ -z ${1} ]]; then
+        pname="RemoteMavenServer"
+    else 
+        pname="${1}"
+    fi
+    echo "${pname}"
+    jcmd $(jps -l | grep $pname | awk -F ' ' '{print $1}') GC.run
+}
+
 # function recaf(){
 #     export JAVA_HOME=${JAVA_21_HOME}
 #     /Users/yakir/local/recaf/bin/recaf-ui >/dev/null 2>&1 &
@@ -421,8 +441,8 @@ MVN_COMPILE_TEMPLATE="mvn clean compile -DskipTests ${1} -U "
 alias mvnc="${M2_HOME}/bin/mvn clean"
 alias mvnsrc="${M2_HOME}/bin/mvn dependency:sources"
 alias mvndocs="${M2_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc"
-alias mvnupdate="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -T12 ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -T12"
-alias mvnupdateShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi"
+alias mvnupdate="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -T12 -U; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -T12 -U"
+alias mvnupdateShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi -U ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi -U"
 alias mvncs="mvn  -gs ~/.m2/settingscs.xml -s ~/.m2/settingscs.xml -Poinone "
 
 function mvna(){
@@ -431,7 +451,7 @@ function mvna(){
     if [[ -n $p ]]; then
         profile="-P$p"
     fi
-    mvn dependency:sources $profile
+    mvn dependency:resolve-sources $profile
     mvn clean compile -DskipTests $profile -U
     mvn dependency:resolve-plugins -DskipTests $profile -U
     mvn clean $profile
@@ -448,22 +468,57 @@ function mvnupdateResolve(){
     if [[ -n $pt ]]; then
         t="-T$pt"
     fi
-    mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates $p $t ; \
-    mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates $p $t ; \
-    mvn org.codehaus.mojo:versions-maven-plugin:display-dependency-updates $p $t
+    mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates $p $t -U ; \
+    mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates $p $t -U ; \
+    mvn org.codehaus.mojo:versions-maven-plugin:display-dependency-updates $p $t -U
 }
 
 function mvnrun(){
-    p1=$1
-    p2=$2
-    p3=$3
+
     lifecycle=""
-    if [[ -z $p3 ]]; then
+    settings=""
+    profile=""
+    sprofile=""
+    goback="-PgoBack=false"
+
+    while getopts ":p:l:r:s:b:" opt
+    do
+        case $opt in
+            p)
+                profile=$OPTARG
+            ;;
+            l)
+                lifecycle=$OPTARG
+            ;;
+            r)
+                sprofile=$OPTARG
+            ;;
+            s)
+                settings="_$OPTARG"
+            ;;
+            b)
+                goback="-PgoBack=true"
+            ;;
+            *)
+                echo "未知参数$opt, $OPTARG"
+            ;;
+            ?)
+                echo "未知参数$opt, $OPTARG"
+            ;;
+        esac
+    done
+
+    if [[ -z $lifecycle ]]; then
         lifecycle="-Plifecycle=INSTALL"
     else
-        lifecycle="-Plifecycle=$p3"
+        lifecycle="-Plifecycle=$lifecycle"
     fi
-    mvn clean compile spring-boot:run -Dspring-boot.run.profiles=$1 -Dspring-boot.run.arguments=$lifecycle -P$1 -P$2
+    if [[ ! -z $s ]]; then
+        settings="_"$s
+    fi
+    mvn -gs ${HOME}/.m2/settings${settings}.xml -s ${HOME}/.m2/settings${settings}.xml clean compile spring-boot:run \
+        -Dspring-boot.run.profiles=$sprofile \
+        -Dspring-boot.run.arguments="$lifecycle $goback" -P$sprofile -P$profile
 }
 
 function thinrun(){

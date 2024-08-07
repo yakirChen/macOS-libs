@@ -1,8 +1,8 @@
 patch:
-  "menu/page_size": 9
+  menu/page_size: 9
   schema_list:
-  - schema: luna_pinyin_simp  # 简体拼音
-  - schema: luna_pinyin       # 繁体拼音
+    - schema: luna_pinyin_simp # 简体拼音
+    - schema: luna_pinyin # 繁体拼音
   # - schema: numbers           # 大写数字
   # ascii_composer:
   #   switch_key:
@@ -10,10 +10,10 @@ patch:
   #     Shift_L: commit_code
   #     Shift_R: commit_code
   key_binder/bindings: # 翻页
-    - { when: composing, accept: ISO_Left_Tab, send: Page_Up }  # "tab"翻页
+    - { when: composing, accept: ISO_Left_Tab, send: Page_Up } # "tab"翻页
     - { when: composing, accept: Shift+Tab, send: Page_Up }
-    - { when: composing, accept: Tab, send: Page_Down }     
-    - { when: paging, accept: minus, send: Page_Up }            # "-"上一页
-    - { when: has_menu, accept: equal, send: Page_Down }        # "="下一页
-    - { when: paging, accept: bracketleft, send: Page_Up }      # "["上一页
+    - { when: composing, accept: Tab, send: Page_Down }
+    - { when: paging, accept: minus, send: Page_Up } # "-"上一页
+    - { when: has_menu, accept: equal, send: Page_Down } # "="下一页
+    - { when: paging, accept: bracketleft, send: Page_Up } # "["上一页
     - { when: has_menu, accept: bracketright, send: Page_Down } # "]"下一页

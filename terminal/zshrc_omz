@@ -441,8 +441,7 @@ MVN_COMPILE_TEMPLATE="mvn clean compile -DskipTests ${1} -U "
 alias mvnc="${M2_HOME}/bin/mvn clean"
 alias mvnsrc="${M2_HOME}/bin/mvn dependency:sources"
 alias mvndocs="${M2_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc"
-alias mvnupdate="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -T12 -U; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -T12 -U"
-alias mvnupdateShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi -U ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi -U"
+alias mvnDepCheckShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi -U ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi -U"
 alias mvncs="mvn  -gs ~/.m2/settingscs.xml -s ~/.m2/settingscs.xml -Poinone "
 
 function mvna(){
@@ -457,7 +456,7 @@ function mvna(){
     mvn clean $profile
 }
 
-function mvnupdateResolve(){
+function mvnDepCheck(){
     pp=$1
     pt=$2
     t=""

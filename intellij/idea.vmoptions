@@ -33,17 +33,17 @@
 # -XX:+SafepointTimeout
 # -XX:SafepointTimeoutDelay=1000
 
--XX:+EnableJVMCI
--XX:+UseJVMCICompiler
--XX:+EagerJVMCI
--XX:JVMCIThreads=4
+#-XX:+EnableJVMCI
+#-XX:+UseJVMCICompiler
+#-XX:+EagerJVMCI
+#-XX:JVMCIThreads=4
 # -Dgraal.ShowConfiguration=info
 
 # -XX:AutoBoxCacheMax=512
 
--XX:+UseShenandoahGC
+#-XX:+UseShenandoahGC
 -XX:ConcGCThreads=4
-#-XX:+UseZGC
+-XX:+UseZGC
 #-XX:ParalleGCThreads=4
 -XX:+AlwaysPreTouch
 # -XX:+DisableExplicitGC
@@ -65,11 +65,13 @@
 # -XX:G1ReservePercent=10
 
 -Dos.detected.name=osx
--Dos.detected.arch=x86_64
--Dos.detected.classifier=osx-x86_64
+-Dos.detected.arch=arm64
+-Dos.detected.classifier=osx-arm64
 -Djava.net.preferIPv4Stack=true
 -Deditable.java.test.console=true
 -Daction.aware.typeAhead=false
 -Dsun.java2d.metal=true
 
 --illegal-access=warn
+
+-Didea.kotlin.plugin.use.k2=true

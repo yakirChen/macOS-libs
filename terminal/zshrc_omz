@@ -408,7 +408,7 @@ function  curlc() {
         curl -O -C - -k -L $1
     else
         echo "$2"
-        curl -C - -k -L $1 -o $2
+        curl -C - -k -L --create-dirs $1 -o $2
     fi
 }
 

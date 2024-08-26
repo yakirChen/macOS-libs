@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'sheerun/vim-polyglot'
-"Plug 'maralla/completor.vim'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'maralla/completor.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'idanarye/vim-vebugger'
 Plug 'vim-syntastic/syntastic'

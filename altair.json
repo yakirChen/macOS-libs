@@ -1,8 +1,0 @@
-{
-  "theme": "dark",
-  "language": "zh-CN",
-  "addQueryDepthLimit": 3,
-  "tabSize": 2,
-  "theme.fontsize": 20,
-  "theme.editorFontFamily": "Source Code Pro"
-}

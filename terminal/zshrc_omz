@@ -165,7 +165,7 @@ export MAVEN_CONFIG=${M2_HOME}/conf
 export MAVEN_SKIP_RC=true
 export MAVEN_REPOSITORY=${VLM_REPOS}/m2/repository
 # export SBT_OPTS="-Dsbt.global.base=/Volumes/sm/repos/sbt -Dsbt.ivy.home=/Volumes/sm/repos/ivy2"
-# export ANT_HOME=${LOCAL}/ant                    # ant
+export ANT_HOME=${LOCAL}/ant                    # ant
 export GRADLE_HOME=${LOCAL}/gradle              # gradle
 # export JAVACC_HOME=${LOCAL}/javacc
 # export NASM_HOME=${LOCAL}/nasm
@@ -208,8 +208,8 @@ export BELL_8_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Co
 export BELL_21_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-21-full.jdk/Contents/Home"
 export JAVA_11_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
 export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
-export JAVA_21_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
-export JAVA_22_HOME="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home"
+export JAVA_23_HOME="/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home"
+export JAVA_24_HOME="/Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home"
 
 # export JAVA_SEMERU_HOME=/Library/Java/JavaVirtualMachines/semeru/Contents/Home
 # export JAVA_ZULU_HOME=/Library/Java/JavaVirtualMachines/zulu/Contents/Home
@@ -233,8 +233,8 @@ alias bell21="export JAVA_HOME=${BELL_21_HOME}"
 # alias jdkzulu="export JAVA_HOME=${JAVA_ZULU_HOME}"
 alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
 alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
-alias jdk21="export JAVA_HOME=${JAVA_21_HOME}"
-alias jdk22="export JAVA_HOME=${JAVA_22_HOME}"
+alias jdk23="export JAVA_HOME=${JAVA_23_HOME}"
+alias jdk24="export JAVA_HOME=${JAVA_24_HOME}"
 
 function graal() {
     export JAVA_HOME=${GRAALVM_HOME}
@@ -246,12 +246,15 @@ function graal() {
 bell8
 
 # node 多版本切换
-export NODE22_PATH=${LOCAL}/node22
 export NODE_HOME=${LOCAL}/node
 export NODE_OPTIONS="--max_old_space_size=4096"
 export NPM_GLOBAL=${VLM_REPOS}/npm/node_global
 # export NPM_CACHE=${VLM_REPOS}/npm_cache
-alias node22="rm -f ${LOCAL}/node; ln -sf ${NODE22_PATH} ${LOCAL}/node"
+
+function switchNode() {
+    echo "switch node $NODE_VERSION" && rm -f ${LOCAL}/node && ln -sf ${LOCAL}/node${1} ${LOCAL}/node
+}
+
 export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
 
 # export _JAVA_LAUNCHER_DEBUG=1
@@ -301,6 +304,7 @@ PATH=${LOCAL}/bin:${LOCAL}/kits:${BREW}/bin:$PATH
 PATH=${JADX_HOME}/bin:$PATH
 PATH=${CMAKE_HOME}/bin:$PATH
 PATH=${CARGO_HOME}/bin:${M2_HOME}/bin:${SBT_HOME}/bin:${GRADLE_HOME}/bin:$PATH
+PATH=${ANT_HOME}/bin:$PATH
 PATH=${SQLITE}/bin:$MYSQL_BASE_DIR/bin:$MYSQL_BASE_DIR/support-files:$PATH
 PATH=${MYSQL_SHELL}/bin:$PATH
 PATH=$PROTOBUF_HOME/bin:$PATH
@@ -520,9 +524,11 @@ function mvnrun(){
     if [[ ! -z $s ]]; then
         settings="_"$s
     fi
+
+    echo "spring profile: [${sprofile}]  maven profile:[${profile}]"
     mvn -gs ${HOME}/.m2/settings${settings}.xml -s ${HOME}/.m2/settings${settings}.xml clean compile spring-boot:run \
         -Dspring-boot.run.profiles=$sprofile \
-        -Dspring-boot.run.arguments="$lifecycle $goback -PenvProtected=false -PsaveEnvironments=false" -P$sprofile -P$profile
+        -Dspring-boot.run.arguments="$lifecycle $goback -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false" -P$sprofile -P$profile
 }
 
 function thinrun(){
@@ -537,6 +543,7 @@ function thinrun(){
       -Dspring.profiles.active=dev \
       ${workspace}/${jar} \
       -Plifecycle=INSTALL \
+      -P-PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false \
       --spring.config.location=${workspace}/application-dev.yml 
 }
 
@@ -578,8 +585,19 @@ alias gcr1="git clone --jobs 4 --recurse-submodules --shallow-submodules --depth
 alias ssh2="ssh -p2222 "
 # alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 # alias cproxy="export ALL_PROXY=socks5://127.0.0.1:7890"
-alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
-alias cproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
+function proxy(){
+    export ALL_PROXY=socks5://127.0.0.1:1080
+}
+function cproxy(){
+    export https_proxy=http://127.0.0.1:7890
+    export http_proxy=http://127.0.0.1:7890
+    export all_proxy=socks5://127.0.0.1:7890
+}
+function uproxy(){
+    unset https_proxy
+    unset http_proxy
+    unset all_proxy
+}
 
 # alias pproxy="export https_proxy=http://127.0.0.1:1080 http_proxy=http://127.0.0.1:1080 all_proxy=socks5://127.0.0.1:1080"
 # alias cargo_proxy="export CARGO_HTTP_PROXY=127.0.0.1:7890"

@@ -4,6 +4,7 @@
 	# pager = delta
 	editor = vim
 	fsmonitor = false
+	ignorecase = false # 大小写敏感
 # [interactive]
 	# diffFilter = delta --color-only --features=interactive
 [difftool "sourcetree"]

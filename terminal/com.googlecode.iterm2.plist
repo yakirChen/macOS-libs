@@ -1195,6 +1195,8 @@
 				<key>Red Component</key>
 				<real>0.68627452850341797</real>
 			</dict>
+			<key>Send Bell Alert</key>
+			<true/>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Send Terminal Generated Alerts</key>

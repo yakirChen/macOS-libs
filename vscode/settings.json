@@ -102,10 +102,8 @@
     // "vscode_custom_css.imports": [
     //     "file:///Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vscode/vscode.css"
     // ],
-    // "http.proxy": "http://127.0.0.1:7890",
-    // "http.proxySupport": "on",
-    // "http.proxySupport": "off",
-    // "https.proxy": "http://127.0.0.1:7890",
-    // "https.proxySupport": "on",
-    // "https.proxySupport": "off", 
+    "http.proxy": "http://127.0.0.1:7890",
+    "http.proxySupport": "on",
+    "https.proxy": "http://127.0.0.1:7890",
+    "https.proxySupport": "on",
 }

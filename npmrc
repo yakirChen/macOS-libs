@@ -4,3 +4,4 @@ registry=https://registry.npmmirror.com
 ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 ELECTRON_CACHE=/Volumes/sm/repos/electron
 SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/
+//ss.nexus.pamirs.top/repository/kunlun/:_authToken=NpmToken.5fdcb68d-f519-3274-a951-302306bd3456

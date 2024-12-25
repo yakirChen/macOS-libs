@@ -43,7 +43,7 @@
 
 #-XX:+UseShenandoahGC
 -XX:ConcGCThreads=4
--XX:+UseZGC
+-XX:+UseG1GC
 #-XX:ParalleGCThreads=4
 -XX:+AlwaysPreTouch
 # -XX:+DisableExplicitGC

@@ -9,7 +9,6 @@
 	# diffFilter = delta --color-only --features=interactive
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -20,17 +19,25 @@
 	template = /Users/yakir/.stCommitMsg
 [pull]
 	rebase = false
+# git config --global url."https://user:pass@bitbucket.org".insteadOf ssh://git@bitbucket.org
+# [url "https://user:pass@bitbucket.org"]
+# 	insteadOf = ssh://git@bitbucket.org
 [http]
+# git config --global http.https://github.com.proxy socks5h://127.0.0.1:7890
 [http "https://github.com"]
-	proxy = socks5://127.0.0.1:7890
+	proxy = socks5h://localhost:7890
+	# proxy = socks5://127.0.0.1:1080
+	sslVerify = false
+[http "https://github.com:443"]
+	proxy = socks5h://localhost:7890
 	# proxy = socks5://127.0.0.1:1080
 	sslVerify = false
 [http "https://ssh.github.com"]
-	proxy = socks5://127.0.0.1:7890
+	proxy = socks5h://localhost:7890
 	# proxy = socks5://127.0.0.1:1080
 	sslVerify = false
 [http "https://www.privoxy.org"]
-	proxy = socks5://127.0.0.1:7890
+	proxy = socks5h://localhost:7890
 	# proxy = socks5://127.0.0.1:1080
 	sslVerify = false
 [alias]

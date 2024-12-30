@@ -376,7 +376,7 @@ alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Vo
 alias luamake="/Users/yakir/local/luamake/luamake"
 
 function reset_git() {
-    rm -rf 
+    rm -rf
     branch=$(git status | grep "On branch" | awk '/On branch/ {print $3}')
     echo "branch is ${branch}"
     if [[ ! "main" -eq ${branch} && ! "master" -eq ${branch} && ! "develop" -eq ${branch} ]]; then
@@ -397,17 +397,17 @@ function prune_remote() {
 }
 
 function yl() {
-    echo "$1" 
+    echo "$1"
     /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --write-auto-subs --write-subs $1
 }
 
 function ylc() {
-    echo "$1" 
+    echo "$1"
     /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --cookies-from-browser chrome --write-auto-subs --write-subs $1
 }
 
 function ylf() {
-    echo "$1" 
+    echo "$1"
     /Users/yakir/local/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --cookies-from-browser firefox --write-auto-subs --write-subs $1
 }
 
@@ -425,7 +425,7 @@ function jgc() {
     pname=""
     if [[ -z ${1} ]]; then
         pname="RemoteMavenServer"
-    else 
+    else
         pname="${1}"
     fi
     echo "${pname}"
@@ -544,7 +544,7 @@ function thinrun(){
       ${workspace}/${jar} \
       -Plifecycle=INSTALL \
       -P-PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false \
-      --spring.config.location=${workspace}/application-dev.yml 
+      --spring.config.location=${workspace}/application-dev.yml
 }
 
 # alias mx="mx --user-home=${VLM_REPOS}/mx"
@@ -576,7 +576,8 @@ function gcr(){
         p2=${2}
         echo ${2}
     fi
-    git clone -v --jobs 12 --recurse-submodules --shallow-submodules -j8 ${1} $p2
+    #set -x; GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone --jobs 12 --recurse-submodules --shallow-submodules ${1} $p2 -v -v; set +x
+    git clone --jobs 12 --recurse-submodules --shallow-submodules ${1} $p2
 }
 alias gcr1="git clone --jobs 4 --recurse-submodules --shallow-submodules --depth 1 "
 
@@ -631,7 +632,7 @@ function uproxy(){
 # }
 
  # source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
- 
+
  # OPAM configuration
 # . ${VLM_REPOS}/opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 

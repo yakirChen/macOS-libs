@@ -1,0 +1,58 @@
+# ARP scanning and fingerprinting tool
+brew "arp-scan"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Cross-platform make
+brew "cmake"
+# Documentation for CMake
+brew "cmake-docs"
+# Lightweight monitoring service that efficiently checks socket connections
+brew "dish"
+# Tool for exploring each layer in a docker image
+brew "dive"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# GitHub command-line tool
+brew "gh"
+# Git extension for versioning large files
+brew "git-lfs"
+# Git blame for file trees
+brew "git-who"
+# Library for command-line editing
+brew "readline"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Fast, highly customisable system info script with LGBTQ+ pride flags
+brew "hyfetch"
+# YAML Parser
+brew "libyaml"
+# TCP port scanner, scans entire Internet in under 5 minutes
+brew "masscan"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Small man page generator
+brew "scdoc"
+# SMART hard drive monitoring
+brew "smartmontools"
+# Formatting technology for Swift source code
+brew "swift-format"
+# Convert SVG into PDF, PNG, JPEG or SF Symbol
+brew "swiftdraw"
+# Tool to enforce Swift style and conventions
+brew "swiftlint"
+# Terminal multiplexer
+brew "tmux"
+# Internet file retriever
+brew "wget"
+# Dumb downloader that scrapes the web
+brew "you-get"

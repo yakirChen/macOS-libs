@@ -23,6 +23,8 @@ Plug 'yianwillis/vimcdoc'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+Plug 'skywind3000/vim-color-patch'
+
 "if has('nvim')
 "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 "else

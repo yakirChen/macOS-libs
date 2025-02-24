@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Battery_state</key>
+	<false/>
+	<key>CPU_mini_label</key>
+	<true/>
+	<key>CPU_state</key>
+	<true/>
+	<key>CPU_updateInterval</key>
+	<integer>3</integer>
+	<key>CPU_updateTopInterval</key>
+	<integer>5</integer>
+	<key>CombinedModules</key>
+	<true/>
+	<key>CombinedModules_popup</key>
+	<true/>
+	<key>CombinedModules_separator</key>
+	<false/>
+	<key>Disk_state</key>
+	<false/>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
+	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<true/>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>2616 633 800 448 2056 249 1920 1055 </string>
+	<key>Network_publicIPRefreshInterval</key>
+	<string>12</string>
+	<key>Sensors_fanControl</key>
+	<false/>
+	<key>Sensors_fanValue</key>
+	<string>rpm</string>
+	<key>Sensors_state</key>
+	<true/>
+	<key>dockIcon</key>
+	<false/>
+	<key>sensor_F0Ac</key>
+	<true/>
+	<key>sensor_F1Ac</key>
+	<true/>
+	<key>sensor_Fastest fan</key>
+	<true/>
+	<key>setupProcess</key>
+	<true/>
+	<key>telemetry</key>
+	<false/>
+	<key>telemetry_id</key>
+	<string>9B9C3E2F-03D2-489E-A7C9-4D469527A32D</string>
+	<key>update-interval</key>
+	<string>Never</string>
+	<key>updater_check_ts</key>
+	<integer>1744860990</integer>
+	<key>version</key>
+	<string>2.11.40</string>
+</dict>
+</plist>

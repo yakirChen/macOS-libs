@@ -90,6 +90,7 @@ export CARGO_HOME=${LOCAL}/rust
 export CARGO_PATH=${CARGO_HOME}
 export CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 export RUSTUP_HOME=${LOCAL}/rust
+export ZIG_HOME=${LOCAL}/zig
 # export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 # export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 #export RUSTUP_DIST_SERVER=https://static.rust-lang.org
@@ -170,7 +171,7 @@ export GRADLE_HOME=${LOCAL}/gradle              # gradle
 # export JAVACC_HOME=${LOCAL}/javacc
 # export NASM_HOME=${LOCAL}/nasm
 # export BISON_HOME=${LOCAL}/bison
-# export PROTOBUF_HOME=${LOCAL}/protoc
+export PROTOBUF_HOME=${LOCAL}/protoc
 # export YASM_HOME=${LOCAL}/yasm
 
 # repos
@@ -204,7 +205,8 @@ export DOCKER_HOME=${HOME}/.docker
 
 export JAVA_8_HOME="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home"
 # export ZULU_8_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
-export BELL_8_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home"
+export BELL_8_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8.jdk/Contents/Home"
+export BELL_8_FULL_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home"
 export BELL_21_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-21-full.jdk/Contents/Home"
 export JAVA_11_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
 export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
@@ -229,6 +231,7 @@ export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-community-openjdk-
 alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
 # alias zulu8="export JAVA_HOME=${ZULU_8_HOME}"
 alias bell8="export JAVA_HOME=${BELL_8_HOME}"
+alias bell8f="export JAVA_HOME=${BELL_8_FULL_HOME}"
 alias bell21="export JAVA_HOME=${BELL_21_HOME}"
 # alias jdkzulu="export JAVA_HOME=${JAVA_ZULU_HOME}"
 alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
@@ -242,7 +245,8 @@ function graal() {
 }
 
 # jdk8
-# zulu8
+#zulu8
+# bell8f
 bell8
 
 # node 多版本切换
@@ -256,6 +260,11 @@ function switchNode() {
 }
 
 export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
+
+
+# Zig
+export ZIG_GLOBAL_CACHE_DIR=/Volumes/sm/repos/zig/global
+export ZIG_LOCAL_CACHE_DIR=/Volumes/sm/repos/zig/local
 
 # export _JAVA_LAUNCHER_DEBUG=1
 # export DEF_JAVA_OPTS="-Xms100M -Xmx256M -Xverify:none -XX:ReservedCodeCacheSize=100m -XX:+UseG1GC -XX:+AlwaysPresmuch -XX:+UseNUMA -XX:+UseCompressedOops -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryErro-XX:+PrintGCDetails \
@@ -314,6 +323,7 @@ PATH=$GOROOT/bin:$GOPATH/bin:$CHEZ_SCHEME_HOME/bin:$PATH
 PATH=$NODE_HOME/bin:$NPM_GLOBAL/bin:$PATH
 PATH=$GEM_HOME/bin:$RUBY_HOME/bin:$PATH
 PATH=${YARN_HOME}/bin:$PATH
+PATH=${ZIG_HOME}:$PATH
 # PATH=${STACK_HOME}:$PATH
 # PATH=${CARTHAGE_HOME}/bin:$PATH
 PATH=${NMAP_HOME}/bin:$PATH

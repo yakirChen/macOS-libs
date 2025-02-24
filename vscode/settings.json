@@ -102,8 +102,20 @@
     // "vscode_custom_css.imports": [
     //     "file:///Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vscode/vscode.css"
     // ],
-    "http.proxy": "http://127.0.0.1:7890",
-    "http.proxySupport": "on",
-    "https.proxy": "http://127.0.0.1:7890",
-    "https.proxySupport": "on",
+    // "http.proxy": "http://127.0.0.1:7890",
+    // "http.proxySupport": "on",
+    // "https.proxy": "http://127.0.0.1:7890",
+    // "https.proxySupport": "on",
+    "chat.commandCenter.enabled": false,
+    "xml.server.preferBinary": true,
+    "xml.java.home": "/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home",
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "shellscript": true
+    },
+    "chat.mcp.enabled": false
 }

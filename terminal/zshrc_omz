@@ -4,16 +4,16 @@ ZSH_THEME="jtriley"
 plugins=(
     # ant
     mvn
-    urltools
+    # urltools
     # osx
     # xcode
     git
     git-extras
     git-lfs
-    gitfast
+    # gitfast
     # git-prompt
     #spring
-    rust
+    # rust
     # rustup
     # cargo
     # curl
@@ -40,7 +40,7 @@ plugins=(
     # docker-compose
 )
 
-zstyle :plugin:history-search-multi-word reset-prompt-protect 1
+zstyle ":plugin:history-search-multi-word" reset-prompt-protect "1"
 zstyle ":history-search-multi-word" page-size "15"                     # Number of entries to show (default is $LINES/3)
 zstyle ":history-search-multi-word" highlight-color "fg=yellow,bold"   # Color in which to highlight matched, searched text (default bg=17 on 256-color terminals)
 zstyle ":plugin:history-search-multi-word" synhl "yes"                 # Whether to perform syntax highlighting (default true)
@@ -77,8 +77,6 @@ export VLM_SERVERS=${VLM}/servers
 
 # 语言工具
 export RUBY_HOME=${LOCAL}/ruby
-# export PY2_HOME=${LOCAL}/python2
-export PY3_HOME=${BREW_OPT}/python3
 export GOROOT=${LOCAL}/go
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
 export GOPROXY=https://goproxy.cn,direct
@@ -90,10 +88,11 @@ export CARGO_HOME=${LOCAL}/rust
 export CARGO_PATH=${CARGO_HOME}
 export CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 export RUSTUP_HOME=${LOCAL}/rust
+export ZIG_HOME=${LOCAL}/zig
 # export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 # export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-#export RUSTUP_DIST_SERVER=https://static.rust-lang.org
-#export RUSTUP_UPDATE_ROOT=https://static.rust-lang.org/rustup
+# export RUSTUP_DIST_SERVER=https://static.rust-lang.org
+# export RUSTUP_UPDATE_ROOT=https://static.rust-lang.org/rustup
 # export RUSTUP_TRACE_DIR=${LOCAL}/rust/trace
 export RUSTFLAGS='-C target-cpu=native'
 # export RUSTFLAGS='-C prefer-dynamic'
@@ -113,7 +112,7 @@ export RUSTUP_TOOLCHAIN=stable
 # export OCAML_HOME=${LOCAL}/ocaml
 # export GROOVY_HOME=${LOCAL}/groovy
 # export GCC_HOME=${LOCAL}/gcc
-#export CLANG_HOME=${VLM_REPOS}/clang
+# export CLANG_HOME=${VLM_REPOS}/clang
 # export IGV_HOME=${LOCAL}/igv
 
 # 开发辅助
@@ -156,7 +155,7 @@ export BOOSTDIR=${BOOST_ROOT}/include
 
 # 打包编译工具
 # export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
-export CMAKE_HOME=${LOCAL}/cmake
+# export CMAKE_HOME=${LOCAL}/cmake
 export M2_HOME=${LOCAL}/maven                   # maven
 # export MD_HOME=${LOCAL}/mvnd                   # maven
 # export M2_HOME=${LOCAL}/mvnd                   # maven
@@ -170,7 +169,7 @@ export GRADLE_HOME=${LOCAL}/gradle              # gradle
 # export JAVACC_HOME=${LOCAL}/javacc
 # export NASM_HOME=${LOCAL}/nasm
 # export BISON_HOME=${LOCAL}/bison
-# export PROTOBUF_HOME=${LOCAL}/protoc
+export PROTOBUF_HOME=${LOCAL}/protoc
 # export YASM_HOME=${LOCAL}/yasm
 
 # repos
@@ -184,11 +183,11 @@ export GEM_PATH=${VLM_REPOS}/gem
 
 # 日常工具
 # export ARIA2_HOME=${LOCAL}/aria2              # aria2
-export FFMPEG_HOME=${LOCAL}/ffmpeg
+# export FFMPEG_HOME=${LOCAL}/ffmpeg
 # export GNUPG_HOME=${LOCAL}/gnupg
 # export NMAP_HOME=${LOCAL}/nmap
-export SPRING_HOME=${LOCAL}/spring
-export DOCKER_HOME=${HOME}/.docker
+# export SPRING_HOME=${LOCAL}/spring
+# export DOCKER_HOME=${HOME}/.docker
 
 # export ARTHAS_HOME=${LOCAL}/arthas
 
@@ -203,19 +202,19 @@ export DOCKER_HOME=${HOME}/.docker
 # export JAVA_22_HOME=$(/usr/libexec/java_home -v 22)
 
 export JAVA_8_HOME="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home"
-# export ZULU_8_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
-export BELL_8_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home"
+export ZULU_8_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
+export BELL_8_FULL_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home"
 export BELL_21_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-21-full.jdk/Contents/Home"
 export JAVA_11_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
 export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
-export JAVA_23_HOME="/Library/Java/JavaVirtualMachines/jdk-23.jdk/Contents/Home"
+export JAVA_21_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
 export JAVA_24_HOME="/Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home"
 
 # export JAVA_SEMERU_HOME=/Library/Java/JavaVirtualMachines/semeru/Contents/Home
 # export JAVA_ZULU_HOME=/Library/Java/JavaVirtualMachines/zulu/Contents/Home
 # export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
 # export JAVA_ZERO_FASTDEBUG_HOME=${HOME}/local/jdk/jdk-17.fastdebug.jdk/Contents/Home
-export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-community-openjdk-21.0.2+13.1/Contents/Home
+export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-jdk-24/Contents/Home
 #export JAVA_ADOPT_HOT_14_HOME=/Users/yakir/local/jdk/jdk-14.0.1+7/Contents/Home/
 #export JAVA_ZERO_HOME=/Users/yakir/local/jdk-15.jdk/Contents/Home
 #export JDK_18_HOME=${JAVA_8_HOME}
@@ -227,13 +226,11 @@ export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-community-openjdk-
 # export GRAALVM_HOME=${LOCAL}/graalvm-ce-java11-20.3.0/Contents/Home
 
 alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
-# alias zulu8="export JAVA_HOME=${ZULU_8_HOME}"
-alias bell8="export JAVA_HOME=${BELL_8_HOME}"
-alias bell21="export JAVA_HOME=${BELL_21_HOME}"
+alias zulu8="export JAVA_HOME=${ZULU_8_HOME}"
 # alias jdkzulu="export JAVA_HOME=${JAVA_ZULU_HOME}"
 alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
 alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
-alias jdk23="export JAVA_HOME=${JAVA_23_HOME}"
+alias jdk21="export JAVA_HOME=${JAVA_21_HOME}"
 alias jdk24="export JAVA_HOME=${JAVA_24_HOME}"
 
 function graal() {
@@ -242,8 +239,9 @@ function graal() {
 }
 
 # jdk8
-# zulu8
-bell8
+zulu8
+# bell8f
+# bell8
 
 # node 多版本切换
 export NODE_HOME=${LOCAL}/node
@@ -256,6 +254,11 @@ function switchNode() {
 }
 
 export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
+
+
+# Zig
+export ZIG_GLOBAL_CACHE_DIR=/Volumes/sm/repos/zig/global
+export ZIG_LOCAL_CACHE_DIR=/Volumes/sm/repos/zig/local
 
 # export _JAVA_LAUNCHER_DEBUG=1
 # export DEF_JAVA_OPTS="-Xms100M -Xmx256M -Xverify:none -XX:ReservedCodeCacheSize=100m -XX:+UseG1GC -XX:+AlwaysPresmuch -XX:+UseNUMA -XX:+UseCompressedOops -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryErro-XX:+PrintGCDetails \
@@ -300,35 +303,37 @@ SILVER=(status:black:white dir:blue:black git:green:black cmdtime:magenta:black)
 export SILVER_SHELL=$0
 
 # ############################################ PATH #################################################
-PATH=${LOCAL}/bin:${LOCAL}/kits:${BREW}/bin:$PATH
-PATH=${JADX_HOME}/bin:$PATH
-PATH=${CMAKE_HOME}/bin:$PATH
-PATH=${CARGO_HOME}/bin:${M2_HOME}/bin:${SBT_HOME}/bin:${GRADLE_HOME}/bin:$PATH
-PATH=${ANT_HOME}/bin:$PATH
-PATH=${SQLITE}/bin:$MYSQL_BASE_DIR/bin:$MYSQL_BASE_DIR/support-files:$PATH
-PATH=${MYSQL_SHELL}/bin:$PATH
-PATH=$PROTOBUF_HOME/bin:$PATH
-# PATH=$PY2_HOME/bin:$PY3_HOME/bin:$LUA_HOME/bin:$PATH
-PATH=$PY3_HOME/bin:$LUA_HOME/bin:$PATH
-PATH=$GOROOT/bin:$GOPATH/bin:$CHEZ_SCHEME_HOME/bin:$PATH
-PATH=$NODE_HOME/bin:$NPM_GLOBAL/bin:$PATH
-PATH=$GEM_HOME/bin:$RUBY_HOME/bin:$PATH
-PATH=${YARN_HOME}/bin:$PATH
-# PATH=${STACK_HOME}:$PATH
-# PATH=${CARTHAGE_HOME}/bin:$PATH
-PATH=${NMAP_HOME}/bin:$PATH
 
-# PATH=$HASKELL_BIN/bin:$ZK_HOME/bin:$TOMCAT_HOME/bin:$PATH
-# PATH=${BTRACE_HOME}/bin:${HTOP_HOME}/bin:$PATH
-# PATH=$CBC_HOME/bin:$JAVACC_HOME/bin:$GCC_HOME/bin:$PATH
-# PATH=${FFMPEG_HOME}/bin:$PATH
-PATH=${SPRING_HOME}/bin:$PATH
-PATH=${DOCKER_HOME}/bin:$PATH
-# PATH=${NASM_HOME}:${YASM_HOME}/bin:${BISON_HOME}/bin:$PATH
+PATHS=(
+    "${LOCAL}/bin"
+    "${LOCAL}/kits"
+    "${BREW}/bin"
+    "${BREW_SBIN}/sbin"
+    "${CARGO_HOME}/bin"
+    "${M2_HOME}/bin"
+    "${GRADLE_HOME}/bin"
+    "${ANT_HOME}/bin"
+    "${SQLITE}/bin"
+    "${MYSQL_BASE_DIR}/bin"
+    "${MYSQL_BASE_DIR}/support-files"
+    "${GOROOT}/bin"
+    "${GOPATH}/bin"
+    "${NODE_HOME}/bin"
+    "${NPM_GLOBAL}/bin"
+    "${GEM_HOME}/bin"
+    "${RUBY_HOME}/bin"
+    "${NGINX_HOME}"
+    "${PROTOBUF_HOME}/bin"
+    "${BREW_OPT}/erlang@27/bin"
+)
+
+for p in "${PATHS[@]}"; do
+    [[ -d "$p" ]] && PATH="$p:$PATH"
+done
 
 export PATH
 
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+FPATH="${BREW}/share/zsh/site-functions:${FPATH}"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -343,6 +348,7 @@ HISTFILESIZE=$HISTSIZE
 setopt NO_NOMATCH
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+#setopt inc_append_history_time
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
@@ -355,7 +361,6 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
-
 unalias mvn
 # unalias mvnd
 
@@ -364,7 +369,6 @@ alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias pin='ping -c 6 $1'
 alias wgetnc='wget --no-check-certificate'
 alias zshconfig="sl ~/.zshrc"
-alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias week='date +%V'
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # alias recaf="${JAVA_11_HOME}/bin/java -Dapplication.home=${JAVA_11_HOME} -jar ${JARS}/recaf.jar >/dev/null 2>&1 &"
@@ -375,20 +379,27 @@ alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Vo
 # alias ydll="ydl --proxy socks5://127.0.0.1:1080 --write-sub --all-subs --yes-playlist "
 alias luamake="/Users/yakir/local/luamake/luamake"
 
+# alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+function myip(){
+    curl -L -s https://myipv4.p1.opendns.com/get_my_ip | jq
+}
+
+
 function reset_git() {
     rm -rf
     branch=$(git status | grep "On branch" | awk '/On branch/ {print $3}')
     echo "branch is ${branch}"
-    if [[ ! "main" -eq ${branch} && ! "master" -eq ${branch} && ! "develop" -eq ${branch} ]]; then
+    if [[ ! "main" -eq "${branch}" && ! "master" -eq ${branch} && ! "develop" -eq "${branch}" ]]; then
         echo "not support branch"
         return -1
     fi
     git reset . && \
     git checkout -- . && \
-    git checkout origin/${branch} &&  \
-    git branch -D ${branch} ; \
+    git checkout "origin/${branch}" &&  \
+    git branch -D "${branch}" ; \
     git status && \
-    git checkout ${branch} && \
+    git checkout "${branch}" && \
     git status
 }
 
@@ -488,8 +499,9 @@ function mvnrun(){
     profile=""
     sprofile=""
     goback="-PgoBack=false"
+    druid=""
 
-    while getopts ":p:l:r:s:b:" opt
+    while getopts ":p:l:r:s:b:d:" opt
     do
         case $opt in
             p)
@@ -506,6 +518,9 @@ function mvnrun(){
             ;;
             b)
                 goback="-PgoBack=true"
+            ;;
+            d)
+                druid="-Ddruid.filters=log4j -Ddruid.log.stmt.executableSql=true"
             ;;
             *)
                 echo "未知参数$opt, $OPTARG"
@@ -526,9 +541,9 @@ function mvnrun(){
     fi
 
     echo "spring profile: [${sprofile}]  maven profile:[${profile}]"
-    mvn -gs ${HOME}/.m2/settings${settings}.xml -s ${HOME}/.m2/settings${settings}.xml clean compile spring-boot:run \
+    mvn -gs ${HOME}/.m2/settings${settings}.xml -s ${HOME}/.m2/settings${settings}.xml -U clean compile spring-boot:run \
         -Dspring-boot.run.profiles=$sprofile \
-        -Dspring-boot.run.arguments="$lifecycle $goback -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false" -P$sprofile -P$profile
+        -Dspring-boot.run.arguments="$lifecycle $goback $druid -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false" -P$sprofile -P$profile
 }
 
 function thinrun(){
@@ -543,7 +558,7 @@ function thinrun(){
       -Dspring.profiles.active=dev \
       ${workspace}/${jar} \
       -Plifecycle=INSTALL \
-      -P-PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false \
+      -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false \
       --spring.config.location=${workspace}/application-dev.yml
 }
 

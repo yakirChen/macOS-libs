@@ -4,17 +4,31 @@
 	# pager = delta
 	editor = vim
 	fsmonitor = false
-	ignorecase = false # 大小写敏感
+	# 大小写敏感
+	ignorecase = true 
+	# looseCompression = 9
+	# compression = 9
 # [interactive]
 	# diffFilter = delta --color-only --features=interactive
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
 	name = yakirChen
 	email = iamyakirchen@outlook.com
+
+[includeIf "gitdir:~/Developer/pamirs/oinone-pamirs"]
+    path = .gitconfig-oinone
+
+[includeIf "gitdir:~/Developer/shushi-os/"]
+    path = .gitconfig-oinone
+
+[includeIf "gitdir:~/Developer/shushi-cinex/"]
+    path = .gitconfig-cinex
+
 [commit]
 	template = /Users/yakir/.stCommitMsg
 [pull]
@@ -70,3 +84,5 @@
 	required = true
 [diff]
 	algorithm = patience
+# [pack]
+# 	compression = 9

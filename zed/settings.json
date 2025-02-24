@@ -1,0 +1,95 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "font_family": "Hack",
+  "ui_font_size": 12,
+  "buffer_font_family": "Hack",
+  // "buffer_line_height": "standard",
+  "buffer_line_height": { "custom": 1.2 },
+  "buffer_font_size": 11,
+  // "theme": "cave-light",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "autosave": "on_window_change",
+  "base_keymap": "JetBrains",
+  "centered_layout": {
+    "left_padding": 0.1,
+    "right_padding": 0.1
+  },
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    // "diagnostics": "warning",
+    "axes": {
+      "horizontal": true,
+      "vertical": true
+    }
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": true
+  },
+  "tabs": {
+    "close_position": "left",
+    "file_icons": true,
+    "git_status": false,
+    "activate_on_close": "history",
+    "show_close_button": "hover"
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false,
+      "show_commit_summary": true
+    }
+  },
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "off",
+    "copy_on_select": false,
+    "dock": "bottom",
+    "detect_venv": {
+      "on": {
+        "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "default"
+      }
+    },
+    "font_family": "Hack",
+    // "font_features": null,
+    "font_size": 11,
+    "line_height": {
+      "custom": 1
+    },
+    "buffer_line_height": {
+      "custom": 1
+    },
+    "buffer_font_family": "Hack",
+    "buffer_font_size": 11,
+    "option_as_meta": false,
+    "button": false,
+    // "shell": {},
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "working_directory": "current_project_directory"
+  }
+}

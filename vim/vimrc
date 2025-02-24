@@ -61,6 +61,9 @@ let g:rustfmt_autosave = 1
 let g:rust_clip_command = 'pbcopy'
 let g:go_version_warning = 0
 
+" color
+let g:cpatch_path = '~/.vim/colors/patch'
+
 "let g:terminal_ansi_colors
 
 " Plugin indentLine settings.

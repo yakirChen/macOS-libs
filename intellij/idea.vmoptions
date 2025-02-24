@@ -1,6 +1,5 @@
 # -verbose:class
 -Xms1024M
--Xmx2560M
 -Xss512K
 
 #-Xcomp
@@ -8,7 +7,6 @@
 # -Xlog:gc*:/Volumes/sm/logs/idea/gc_%p.log
 
 -XX:+UnlockExperimentalVMOptions
--XX:+UnlockDiagnosticVMOptions
 # -XX:+PrintCodeCache
 # -XX:InitialCodeCacheSize=256m
 # -XX:ErrorFile=/Volumes/sm/logs/idea/java_error_in_idea_%p.log
@@ -25,7 +23,6 @@
 # -XX:+ParallelRefProcEnabled
 # -XX:+UseCodeCacheFlushing
 # -XX:+DoEscapeAnalysis
--XX:+UseCompressedOops
 
 # -XX:-UseBiasedLocking
 # -XX:GuaranteedSafepointInterval=0
@@ -43,7 +40,6 @@
 
 #-XX:+UseShenandoahGC
 -XX:ConcGCThreads=4
--XX:+UseG1GC
 #-XX:ParalleGCThreads=4
 -XX:+AlwaysPreTouch
 # -XX:+DisableExplicitGC
@@ -70,7 +66,6 @@
 -Djava.net.preferIPv4Stack=true
 -Deditable.java.test.console=true
 -Daction.aware.typeAhead=false
--Dsun.java2d.metal=true
 
 --illegal-access=warn
 

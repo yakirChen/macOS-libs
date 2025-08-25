@@ -1,7 +1,16 @@
 prefix=/Volumes/sm/repos/npm/node_global
 cache=/Volumes/sm/repos/npm/node_cache
 registry=https://registry.npmmirror.com
-ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+
+## Electron Mirror of China
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+
+## or for a local mirror
+# ELECTRON_MIRROR="https://10.1.2.105/"
+# ELECTRON_CUSTOM_DIR="our/internal/filePath"
+
 ELECTRON_CACHE=/Volumes/sm/repos/electron
+
 SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/
+
 //ss.nexus.pamirs.top/repository/kunlun/:_authToken=NpmToken.5fdcb68d-f519-3274-a951-302306bd3456

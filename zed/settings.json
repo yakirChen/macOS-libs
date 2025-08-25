@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "collaboration_panel": {
+    "dock": "left"
+  },
   "features": {
     "edit_prediction_provider": "none"
   },
@@ -20,6 +23,8 @@
   // "buffer_line_height": "standard",
   "buffer_line_height": { "custom": 1.2 },
   "buffer_font_size": 11,
+  "soft_wrap": "none",
+  "restore_on_startup": "last_session",
   // "theme": "cave-light",
   "theme": {
     "mode": "system",

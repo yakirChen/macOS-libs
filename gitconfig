@@ -20,14 +20,14 @@
 	name = yakirChen
 	email = iamyakirchen@outlook.com
 
-[includeIf "gitdir:~/Developer/pamirs/oinone-pamirs"]
-    path = .gitconfig-oinone
+# [includeIf "gitdir:~/Developer/pamirs/oinone-pamirs"]
+#     path = .gitconfig-oinone
 
-[includeIf "gitdir:~/Developer/shushi-os/"]
-    path = .gitconfig-oinone
+# [includeIf "gitdir:~/Developer/shushi-os/"]
+#     path = .gitconfig-oinone
 
-[includeIf "gitdir:~/Developer/shushi-cinex/"]
-    path = .gitconfig-cinex
+# [includeIf "gitdir:~/Developer/shushi-cinex/"]
+#     path = .gitconfig-cinex
 
 [commit]
 	template = /Users/yakir/.stCommitMsg
@@ -36,24 +36,24 @@
 # git config --global url."https://user:pass@bitbucket.org".insteadOf ssh://git@bitbucket.org
 # [url "https://user:pass@bitbucket.org"]
 # 	insteadOf = ssh://git@bitbucket.org
-[http]
+# [http]
 # git config --global http.https://github.com.proxy socks5h://127.0.0.1:7890
-[http "https://github.com"]
-	proxy = socks5h://localhost:7890
-	# proxy = socks5://127.0.0.1:1080
-	sslVerify = false
-[http "https://github.com:443"]
-	proxy = socks5h://localhost:7890
-	# proxy = socks5://127.0.0.1:1080
-	sslVerify = false
-[http "https://ssh.github.com"]
-	proxy = socks5h://localhost:7890
-	# proxy = socks5://127.0.0.1:1080
-	sslVerify = false
-[http "https://www.privoxy.org"]
-	proxy = socks5h://localhost:7890
-	# proxy = socks5://127.0.0.1:1080
-	sslVerify = false
+# [http "https://github.com"]
+# 	proxy = socks5h://localhost:7890
+# 	# proxy = socks5://127.0.0.1:1080
+# 	sslVerify = false
+# [http "https://github.com:443"]
+# 	proxy = socks5h://localhost:7890
+# 	# proxy = socks5://127.0.0.1:1080
+# 	sslVerify = false
+# [http "https://ssh.github.com"]
+# 	proxy = socks5h://localhost:7890
+# 	# proxy = socks5://127.0.0.1:1080
+# 	sslVerify = false
+# [http "https://www.privoxy.org"]
+# 	proxy = socks5h://localhost:7890
+# 	# proxy = socks5://127.0.0.1:1080
+# 	sslVerify = false
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	ll = log --graph --date=short

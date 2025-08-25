@@ -21,7 +21,7 @@ colorscheme desert
 set laststatus=2 " 总是显示状态栏
 set ruler " 显示光标当前位置
 set number " 开启行号显示
-set colorcolumn=60
+set colorcolumn=100 " 竖线标记，限制代码行宽
 set cursorline " 高亮显示当前行/列
 set cursorcolumn
 set showmode
@@ -84,6 +84,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 "\ 'Ignored'   : '☒',
 
+
+highlight CursorColumn ctermbg=235 guibg=#555555
+highlight CursorLine ctermbg=235 guibg=#555555
 
 source /Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vim/plugins.vim
 source /Users/yakir/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs/vim/mappings.vim

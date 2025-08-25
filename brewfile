@@ -12,10 +12,14 @@ brew "cmake-docs"
 brew "dish"
 # Tool for exploring each layer in a docker image
 brew "dive"
+# Programming language for highly scalable real-time systems
+brew "erlang@27"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # GitHub command-line tool
 brew "gh"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Git extension for versioning large files
 brew "git-lfs"
 # Git blame for file trees
@@ -24,26 +28,34 @@ brew "git-who"
 brew "readline"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# OpenType text shaping engine
-brew "harfbuzz"
+# SMART hard drive monitoring
+brew "smartmontools"
+# Graphical user interface for smartctl
+brew "gsmartcontrol"
 # Fast, highly customisable system info script with LGBTQ+ pride flags
 brew "hyfetch"
 # YAML Parser
 brew "libyaml"
+# Mac App Store command-line interface
+brew "mas"
 # TCP port scanner, scans entire Internet in under 5 minutes
 brew "masscan"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Protoc plugin for gRPC Java
+brew "protoc-gen-grpc-java"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
+# Modern man page viewer
+brew "qman"
 # Small man page generator
 brew "scdoc"
-# SMART hard drive monitoring
-brew "smartmontools"
 # Formatting technology for Swift source code
 brew "swift-format"
 # Convert SVG into PDF, PNG, JPEG or SF Symbol
@@ -56,3 +68,11 @@ brew "tmux"
 brew "wget"
 # Dumb downloader that scrapes the web
 brew "you-get"
+mas "Developer", id: 640199958
+mas "The Unarchiver", id: 425424353
+mas "uBlock Origin Lite", id: 6745342698
+mas "Unsplash Wallpapers", id: 1284863847
+mas "Xcode", id: 497799835
+mas "微信", id: 836500024
+mas "腾讯会议", id: 1484048379
+mas "钉钉", id: 1435447041

@@ -39,11 +39,13 @@
 # [http]
 # git config --global http.https://github.com.proxy socks5h://127.0.0.1:7890
 # [http "https://github.com"]
-# 	proxy = socks5h://localhost:7890
+	# proxy = socks5h://localhost:7890
 # 	# proxy = socks5://127.0.0.1:1080
 # 	sslVerify = false
+# [http "https://github.com:22"]
+	# proxy = socks5h://localhost:7890
 # [http "https://github.com:443"]
-# 	proxy = socks5h://localhost:7890
+	# proxy = socks5h://localhost:7890
 # 	# proxy = socks5://127.0.0.1:1080
 # 	sslVerify = false
 # [http "https://ssh.github.com"]

@@ -117,5 +117,5 @@
         "scminput": false,
         "shellscript": true
     },
-    "chat.mcp.enabled": false,
+    "chat.mcp.access": "none",
 }

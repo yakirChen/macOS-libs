@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AIFeatureFunctionCalling</key>
+	<true/>
+	<key>AIFeatureHostedCodeInterpeter</key>
+	<true/>
+	<key>AIFeatureHostedFileSearch</key>
+	<true/>
+	<key>AIFeatureHostedWebSearch</key>
+	<true/>
+	<key>AIFeatureStreamingResponses</key>
+	<true/>
+	<key>AITermAPI</key>
+	<integer>2</integer>
+	<key>AIVectorStore</key>
+	<integer>1</integer>
+	<key>AddNewTabAtEndOfTabs</key>
+	<false/>
+	<key>AiMaxTokens</key>
+	<integer>1000000</integer>
+	<key>AiModel</key>
+	<string>gpt-4.1</string>
+	<key>AiResponseMaxTokens</key>
+	<integer>32768</integer>
+	<key>AitermURL</key>
+	<string>https://api.openai.com/v1/responses</string>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>ClickToSelectCommand</key>
@@ -30,6 +54,8 @@
 	<real>1</real>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>IRMemory</key>
+	<integer>4</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -998,6 +1024,8 @@
 			<string>553F86A3-9166-49F1-BB5D-4F33033E184C</string>
 			<key>Horizontal Spacing</key>
 			<real>0.80000000000000004</real>
+			<key>Icon</key>
+			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Use Transparency</key>
@@ -1112,7 +1140,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>86</integer>
+			<integer>93</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1394,7 +1422,7 @@
 			<key>Use Underline Color (Light)</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.90000000000000002</real>
+			<real>0.80000000000000004</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -1444,8 +1472,10 @@
 	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
+	<key>RemoveAddTabButton</key>
+	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>
@@ -1471,6 +1501,8 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<true/>
 	<key>UseBorder</key>
+	<false/>
+	<key>UseRecommendedAIModel</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>

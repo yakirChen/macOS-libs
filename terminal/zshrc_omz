@@ -67,6 +67,9 @@ zstyle ":plugin:history-search-multi-word" clear-on-cancel "no"        # Whether
 export OPT=/opt
 export BREW=${OPT}/homebrew
 export HOMEBREW_CELLAR=${BREW}/Cellar
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_VERBOSE=1
 export BREW_OPT=${BREW}/opt
 export VLM=/Volumes/sm
 export VLM_REPOS=${VLM}/repos
@@ -244,11 +247,11 @@ function graal() {
 }
 
 # jdk8
-zulu8
+# zulu8
 # bell8f
 # bell8
 # jdk17
-# zulu17
+zulu17
 
 # node 多版本切换
 export NODE_HOME=${OPT}/node
@@ -495,20 +498,91 @@ function mvnDepCheck(){
     mvn org.codehaus.mojo:versions-maven-plugin:display-dependency-updates $p $t -U
 }
 
+# function thinrun(){
+#     workspace=$1
+#     jar=$2
+#     cd ${workspace}
+#     java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=18881 \
+#       -Dloader.path=${workspace}/lib,${workspace}/extlib \
+#       -jar \
+#       -Duser.timezone=GMT+08:00 \
+#       -Dhttps.protocols=TLSv1.2 \
+#       -Dspring.profiles.active=dev \
+#       ${workspace}/${jar} \
+#       -Plifecycle=INSTALL \
+#       -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false \
+#       --spring.config.location=${workspace}/application-dev.yml
+# }
 function thinrun(){
-    workspace=$1
-    jar=$2
-    cd ${workspace}
-    java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=18881 \
-      -Dloader.path=${workspace}/lib,${workspace}/extlib \
-      -jar \
-      -Duser.timezone=GMT+08:00 \
-      -Dhttps.protocols=TLSv1.2 \
-      -Dspring.profiles.active=dev \
-      ${workspace}/${jar} \
-      -Plifecycle=INSTALL \
-      -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false \
-      --spring.config.location=${workspace}/application-dev.yml
+    java -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:18882 \
+        -server \
+        -Xss1M \
+        -Xms4G \
+        -Xmx4G \
+        -XX:+UnlockExperimentalVMOptions \
+        -XX:+IgnoreUnrecognizedVMOptions \
+        -XX:+UseG1GC \
+        -XX:-UseNUMA \
+        -XX:+UseCompressedOops \
+        -Xdebug \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.launcher=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.platform=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.resources=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED \
+        -J--add-opens=jdk.compiler/com.sun.source.tree=ALL-UNNAMED \
+        -J--add-opens=java.base/jdk.internal.access=ALL-UNNAMED \
+        -J--add-opens=java.xml/com.sun.org.apache.xpath.internal.jaxp=ALL-UNNAMED \
+        --add-opens=java.base/java.lang=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.annotation=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.constant=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.invoke=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.module=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.ref=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.runtime=ALL-UNNAMED \
+        --add-opens=java.base/java.io=ALL-UNNAMED \
+        --add-opens=java.base/java.lang=ALL-UNNAMED \
+        --add-opens=java.base/java.math=ALL-UNNAMED \
+        --add-opens=java.base/java.net=ALL-UNNAMED \
+        --add-opens=java.base/java.nio=ALL-UNNAMED \
+        --add-opens=java.base/java.security=ALL-UNNAMED \
+        --add-opens=java.base/java.text=ALL-UNNAMED \
+        --add-opens=java.base/java.time=ALL-UNNAMED \
+        --add-opens=java.base/java.util=ALL-UNNAMED \
+        --add-opens=java.xml/com.sun.org.apache.xpath.internal.jaxp=ALL-UNNAMED \
+        --add-opens=java.base/jdk.internal.access=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.launcher=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.platform=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.resources=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED \
+        --add-exports=jdk.compiler/com.sun.source.tree=ALL-UNNAMED \
+        --add-exports=java.base/jdk.internal.access=ALL-UNNAMED \
+        --add-exports=java.base/jdk.internal.loader=ALL-UNNAMED \
+        --add-exports=java.xml/com.sun.org.apache.xpath.internal.jaxp=ALL-UNNAMED \
+        -Djdk.tls.rejectClientInitiatedRenegotiation=true \
+        -Dspring.profiles.active=yakir \
+        -jar ./pamirs-enterprise-7.0.0-SNAPSHOT.jar \
+        -Plifecycle=INSTALL -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false 
 }
 
 # alias mx="mx --user-home=${VLM_REPOS}/mx"

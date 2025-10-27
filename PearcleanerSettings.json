@@ -1,0 +1,23 @@
+{
+  "settings.folders.apps" : [
+    "\/Applications",
+    "\/Users\/yakir\/Applications",
+    "\/Volumes\/sm\/app"
+  ],
+  "settings.lipo.warning" : true,
+  "settings.general.leftoverWarning" : true,
+  "settings.general.cli" : false,
+  "settings.interface.minimalist" : false,
+  "settings.tutorial.dragToExpandShown" : false,
+  "settings.general.filesWarning" : true,
+  "settings.interface.scrollIndicators" : true,
+  "settings.tutorial.switchUtilitiesShown" : false,
+  "settings.interface.customLightColors" : "",
+  "settings.general.sizeType" : "Real",
+  "settings.general.glass" : false,
+  "settings.interface.greetingEnabled" : true,
+  "settings.general.selectedTab" : 5,
+  "settings.interface.customDarkColors" : "",
+  "settings.general.selectedSort" : "name",
+  "settings.interface.multiSelect" : false
+}

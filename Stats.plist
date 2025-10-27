@@ -2,26 +2,56 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Battery_position</key>
+	<integer>8</integer>
 	<key>Battery_state</key>
 	<false/>
-	<key>CPU_mini_label</key>
-	<true/>
-	<key>CPU_state</key>
-	<true/>
-	<key>CPU_updateInterval</key>
-	<integer>3</integer>
-	<key>CPU_updateTopInterval</key>
+	<key>Bluetooth_position</key>
 	<integer>5</integer>
+	<key>CPU_position</key>
+	<integer>0</integer>
+	<key>CPU_updateInterval</key>
+	<integer>2</integer>
+	<key>CPU_updateTopInterval</key>
+	<integer>3</integer>
+	<key>Clock_position</key>
+	<integer>6</integer>
 	<key>CombinedModules</key>
-	<true/>
-	<key>CombinedModules_popup</key>
 	<true/>
 	<key>CombinedModules_separator</key>
 	<false/>
+	<key>CombinedModules_spacing</key>
+	<string>none</string>
+	<key>Disk_position</key>
+	<integer>3</integer>
 	<key>Disk_state</key>
 	<false/>
+	<key>GPU_position</key>
+	<integer>1</integer>
 	<key>NSNavPanelExpandedStateForSaveMode</key>
 	<true/>
+	<key>NSOSPLastRootDirectory</key>
+	<data>
+	Ym9va6QDAAAAAAQQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAIA
+	AAQAAAADAwAAAAQAAAUAAAABAQAAVXNlcnMAAAAFAAAAAQEAAHlha2lyAAAABwAAAAEB
+	AABMaWJyYXJ5ABAAAAABAQAATW9iaWxlIERvY3VtZW50cxMAAAABAQAAY29tfmFwcGxl
+	fkNsb3VkRG9jcwAJAAAAAQEAAERldmVsb3BlcgAAAAoAAAABAQAAbWFjT1MtbGlicwAA
+	HAAAAAEGAAAQAAAAIAAAADAAAABAAAAAWAAAAHQAAACIAAAACAAAAAQDAADOUAAAAAAA
+	AAgAAAAEAwAA93EAAAAAAAAIAAAABAMAAAZyAAAAAAAACAAAAAQDAACHPw4AAAAAAAgA
+	AAAEAwAAij8OAAAAAAAIAAAABAMAAIxCDgAAAAAACAAAAAQDAACySw4AAAAAABwAAAAB
+	BgAAwAAAANAAAADgAAAA8AAAAAABAAAQAQAAIAEAAAgAAAAABAAAQcHowxUAAAAYAAAA
+	AQIAAAIAAAAAAAAAHwIAAAAAAAAfAgAAAAAAAAAAAAABBQAACAAAAAQDAAAFAAAAAAAA
+	AAQAAAADAwAA9QEAAAgAAAABCQAAZmlsZTovLy8MAAAAAQEAAE1hY2ludG9zaCBIRAgA
+	AAAEAwAAAJCClucAAAAIAAAAAAQAAEHHFbB+AAAAJAAAAAEBAAAxMENGNDZFNy0xMjM4
+	LTREREQtQjU2Ny02N0NDNjU3MDk3RTcYAAAAAQIAAIEAAAABAAAA7xMAAAEAAADvEwAA
+	AQAAAAEAAAABAQAALwAAADAAAAABAgAAZG5pYgAAAAABAAAAAAAAAAAAAAAAAAAAAAAA
+	AAAAAAAAAAAAcmRsZgIAAAAAAAAA8AAAAP7///8BAAAAAAAAABMAAAAEEAAAnAAAAAAA
+	AAAFEAAAMAEAAAAAAAAQEAAAZAEAAAAAAABAEAAAVAEAAAAAAAACIAAAOAIAAAAAAAAF
+	IAAAqAEAAAAAAAAQIAAAuAEAAAAAAAARIAAA7AEAAAAAAAASIAAAzAEAAAAAAAATIAAA
+	3AEAAAAAAAAgIAAAGAIAAAAAAAAwIAAAhAEAAAAAAAABwAAAjAEAAAAAAAARwAAAIAAA
+	AAAAAAASwAAAnAEAAAAAAAAB0AAAhAEAAAAAAAAQ0AAABAAAAAAAAAAX8AAAiAAAAAAA
+	AAAi8AAARAIAAAAAAAA=
+	</data>
 	<key>NSToolbar Configuration eu.exelban.Stats.Settings.Toolbar</key>
 	<dict>
 		<key>TB Display Mode</key>
@@ -34,34 +64,22 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>2616 633 800 448 2056 249 1920 1055 </string>
-	<key>Network_publicIPRefreshInterval</key>
-	<string>12</string>
-	<key>Sensors_fanControl</key>
-	<false/>
-	<key>Sensors_fanValue</key>
-	<string>rpm</string>
-	<key>Sensors_state</key>
-	<true/>
-	<key>dockIcon</key>
-	<false/>
-	<key>sensor_F0Ac</key>
-	<true/>
-	<key>sensor_F1Ac</key>
-	<true/>
-	<key>sensor_Fastest fan</key>
-	<true/>
+	<string>3161 657 800 448 2056 212 1920 1055 </string>
+	<key>Network_position</key>
+	<integer>7</integer>
+	<key>RAM_position</key>
+	<integer>2</integer>
+	<key>Sensors_position</key>
+	<integer>4</integer>
 	<key>setupProcess</key>
 	<true/>
 	<key>telemetry</key>
 	<false/>
-	<key>telemetry_id</key>
-	<string>9B9C3E2F-03D2-489E-A7C9-4D469527A32D</string>
 	<key>update-interval</key>
 	<string>Never</string>
 	<key>updater_check_ts</key>
-	<integer>1744860990</integer>
+	<integer>1753441589</integer>
 	<key>version</key>
-	<string>2.11.40</string>
+	<string>2.11.50</string>
 </dict>
 </plist>

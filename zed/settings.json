@@ -84,6 +84,7 @@
     "line_height": {
       "custom": 1
     },
+    "disable_ai": true,
     "buffer_line_height": {
       "custom": 1
     },

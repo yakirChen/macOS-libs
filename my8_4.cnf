@@ -1,26 +1,26 @@
 [client]
-port                        = 3306
-socket                      = /Volumes/sm/repos/mysql/mysql.sock
+port                        = 3307
+socket                      = /Volumes/sm/repos/mysql8_4/mysql.sock
 
 [mysqld]
-port                        = 3306
+port                        = 3307
 key-buffer-size             = 16M
 max-allowed-packet          = 1024M
 max_connections             = 10000
 character_set_server        = utf8mb4
-basedir                     = /Volumes/sm/servers/mysql
-pid-file                    = /Volumes/sm/repos/mysql/mysql.pid
-socket                      = /Volumes/sm/repos/mysql/mysql.sock
-datadir                     = /Volumes/sm/repos/mysql/data/
-log-error                   = /Volumes/sm/repos/mysql/logs/error.log
+basedir                     = /Volumes/sm/servers/mysql8_4
+pid-file                    = /Volumes/sm/repos/mysql8_4/mysql.pid
+socket                      = /Volumes/sm/repos/mysql8_4/mysql.sock
+datadir                     = /Volumes/sm/repos/mysql8_4/data/
+log-error                   = /Volumes/sm/repos/mysql8_4/logs/error.log
 secure-file-priv            = NULL
 # symbolic-links            = FALSE
+# ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 # ssl                         = FALSE
 # tls-version                 = ''
 # admin_tls_version           = ''
-# ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
-# sql-mode                    = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
-tmpdir                      = /Volumes/sm/repos/mysql/tmpdir
+sql-mode                    = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+tmpdir                      = /Volumes/sm/repos/mysql8_4/tmpdir
 lower-case-table-names      = 2
 innodb_print_ddl_logs       = 1
 # eq_range_index_dive_limit   = 1000
@@ -33,9 +33,9 @@ innodb_print_ddl_logs       = 1
 # log_output                  = TABLE
 log_output                  = FILE
 slow-query-log              = true
-slow-query-log-file         = /Volumes/sm/repos/mysql/logs/ykmac-slow.log
+slow-query-log-file         = /Volumes/sm/repos/mysql8_4/logs/ykmac-slow.log
 # general_log                 = on
-# general_log_file            ='/Volumes/sm/repos/mysql/logs/ykmac-general.log'
+# general_log_file            ='/Volumes/sm/repos/mysql8_4/logs/ykmac-general.log'
 
 skip-log-bin
 

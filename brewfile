@@ -1,5 +1,9 @@
+# ANSI HTML adapter
+brew "aha"
 # ARP scanning and fingerprinting tool
 brew "arp-scan"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
 # Automatic configure script builder
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -14,6 +18,10 @@ brew "dish"
 brew "dive"
 # Programming language for highly scalable real-time systems
 brew "erlang@27"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Extra modules and scripts for CMake
+brew "extra-cmake-modules"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # GitHub command-line tool
@@ -34,12 +42,16 @@ brew "smartmontools"
 brew "gsmartcontrol"
 # Fast, highly customisable system info script with LGBTQ+ pride flags
 brew "hyfetch"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # YAML Parser
 brew "libyaml"
 # Mac App Store command-line interface
 brew "mas"
 # TCP port scanner, scans entire Internet in under 5 minutes
 brew "masscan"
+# Small build system for use with gyp or CMake
+brew "ninja"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Package compiler and linker metadata toolkit
@@ -62,13 +74,23 @@ brew "swift-format"
 brew "swiftdraw"
 # Tool to enforce Swift style and conventions
 brew "swiftlint"
+# CLI for generating a Software Bill of Materials from container images
+brew "syft"
 # Terminal multiplexer
 brew "tmux"
 # Internet file retriever
 brew "wget"
 # Dumb downloader that scrapes the web
 brew "you-get"
+# Family of tools to build, test and package software
+cask "cmake-app"
+mas "Apple Configurator", id: 1037126344
+mas "Brother iPrint&Scan", id: 1193539993
 mas "Developer", id: 640199958
+mas "Keynote讲演", id: 409183694
+mas "Numbers表格", id: 409203825
+mas "Pages文稿", id: 409201541
+mas "Swift Playground", id: 1496833156
 mas "The Unarchiver", id: 425424353
 mas "uBlock Origin Lite", id: 6745342698
 mas "Unsplash Wallpapers", id: 1284863847
@@ -76,3 +98,24 @@ mas "Xcode", id: 497799835
 mas "微信", id: 836500024
 mas "腾讯会议", id: 1484048379
 mas "钉钉", id: 1435447041
+go "github.com/klauspost/asmfmt/cmd/asmfmt"
+go "github.com/sjzar/chatlog"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/kisielk/errcheck"
+go "github.com/davidrjenni/reftools/cmd/fillstruct"
+go "github.com/Done-0/fuck-u-code/cmd/fuck-u-code"
+go "github.com/sinclairtarget/git-who"
+go "github.com/rogpeppe/godef"
+go "golang.org/x/tools/cmd/goimports"
+go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+go "github.com/fatih/gomodifytags"
+go "golang.org/x/tools/gopls"
+go "golang.org/x/tools/cmd/gorename"
+go "github.com/jstemmer/gotags"
+go "github.com/koron/iferr"
+go "github.com/josharian/impl"
+go "honnef.co/go/tools/cmd/keyify"
+go "github.com/fatih/motion"
+go "github.com/mgechev/revive"
+go "honnef.co/go/tools/cmd/staticcheck"
+go "github.com/wailsapp/wails/v2/cmd/wails"

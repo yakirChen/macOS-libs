@@ -160,11 +160,11 @@ export BOOSTDIR=${BOOST_ROOT}/include
 # 打包编译工具
 # export CHEZ_SCHEME_HOME=${VLM_SERVERS}/chez_scheme
 # export CMAKE_HOME=${OPT}/cmake
-export M2_HOME=${OPT}/maven                   # maven
+export MAVEN_HOME=${OPT}/maven                   # maven
 # export MD_HOME=${OPT}/mvnd                   # maven
-# export M2_HOME=${OPT}/mvnd                   # maven
+# export MAVEND_HOME=${OPT}/mvnd                   # maven
 # export SBT_HOME=${OPT}/sbt                   # maven
-export MAVEN_CONFIG=${M2_HOME}/conf
+export MAVEN_CONFIG=${MAVEN_HOME}/conf
 export MAVEN_SKIP_RC=true
 export MAVEN_REPOSITORY=${VLM_REPOS}/m2/repository
 # export SBT_OPTS="-Dsbt.global.base=/Volumes/sm/repos/sbt -Dsbt.ivy.home=/Volumes/sm/repos/ivy2"
@@ -174,6 +174,7 @@ export GRADLE_HOME=${OPT}/gradle              # gradle
 # export NASM_HOME=${OPT}/nasm
 # export BISON_HOME=${OPT}/bison
 export PROTOBUF_HOME=${OPT}/protoc
+export CHT_HOME=${OPT}/cht
 # export YASM_HOME=${OPT}/yasm
 
 # repos
@@ -317,7 +318,7 @@ PATHS=(
     "${BREW}/bin"
     "${BREW}/sbin"
     "${CARGO_HOME}/bin"
-    "${M2_HOME}/bin"
+    "${MAVEN_HOME}/bin"
     "${GRADLE_HOME}/bin"
     "${ANT_HOME}/bin"
     "${SQLITE}/bin"
@@ -332,6 +333,7 @@ PATHS=(
     "${NGINX_HOME}"
     "${PROTOBUF_HOME}/bin"
     "${BREW_OPT}/erlang@27/bin"
+    "${CHT_HOME}"
 )
 
 for p in "${PATHS[@]}"; do
@@ -385,6 +387,7 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Volumes/sm"
 # alias ydll="ydl --proxy socks5://127.0.0.1:1080 --write-sub --all-subs --yes-playlist "
 #alias luamake="${OPT}/luamake/luamake"
+alias cht=cht.sh
 
 # alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 
@@ -464,9 +467,9 @@ function jadx(){
 MVN_MB="-Dmaven.compiler.fork=true -T12"
 MVN_TEMPLATE="mvn clean package -DskipTests ${1} -U "
 MVN_COMPILE_TEMPLATE="mvn clean compile -DskipTests ${1} -U "
-alias mvnc="${M2_HOME}/bin/mvn clean"
-alias mvnsrc="${M2_HOME}/bin/mvn dependency:sources"
-alias mvndocs="${M2_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc"
+alias mvnc="${MAVEN_HOME}/bin/mvn clean"
+alias mvnsrc="${MAVEN_HOME}/bin/mvn dependency:sources"
+alias mvndocs="${MAVEN_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc"
 alias mvnDepCheckShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi -U ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi -U"
 alias mvncs="mvn  -gs ~/.m2/settingscs.xml -s ~/.m2/settingscs.xml -Poinone "
 
@@ -582,7 +585,7 @@ function thinrun(){
         -Djdk.tls.rejectClientInitiatedRenegotiation=true \
         -Dspring.profiles.active=yakir \
         -jar ./pamirs-enterprise-7.0.0-SNAPSHOT.jar \
-        -Plifecycle=INSTALL -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false 
+        -Plifecycle=INSTALL -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false
 }
 
 # alias mx="mx --user-home=${VLM_REPOS}/mx"

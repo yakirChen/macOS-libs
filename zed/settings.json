@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "horizontal_scroll_margin": 1.0,
+  "vertical_scroll_margin": 1.0,
+  "buffer_font_weight": 300.0,
+  "title_bar": {
+    "show_menus": false,
+    "show_branch_icon": true
+  },
+  "disable_ai": true,
+  "use_system_window_tabs": false,
+  "scroll_beyond_last_line": "one_page",
   "collaboration_panel": {
     "dock": "left"
   },
@@ -18,10 +28,10 @@
     "metrics": false
   },
   "font_family": "Hack",
-  "ui_font_size": 12,
+  "ui_font_size": 12.0,
   "buffer_font_family": "Hack",
   // "buffer_line_height": "standard",
-  "buffer_line_height": { "custom": 1.2 },
+  "buffer_line_height": { "custom": 1.16 },
   "buffer_font_size": 11,
   "soft_wrap": "none",
   "restore_on_startup": "last_session",
@@ -54,15 +64,16 @@
     "show_nav_history_buttons": true
   },
   "tabs": {
-    "close_position": "left",
+    "close_position": "right",
     "file_icons": true,
-    "git_status": false,
+    "git_status": true,
     "activate_on_close": "history",
     "show_close_button": "hover"
   },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
+      "padding": 5,
       "enabled": false,
       "show_commit_summary": true
     }
@@ -80,7 +91,7 @@
     },
     "font_family": "Hack",
     // "font_features": null,
-    "font_size": 11,
+    "font_size": 10.0,
     "line_height": {
       "custom": 1
     },
@@ -91,7 +102,7 @@
     "buffer_font_family": "Hack",
     "buffer_font_size": 11,
     "option_as_meta": false,
-    "button": false,
+    "button": true,
     // "shell": {},
     "toolbar": {
       "breadcrumbs": false

@@ -17,7 +17,7 @@
 	<key>AIVectorStore</key>
 	<integer>1</integer>
 	<key>AddNewTabAtEndOfTabs</key>
-	<false/>
+	<true/>
 	<key>AiMaxTokens</key>
 	<integer>1000000</integer>
 	<key>AiModel</key>

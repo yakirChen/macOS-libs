@@ -1,4 +1,7 @@
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 call plug#begin('~/.vim/plugged')
+
 
 " Plug 'sheerun/vim-polyglot'
 " Plug 'maralla/completor.vim'
@@ -18,7 +21,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'yianwillis/vimcdoc'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'

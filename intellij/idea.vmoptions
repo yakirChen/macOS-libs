@@ -1,6 +1,7 @@
 # -verbose:class
 -Xms1024M
--Xss512K
+-Xss1M
+-Xmx3G
 
 #-Xcomp
 
@@ -39,9 +40,11 @@
 # -XX:AutoBoxCacheMax=512
 
 #-XX:+UseShenandoahGC
+#-XX:+UseZGC
+-XX:+UseG1GC
 -XX:ConcGCThreads=4
 #-XX:ParalleGCThreads=4
--XX:+AlwaysPreTouch
+#-XX:+AlwaysPreTouch
 # -XX:+DisableExplicitGC
 # -XX:G1HeapRegionSize=1M
 # -XX:MetaspaceSize=640M

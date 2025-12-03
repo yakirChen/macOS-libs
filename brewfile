@@ -1,23 +1,37 @@
 # ANSI HTML adapter
 brew "aha"
-# ARP scanning and fingerprinting tool
-brew "arp-scan"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
+# C library implementing the SSH2 protocol
+brew "libssh2"
+# Library for command-line editing
+brew "readline"
+# Download with resuming and segmented downloading
+brew "aria2"
+# ARP scanning and fingerprinting tool
+brew "arp-scan"
 # Automatic configure script builder
 brew "autoconf"
+# Collection of over 500 reusable autoconf macros
+brew "autoconf-archive"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Object-file caching compiler wrapper
+brew "ccache"
 # Cross-platform make
 brew "cmake"
 # Documentation for CMake
 brew "cmake-docs"
+# Shell script to build fancy DMGs
+brew "create-dmg"
 # Lightweight monitoring service that efficiently checks socket connections
 brew "dish"
 # Tool for exploring each layer in a docker image
 brew "dive"
+# Generic library support script
+brew "libtool"
 # Programming language for highly scalable real-time systems
 brew "erlang@27"
 # Perl lib for reading and writing EXIF metadata
@@ -26,26 +40,34 @@ brew "exiftool"
 brew "extra-cmake-modules"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Library for manipulating fonts
+brew "fonttools"
 # GitHub command-line tool
 brew "gh"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Multi-format archive and compression library
+brew "libarchive"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
 # Git extension for versioning large files
 brew "git-lfs"
 # Git blame for file trees
 brew "git-who"
-# Library for command-line editing
-brew "readline"
-# GNU Pretty Good Privacy (PGP) package
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # SMART hard drive monitoring
 brew "smartmontools"
 # Graphical user interface for smartctl
 brew "gsmartcontrol"
+# Improved top (interactive process viewer)
+brew "htop"
 # Fast, highly customisable system info script with LGBTQ+ pride flags
 brew "hyfetch"
-# Tool to create, edit and run self-contained source-only Java programs
-brew "jbang"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # YAML Parser
@@ -54,8 +76,12 @@ brew "libyaml"
 brew "mas"
 # TCP port scanner, scans entire Internet in under 5 minutes
 brew "masscan"
+# Netwide Assembler (NASM) is an 80x86 assembler
+brew "nasm"
 # Small build system for use with gyp or CMake
 brew "ninja"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Package compiler and linker metadata toolkit
@@ -67,11 +93,17 @@ brew "protoc-gen-grpc-java"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
 # Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
 # Modern man page viewer
 brew "qman"
+# Cross-platform application and UI framework
+brew "qt"
 # Small man page generator
 brew "scdoc"
+# SOcket CAT: netcat on steroids
+brew "socat"
 # Formatting technology for Swift source code
 brew "swift-format"
 # Convert SVG into PDF, PNG, JPEG or SF Symbol
@@ -82,12 +114,18 @@ brew "swiftlint"
 brew "syft"
 # Terminal multiplexer
 brew "tmux"
+# Generator for LS_COLORS with support for multiple color themes
+brew "vivid"
 # Internet file retriever
 brew "wget"
 # Dumb downloader that scrapes the web
 brew "you-get"
 # Family of tools to build, test and package software
 cask "cmake-app"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# Open-source code editor
+cask "visual-studio-code"
 mas "Apple Configurator", id: 1037126344
 mas "Brother iPrint&Scan", id: 1193539993
 mas "Developer", id: 640199958
@@ -95,11 +133,161 @@ mas "Keynote讲演", id: 409183694
 mas "Numbers表格", id: 409203825
 mas "Pages文稿", id: 409201541
 mas "Swift Playground", id: 1496833156
+mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
 mas "uBlock Origin Lite", id: 6745342698
 mas "Unsplash Wallpapers", id: 1284863847
+mas "Windows App", id: 1295203466
 mas "Xcode", id: 497799835
 mas "微信", id: 836500024
+mas "百度网盘", id: 547166701
 mas "腾讯会议", id: 1484048379
 mas "钉钉", id: 1435447041
 mas "飞书", id: 1551632588
+vscode "13xforever.language-x86-64-assembly"
+vscode "actboy168.lua-debug"
+vscode "ahmadalli.vscode-nginx-conf"
+vscode "angular.ng-template"
+vscode "asciidoctor.asciidoctor-vscode"
+vscode "bazelbuild.vscode-bazel"
+vscode "bierner.markdown-mermaid"
+vscode "camel-karavan.karavan"
+vscode "cschlosser.doxdocgen"
+vscode "davidanson.vscode-markdownlint"
+vscode "dbaeumer.vscode-eslint"
+vscode "dcortes92.freemarker"
+vscode "docsmsft.docs-images"
+vscode "docsmsft.docs-markdown"
+vscode "docsmsft.docs-yaml"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "firefox-devtools.vscode-firefox-debug"
+vscode "foxundermoon.shell-format"
+vscode "getgauge.gauge"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "github.remotehub"
+vscode "github.vscode-codeql"
+vscode "golang.go"
+vscode "graphql.vscode-graphql"
+vscode "graphql.vscode-graphql-execution"
+vscode "graphql.vscode-graphql-syntax"
+vscode "hangxingliu.vscode-nginx-conf-hint"
+vscode "hbenl.vscode-test-explorer"
+vscode "ionide.ionide-fsharp"
+vscode "jebbs.plantuml"
+vscode "jeff-hykin.better-cpp-syntax"
+vscode "josetr.cmake-language-support-vscode"
+vscode "kdl-org.kdl"
+vscode "koichisasada.vscode-rdbg"
+vscode "kumar-harsh.graphql-for-vscode"
+vscode "leetcode.vscode-leetcode"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "llvm-vs-code-extensions.vscode-clangd"
+vscode "lucasbadico.code-flowchart"
+vscode "malmaud.tmux"
+vscode "mike-lischke.vscode-antlr4"
+vscode "mindaro-dev.file-downloader"
+vscode "ms-azuretools.vscode-azureresourcegroups"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-dotnettools.csdevkit"
+vscode "ms-dotnettools.csharp"
+vscode "ms-dotnettools.dotnet-interactive-vscode"
+vscode "ms-dotnettools.vscode-dotnet-pack"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.pylint"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.azure-repos"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
+vscode "ms-vscode.hexeditor"
+vscode "ms-vscode.live-server"
+vscode "ms-vscode.makefile-tools"
+vscode "ms-vscode.powershell"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-repositories"
+vscode "ms-vscode.remote-server"
+vscode "ms-vscode.test-adapter-converter"
+vscode "ms-vscode.theme-materialkit"
+vscode "ms-vscode.vscode-typescript-next"
+vscode "msjsdiag.vscode-react-native"
+vscode "octref.vetur"
+vscode "oinone.oinone-pamirs-plugin"
+vscode "oracle.oracle-java"
+vscode "pomdtr.excalidraw-editor"
+vscode "raynigon.nginx-formatter"
+vscode "redhat.fabric8-analytics"
+vscode "redhat.java"
+vscode "redhat.vscode-apache-camel"
+vscode "redhat.vscode-commons"
+vscode "redhat.vscode-community-server-connector"
+vscode "redhat.vscode-debug-adapter-apache-camel"
+vscode "redhat.vscode-microprofile"
+vscode "redhat.vscode-quarkus"
+vscode "redhat.vscode-rsp-ui"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "remisa.shellman"
+vscode "ria.elastic"
+vscode "rogalmic.bash-debug"
+vscode "rogalmic.zsh-debug"
+vscode "rust-lang.rust-analyzer"
+vscode "scala-lang.scala"
+vscode "shopify.ruby-extensions-pack"
+vscode "shopify.ruby-lsp"
+vscode "sjhuangx.vscode-scheme"
+vscode "sorbet.sorbet-vscode-extension"
+vscode "swiftlang.swift-vscode"
+vscode "tamasfe.even-better-toml"
+vscode "timonwong.shellcheck"
+vscode "twxs.cmake"
+vscode "usernamehw.errorlens"
+vscode "vadimcn.vscode-lldb"
+vscode "vmware.vscode-boot-dev-pack"
+vscode "vmware.vscode-bosh"
+vscode "vmware.vscode-concourse"
+vscode "vmware.vscode-manifest-yaml"
+vscode "vmware.vscode-spring-boot"
+vscode "vscjava.vscode-gradle"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-java-test"
+vscode "vscjava.vscode-lombok"
+vscode "vscjava.vscode-maven"
+vscode "vscjava.vscode-spring-boot-dashboard"
+vscode "vscjava.vscode-spring-initializr"
+vscode "vscodevim.vim"
+vscode "vue.volar"
+vscode "xadillax.viml"
+vscode "xyz.local-history"
+go "github.com/klauspost/asmfmt/cmd/asmfmt"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/kisielk/errcheck"
+go "github.com/davidrjenni/reftools/cmd/fillstruct"
+go "github.com/rogpeppe/godef"
+go "golang.org/x/tools/cmd/goimports"
+go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+go "github.com/fatih/gomodifytags"
+go "golang.org/x/tools/gopls"
+go "github.com/jstemmer/gotags"
+go "github.com/koron/iferr"
+go "github.com/josharian/impl"
+go "github.com/fatih/motion"
+go "github.com/mgechev/revive"
+go "honnef.co/go/tools/cmd/staticcheck"

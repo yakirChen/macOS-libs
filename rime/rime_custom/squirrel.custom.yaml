@@ -13,6 +13,8 @@ patch:
       no_inline: true
     com.github.wez.wezterm:
       ascii_mode: true
+    com.mitchellh.ghostty:
+      ascii_mode: true
       #no_inline: true
     # com.googlecode.iterm2:
     # ascii_mode: true

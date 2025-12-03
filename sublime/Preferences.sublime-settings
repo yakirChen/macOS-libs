@@ -72,4 +72,5 @@
 	"translate_tabs_to_spaces": true,
 	"word_separators": "./\\()\"':,.;<>~!@#$%^&*|+=[]{}`~?",
 	"word_wrap": false,
+	"gpu_window_buffer": false,
 }

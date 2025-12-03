@@ -6,29 +6,54 @@
 // To see all of Zed's default settings without changing your
 // custom settings, run `zed: open default settings` from the
 // command palette
+//
+// https://www.kevnu.com/zh/posts/zed-editor-configuration-guide-autosave-prettier-terminal-font-and-formatting-made-easy
 {
+  "language_models": {
+    "ollama": {
+      "api_url": "http://192.168.1.66:11434"
+    }
+  },
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "ollama",
+      "model": "hermes3:70b"
+    },
+    "model_parameters": []
+  },
+  "show_wrap_guides": false,
+  "format_on_save": "off",
+  "languages": {
+    "XML": {
+      "show_wrap_guides": true,
+      "auto_indent_on_paste": false,
+      "auto_indent": false
+    }
+  },
+  "icon_theme": "Zed (Default)",
   "horizontal_scroll_margin": 1.0,
   "vertical_scroll_margin": 1.0,
   "buffer_font_weight": 300.0,
   "title_bar": {
     "show_menus": false,
-    "show_branch_icon": true
+    "show_branch_icon": true,
   },
-  "disable_ai": true,
+  "disable_ai": false,
   "use_system_window_tabs": false,
   "scroll_beyond_last_line": "one_page",
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "features": {
-    "edit_prediction_provider": "none"
+    "edit_prediction_provider": "none",
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
-  "font_family": "Hack",
   "ui_font_size": 12.0,
+  "font_family": "Hack",
   "buffer_font_family": "Hack",
   // "buffer_line_height": "standard",
   "buffer_line_height": { "custom": 1.16 },
@@ -37,15 +62,15 @@
   "restore_on_startup": "last_session",
   // "theme": "cave-light",
   "theme": {
-    "mode": "system",
+    "mode": "light",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Gruvbox Dark",
   },
   "autosave": "on_window_change",
   "base_keymap": "JetBrains",
   "centered_layout": {
     "left_padding": 0.1,
-    "right_padding": 0.1
+    "right_padding": 0.1,
   },
   "scrollbar": {
     "show": "auto",
@@ -56,27 +81,27 @@
     // "diagnostics": "warning",
     "axes": {
       "horizontal": true,
-      "vertical": true
-    }
+      "vertical": true,
+    },
   },
   "tab_bar": {
     "show": true,
-    "show_nav_history_buttons": true
+    "show_nav_history_buttons": true,
   },
   "tabs": {
-    "close_position": "right",
+    "close_position": "left",
     "file_icons": true,
     "git_status": true,
     "activate_on_close": "history",
-    "show_close_button": "hover"
+    "show_close_button": "hover",
   },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
       "padding": 5,
       "enabled": false,
-      "show_commit_summary": true
-    }
+      "show_commit_summary": true,
+    },
   },
   "terminal": {
     "alternate_scroll": "off",
@@ -86,18 +111,18 @@
     "detect_venv": {
       "on": {
         "directories": [".env", "env", ".venv", "venv"],
-        "activate_script": "default"
-      }
+        "activate_script": "default",
+      },
     },
     "font_family": "Hack",
     // "font_features": null,
     "font_size": 10.0,
     "line_height": {
-      "custom": 1
+      "custom": 1,
     },
     "disable_ai": true,
     "buffer_line_height": {
-      "custom": 1
+      "custom": 1,
     },
     "buffer_font_family": "Hack",
     "buffer_font_size": 11,
@@ -105,8 +130,8 @@
     "button": true,
     // "shell": {},
     "toolbar": {
-      "breadcrumbs": false
+      "breadcrumbs": false,
     },
-    "working_directory": "current_project_directory"
-  }
+    "working_directory": "current_project_directory",
+  },
 }

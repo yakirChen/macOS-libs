@@ -34,7 +34,13 @@
 	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>553F86A3-9166-49F1-BB5D-4F33033E184C</string>
+	<key>Default Browser Profile Guid</key>
+	<string>553F86A3-9166-49F1-BB5D-4F33033E184C</string>
+	<key>DimBackgroundWindows</key>
+	<false/>
 	<key>DimInactiveSplitPanes</key>
+	<false/>
+	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableTabBarTooltips</key>
 	<true/>
@@ -42,10 +48,16 @@
 	<false/>
 	<key>EnterCopyModeAutomatically</key>
 	<true/>
+	<key>FlashTabBarInFullscreen</key>
+	<false/>
+	<key>HTMLTabTitles</key>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideActivityIndicator</key>
 	<false/>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideTab</key>
 	<false/>
 	<key>HideTabNumber</key>
@@ -56,6 +68,8 @@
 	<true/>
 	<key>IRMemory</key>
 	<integer>4</integer>
+	<key>MaxVertically</key>
+	<false/>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -64,6 +78,8 @@
 			<key>ASCII Ligatures</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
+			<false/>
+			<key>Animate Movement</key>
 			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
@@ -1140,7 +1156,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>93</integer>
+			<integer>94</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1477,17 +1493,23 @@
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>ShowNewOutputIndicator</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
+	<false/>
+	<key>ShowPaneTitlesEvenIfOnlyOnePane</key>
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.39593882736650482</real>
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>TabViewType</key>
+	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
 	<true/>
 	<key>TerminalMargin</key>
@@ -1508,6 +1530,8 @@
 	<false/>
 	<key>WindowNumber</key>
 	<false/>
+	<key>WindowPlacement</key>
+	<integer>3</integer>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>

@@ -29,5 +29,17 @@
     "bindings": {
       "alt-cmd-l": "editor::Format"
     }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-cmd-2": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-n": "workspace::NewFile"
+    }
   }
 ]

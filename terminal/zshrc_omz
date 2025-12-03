@@ -8,7 +8,7 @@ plugins=(
     # osx
     # xcode
     git
-    git-extras
+    # git-extras
     git-lfs
     # gitfast
     # git-prompt
@@ -40,9 +40,10 @@ plugins=(
     # docker-compose
 )
 
-zstyle ":plugin:history-search-multi-word" reset-prompt-protect "1"
 zstyle ":history-search-multi-word" page-size "15"                     # Number of entries to show (default is $LINES/3)
 zstyle ":history-search-multi-word" highlight-color "fg=yellow,bold"   # Color in which to highlight matched, searched text (default bg=17 on 256-color terminals)
+
+zstyle ":plugin:history-search-multi-word" reset-prompt-protect "1"
 zstyle ":plugin:history-search-multi-word" synhl "yes"                 # Whether to perform syntax highlighting (default true)
 zstyle ":plugin:history-search-multi-word" active "underline"          # Effect on active history entry. Try: standout, bold, bg=blue (default underline)
 zstyle ":plugin:history-search-multi-word" check-paths "yes"           # Whether to check paths for existence and mark with magenta (default true)
@@ -81,7 +82,7 @@ export VLM_SERVERS=${VLM}/servers
 # 语言工具
 export RUBY_HOME=${OPT}/ruby
 export GOROOT=${OPT}/go
-# export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
 export GOPROXY=https://goproxy.cn,direct
 export GOPATH=${VLM_REPOS}/go/gopath
 export GOCACHE=${VLM_REPOS}/go/gocache
@@ -100,6 +101,7 @@ export ZIG_HOME=${OPT}/zig
 export RUSTFLAGS='-C target-cpu=native'
 # export RUSTFLAGS='-C prefer-dynamic'
 export RUSTUP_TOOLCHAIN=stable
+export OLLAMA_MODELS=/Volumes/sm/servers/ollama
 
 # export RUSTUP_TOOLCHAIN=nightly
 # export MIRI_SYSROOT=${VLM_REPOS}/miri
@@ -137,7 +139,7 @@ export MYSQL_SHELL=${OPT}/mysql-shell
 # export PGLOG=/Volumes/sm/repos/pgsql/pglog.log
 # export PGCTLLOG=/Volumes/sm/repos/pgsql/pgctllog.log
 
-export NGINX_HOME=${OPT}/nginx
+export NGINX_HOME=${VLM_SERVERS}/nginx
 # export BTRACE_HOME=${OPT}/btrace
 
 # 运行时环境变量
@@ -193,6 +195,7 @@ export GEM_PATH=${VLM_REPOS}/gem
 # export NMAP_HOME=${OPT}/nmap
 # export SPRING_HOME=${OPT}/spring
 # export DOCKER_HOME=${HOME}/.docker
+export MOLE_HOME=/opt/mole
 
 # export ARTHAS_HOME=${OPT}/arthas
 
@@ -207,21 +210,23 @@ export GEM_PATH=${VLM_REPOS}/gem
 # export JAVA_22_HOME=$(/usr/libexec/java_home -v 22)
 
 export JAVA_8_HOME="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home"
-export ZULU_8_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
 #export BELL_8_FULL_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-8-full.jdk/Contents/Home"
 #export BELL_21_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-21-full.jdk/Contents/Home"
 export JAVA_11_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
 export JAVA_17_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
-export JAVA_ZULU_17_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 export JAVA_21_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
 export JAVA_25_HOME="/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home"
-export JAVA_SEMERU_17_HOME="/Library/Java/JavaVirtualMachines/ibm-semeru-open-17.jdk/Contents/Home"
+
+export ZULU_8_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
+export ZULU_17_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+export ZULU_21_HOME="/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home"
+export ZULU_25_HOME="/Library/Java/JavaVirtualMachines/zulu-25.jdk/Contents/Home"
 
 # export JAVA_SEMERU_HOME=/Library/Java/JavaVirtualMachines/semeru/Contents/Home
 # export JAVA_ZULU_HOME=/Library/Java/JavaVirtualMachines/zulu/Contents/Home
 # export JAVA_ZERO_SLOWDEBUG_HOME=${HOME}/local/jdk/jdk-18.slowdebug.jdkContents/Home
 # export JAVA_ZERO_FASTDEBUG_HOME=${HOME}/local/jdk/jdk-17.fastdebug.jdk/Contents/Home
-export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-jdk-24/Contents/Home
+export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-jdk-25/Contents/Home
 #export JAVA_ADOPT_HOT_14_HOME=${OPT}/jdk/jdk-14.0.1+7/Contents/Home/
 #export JAVA_ZERO_HOME=${OPT}/jdk-15.jdk/Contents/Home
 #export JDK_18_HOME=${JAVA_8_HOME}
@@ -230,17 +235,18 @@ export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-jdk-24/Contents/Ho
 #export SCALA_HOME=${OPT}/scala
 #export SBT_HOME=${VLM_SERVERS}/sbt
 #export JDK_BOOT_DIR=${JAVA_8_HOME}
-# export GRAALVM_HOME=${OPT}/graalvm-ce-java11-20.3.0/Contents/Home
 
 alias jdk8="export JAVA_HOME=${JAVA_8_HOME}"
-alias zulu8="export JAVA_HOME=${ZULU_8_HOME}"
 # alias jdkzulu="export JAVA_HOME=${JAVA_ZULU_HOME}"
 alias jdk11="export JAVA_HOME=${JAVA_11_HOME}"
 alias jdk17="export JAVA_HOME=${JAVA_17_HOME}"
-alias zulu17="export JAVA_HOME=${JAVA_ZULU_17_HOME}"
 alias jdk21="export JAVA_HOME=${JAVA_21_HOME}"
 alias jdk25="export JAVA_HOME=${JAVA_25_HOME}"
-alias semeru17="export JAVA_HOME=${JAVA_SEMERU_17_HOME}"
+
+alias zulu8="export JAVA_HOME=${ZULU_8_HOME}"
+alias zulu17="export JAVA_HOME=${ZULU_17_HOME}"
+alias zulu21="export JAVA_HOME=${ZULU_21_HOME}"
+alias zulu25="export JAVA_HOME=${ZULU_25_HOME}"
 
 function graal() {
     export JAVA_HOME=${GRAALVM_HOME}
@@ -261,12 +267,12 @@ export NPM_GLOBAL=${VLM_REPOS}/npm/node_global
 # export NPM_CACHE=${VLM_REPOS}/npm_cache
 
 function switchNode() {
-    echo "switch node $NODE_VERSION" && sudo rm -f ${OPT}/node && sudo ln -sf ${OPT}/node${1} ${OPT}/node
+    echo "switch node $NODE_VERSION" && rm -f ${OPT}/node && ln -sf ${OPT}/node${1} ${OPT}/node
 }
 
 # Zig
-export ZIG_GLOBAL_CACHE_DIR=/Volumes/sm/repos/zig/global
-export ZIG_LOCAL_CACHE_DIR=/Volumes/sm/repos/zig/local
+export ZIG_GLOBAL_CACHE_DIR=/Volumes/sm/repos/zig/
+export ZIG_LOCAL_CACHE_DIR=/Volumes/sm/repos/zig/
 
 # export _JAVA_LAUNCHER_DEBUG=1
 # export DEF_JAVA_OPTS="-Xms100M -Xmx256M -Xverify:none -XX:ReservedCodeCacheSize=100m -XX:+UseG1GC -XX:+AlwaysPresmuch -XX:+UseNUMA -XX:+UseCompressedOops -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryErro-XX:+PrintGCDetails \
@@ -312,33 +318,41 @@ export SILVER_SHELL=$0
 
 # ############################################ PATH #################################################
 
-PATHS=(
-    "${OPT}/bin"
-    "${OPT}/kits"
-    "${BREW}/bin"
-    "${BREW}/sbin"
-    "${CARGO_HOME}/bin"
-    "${MAVEN_HOME}/bin"
-    "${GRADLE_HOME}/bin"
-    "${ANT_HOME}/bin"
-    "${SQLITE}/bin"
-    "${MYSQL_BASE_DIR}/bin"
-    "${MYSQL_BASE_DIR}/support-files"
-    "${GOROOT}/bin"
-    "${GOPATH}/bin"
-    "${NODE_HOME}/bin"
-    "${NPM_GLOBAL}/bin"
-    "${GEM_HOME}/bin"
-    "${RUBY_HOME}/bin"
-    "${NGINX_HOME}"
-    "${PROTOBUF_HOME}/bin"
-    "${BREW_OPT}/erlang@27/bin"
-    "${CHT_HOME}"
-)
+# PATHS=(
+#     "${OPT}/bin"
+#     "${OPT}/kits"
+#     "${BREW}/bin"
+#     "${BREW}/sbin"
+#     "${CARGO_HOME}/bin"
+#     "${MAVEN_HOME}/bin"
+#     "${GRADLE_HOME}/bin"
+#     "${ANT_HOME}/bin"
+#     "${SQLITE}/bin"
+#     "${RUBY_HOME}/bin"
+#     "${PROTOBUF_HOME}/bin"
+#     "${BREW_OPT}/erlang@27/bin"
+#     "${CHT_HOME}"
+#     "${MOLE_HOME}"
+#     "${GOROOT}/bin"
 
-for p in "${PATHS[@]}"; do
-    [[ -d "$p" ]] && PATH="$p:$PATH"
-done
+#     # "${NGINX_HOME}"
+#     # "${GEM_HOME}/bin"
+#     # "${MYSQL_BASE_DIR}/bin"
+#     # "${MYSQL_BASE_DIR}/support-files"
+#     # "${GOPATH}/bin"
+#     "${NODE_HOME}/bin"
+#     "${NPM_GLOBAL}/bin"
+#     "${OPT}/llama"
+# )
+
+# for p in "${PATHS[@]}"; do
+#     [[ -d "$p" ]] && PATH="$p:$PATH"
+# done
+
+path+=("${OPT}/bin" "${OPT}/kits" "${BREW}/bin" "${BREW}/sbin")
+path+=("${CARGO_HOME}/bin" "${MAVEN_HOME}/bin" "${GRADLE_HOME}/bin"  "${RUBY_HOME}/bin")
+path+=("${PROTOBUF_HOME}/bin" "${BREW_OPT}/erlang@27/bin" "${CHT_HOME}")
+path+=(""${NODE_HOME}/bin"" "${NPM_GLOBAL}/bin")
 
 export PATH
 
@@ -375,19 +389,20 @@ unalias mvn
 
 # ########################################## User Alias Commond #####################################
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-alias pin='ping -c 6 $1'
-alias wgetnc='wget --no-check-certificate'
-alias zshconfig="sl ~/.zshrc"
+# alias pin='ping -c 6 $1'
+# alias wgetnc='wget --no-check-certificate'
+# alias zshconfig="sl ~/.zshrc"
 alias week='date +%V'
+alias day='date +"%Y-%m-%d %H:%M:%S"'
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # alias recaf="${JAVA_11_HOME}/bin/java -Dapplication.home=${JAVA_11_HOME} -jar ${JARS}/recaf.jar >/dev/null 2>&1 &"
 # alias bcv="${JAVA_11_HOME}/bin/java -Dapplication.home=${JAVA_11_HOME} -jar ${JARS}/Bytecode-Viewer.jar >/dev/null 2>&1 &"
 # alias pg="ps aux|rg $1"
 # alias jpg="jps -lv|rg $1"
-alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Volumes/sm"
+# alias mdutildisto="sudo mdutil -i off -d -X /Volumes/sm ; sudo mdutil -i off /Volumes/sm"
 # alias ydll="ydl --proxy socks5://127.0.0.1:1080 --write-sub --all-subs --yes-playlist "
 #alias luamake="${OPT}/luamake/luamake"
-alias cht=cht.sh
+# alias cht=cht.sh
 
 # alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 
@@ -426,10 +441,10 @@ function ylc() {
     ${OPT}/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --cookies-from-browser chrome --write-auto-subs --write-subs $1
 }
 
-function ylf() {
-    echo "$1"
-    ${OPT}/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --cookies-from-browser firefox --write-auto-subs --write-subs $1
-}
+# function ylf() {
+#     echo "$1"
+#     ${OPT}/bin/yt-dlp_macos --proxy socks5://127.0.0.1:7890 -v --sub-langs "zh.*,en*" --cookies-from-browser firefox --write-auto-subs --write-subs $1
+# }
 
 function  curlc() {
     echo "${1}"
@@ -458,20 +473,20 @@ function jgc() {
 #     export JAVA_HOME=${JAVA_8_HOME}
 # }
 
-function jadx(){
-    export JAVA_HOME=${JAVA_21_HOME}
-    ${JADX_HOME}/bin/jadx-gui  >/dev/null 2>&1 &
-    export JAVA_HOME=${JAVA_8_HOME}
-}
+# function jadx(){
+#     export JAVA_HOME=${JAVA_21_HOME}
+#     ${JADX_HOME}/bin/jadx-gui  >/dev/null 2>&1 &
+#     export JAVA_HOME=${JAVA_8_HOME}
+# }
 
-MVN_MB="-Dmaven.compiler.fork=true -T12"
-MVN_TEMPLATE="mvn clean package -DskipTests ${1} -U "
-MVN_COMPILE_TEMPLATE="mvn clean compile -DskipTests ${1} -U "
+# MVN_MB="-Dmaven.compiler.fork=true -T12"
+# MVN_TEMPLATE="mvn clean package -DskipTests ${1} -U "
+# MVN_COMPILE_TEMPLATE="mvn clean compile -DskipTests ${1} -U "
 alias mvnc="${MAVEN_HOME}/bin/mvn clean"
 alias mvnsrc="${MAVEN_HOME}/bin/mvn dependency:sources"
 alias mvndocs="${MAVEN_HOME}/bin/mvn dependency:resolve -Dclassifier=javadoc"
-alias mvnDepCheckShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi -U ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi -U"
-alias mvncs="mvn  -gs ~/.m2/settingscs.xml -s ~/.m2/settingscs.xml -Poinone "
+# alias mvnDepCheckShushi="mvn org.codehaus.mojo:versions-maven-plugin:display-plugin-updates -Pshushi -U ; mvn org.codehaus.mojo:versions-maven-plugin:display-property-updates -Pshushi -U"
+# alias mvncs="mvn  -gs ~/.m2/settingscs.xml -s ~/.m2/settingscs.xml -Poinone "
 
 function mvna(){
     p=$1
@@ -516,77 +531,6 @@ function mvnDepCheck(){
 #       -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false \
 #       --spring.config.location=${workspace}/application-dev.yml
 # }
-function thinrun(){
-    java -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:18882 \
-        -server \
-        -Xss1M \
-        -Xms4G \
-        -Xmx4G \
-        -XX:+UnlockExperimentalVMOptions \
-        -XX:+IgnoreUnrecognizedVMOptions \
-        -XX:+UseG1GC \
-        -XX:-UseNUMA \
-        -XX:+UseCompressedOops \
-        -Xdebug \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.launcher=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.platform=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.resources=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED \
-        -J--add-opens=jdk.compiler/com.sun.source.tree=ALL-UNNAMED \
-        -J--add-opens=java.base/jdk.internal.access=ALL-UNNAMED \
-        -J--add-opens=java.xml/com.sun.org.apache.xpath.internal.jaxp=ALL-UNNAMED \
-        --add-opens=java.base/java.lang=ALL-UNNAMED \
-        --add-opens=java.base/java.lang.annotation=ALL-UNNAMED \
-        --add-opens=java.base/java.lang.constant=ALL-UNNAMED \
-        --add-opens=java.base/java.lang.invoke=ALL-UNNAMED \
-        --add-opens=java.base/java.lang.module=ALL-UNNAMED \
-        --add-opens=java.base/java.lang.ref=ALL-UNNAMED \
-        --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
-        --add-opens=java.base/java.lang.runtime=ALL-UNNAMED \
-        --add-opens=java.base/java.io=ALL-UNNAMED \
-        --add-opens=java.base/java.lang=ALL-UNNAMED \
-        --add-opens=java.base/java.math=ALL-UNNAMED \
-        --add-opens=java.base/java.net=ALL-UNNAMED \
-        --add-opens=java.base/java.nio=ALL-UNNAMED \
-        --add-opens=java.base/java.security=ALL-UNNAMED \
-        --add-opens=java.base/java.text=ALL-UNNAMED \
-        --add-opens=java.base/java.time=ALL-UNNAMED \
-        --add-opens=java.base/java.util=ALL-UNNAMED \
-        --add-opens=java.xml/com.sun.org.apache.xpath.internal.jaxp=ALL-UNNAMED \
-        --add-opens=java.base/jdk.internal.access=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.launcher=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.platform=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.resources=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED \
-        --add-exports=jdk.compiler/com.sun.source.tree=ALL-UNNAMED \
-        --add-exports=java.base/jdk.internal.access=ALL-UNNAMED \
-        --add-exports=java.base/jdk.internal.loader=ALL-UNNAMED \
-        --add-exports=java.xml/com.sun.org.apache.xpath.internal.jaxp=ALL-UNNAMED \
-        -Djdk.tls.rejectClientInitiatedRenegotiation=true \
-        -Dspring.profiles.active=yakir \
-        -jar ./pamirs-enterprise-7.0.0-SNAPSHOT.jar \
-        -Plifecycle=INSTALL -PenvProtected=false -PstrictProtected=false -PsaveEnvironments=false
-}
 
 # alias mx="mx --user-home=${VLM_REPOS}/mx"
 # alias schemescript='scheme --script'
@@ -596,10 +540,10 @@ function thinrun(){
 #alias hgd='deactivate'
 
 ########################################### rustup ##################################################
-alias rnr="rustup run nightly cargo --color always "
-alias rsr="rustup run stable cargo --color always "
-alias rbr="rustup run beta cargo --color always "
-alias ru="rustup update ; rustup self update "
+# alias rnr="rustup run nightly cargo --color always "
+# alias rsr="rustup run stable cargo --color always "
+# alias rbr="rustup run beta cargo --color always "
+# alias ru="rustup update ; rustup self update "
 
 ############################################ alias ##################################################
 #alias rm="rm -v "
@@ -628,14 +572,10 @@ alias ssh2="ssh -p2222 "
 # alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 # alias cproxy="export ALL_PROXY=socks5://127.0.0.1:7890"
 function cproxy(){
-    export https_proxy=http://127.0.0.1:7890
-    export http_proxy=http://127.0.0.1:7890
-    export all_proxy=socks5://127.0.0.1:7890
+    export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 }
 function uproxy(){
-    unset https_proxy
-    unset http_proxy
-    unset all_proxy
+    unset https_proxy http_proxy all_proxy
 }
 
 # alias pproxy="export https_proxy=http://127.0.0.1:1080 http_proxy=http://127.0.0.1:1080 all_proxy=socks5://127.0.0.1:1080"
@@ -675,7 +615,7 @@ function uproxy(){
 # . ${VLM_REPOS}/opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 #[ -s "${OPT}/jabba/jabba.sh" ] && source "${OPT}/jabba/jabba.sh"
-export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
+# export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
 
 # ============快捷键设置===================
 # 详见 http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
@@ -710,4 +650,7 @@ export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
 # export HSTR_CONFIG=hicolor,prompt-bottom,raw-history-view
 
 
-ZED_ALLOW_ROOT=true
+export ZED_ALLOW_ROOT=true
+
+# huggingface
+export HF_ENDPOINT=https://hf-mirror.com

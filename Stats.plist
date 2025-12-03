@@ -18,6 +18,8 @@
 	<integer>6</integer>
 	<key>CombinedModules</key>
 	<true/>
+	<key>CombinedModules_popup</key>
+	<true/>
 	<key>CombinedModules_separator</key>
 	<false/>
 	<key>CombinedModules_spacing</key>
@@ -28,6 +30,10 @@
 	<false/>
 	<key>GPU_position</key>
 	<integer>1</integer>
+	<key>NSNavLastRootDirectory</key>
+	<string>~/Library/Mobile Documents/com~apple~CloudDocs/Developer/macOS-libs</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{800, 448}</string>
 	<key>NSNavPanelExpandedStateForSaveMode</key>
 	<true/>
 	<key>NSOSPLastRootDirectory</key>
@@ -64,13 +70,17 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>3161 657 800 448 2056 212 1920 1055 </string>
+	<string>2616 704 800 448 2056 249 1920 1055 </string>
 	<key>Network_position</key>
 	<integer>7</integer>
 	<key>RAM_position</key>
 	<integer>2</integer>
 	<key>Sensors_position</key>
 	<integer>4</integer>
+	<key>Sensors_state</key>
+	<true/>
+	<key>remote_id</key>
+	<string>D89BF484-7F5C-4645-B26B-4FE0DBA7C404</string>
 	<key>setupProcess</key>
 	<true/>
 	<key>telemetry</key>
@@ -80,6 +90,6 @@
 	<key>updater_check_ts</key>
 	<integer>1753441589</integer>
 	<key>version</key>
-	<string>2.11.50</string>
+	<string>2.11.63</string>
 </dict>
 </plist>

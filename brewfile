@@ -16,8 +16,14 @@ brew "autoconf"
 brew "autoconf-archive"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Project for generating C bindings from Rust code
+brew "cbindgen"
 # Object-file caching compiler wrapper
 brew "ccache"
 # Cross-platform make
@@ -40,6 +46,8 @@ brew "exiftool"
 brew "extra-cmake-modules"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Library for manipulating fonts
@@ -64,22 +72,34 @@ brew "go"
 brew "smartmontools"
 # Graphical user interface for smartctl
 brew "gsmartcontrol"
+# Command-line hex viewer
+brew "hexyl"
 # Improved top (interactive process viewer)
 brew "htop"
 # Fast, highly customisable system info script with LGBTQ+ pride flags
 brew "hyfetch"
+# Command-line benchmarking tool
+brew "hyperfine"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # YAML Parser
 brew "libyaml"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
 # Mac App Store command-line interface
 brew "mas"
 # TCP port scanner, scans entire Internet in under 5 minutes
 brew "masscan"
+# Create modern online books from Markdown files
+brew "mdbook"
+# Show markdown documents on text terminals
+brew "mdcat"
 # Netwide Assembler (NASM) is an 80x86 assembler
 brew "nasm"
 # Small build system for use with gyp or CMake
 brew "ninja"
+# Port scanning utility for large networks
+brew "nmap"
 # Create, run, and share large language models (LLMs)
 brew "ollama"
 # Swiss-army knife of markup format conversion
@@ -100,8 +120,16 @@ brew "python@3.12"
 brew "qman"
 # Cross-platform application and UI framework
 brew "qt"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Safe, concurrent, practical language
+brew "rust"
+# Rust toolchain installer
+brew "rustup"
 # Small man page generator
 brew "scdoc"
+# Rust port of Shadowsocks
+brew "shadowsocks-rust"
 # SOcket CAT: netcat on steroids
 brew "socat"
 # Formatting technology for Swift source code
@@ -114,18 +142,52 @@ brew "swiftlint"
 brew "syft"
 # Terminal multiplexer
 brew "tmux"
+# Program that allows you to count code, quickly
+brew "tokei"
 # Generator for LS_COLORS with support for multiple color themes
 brew "vivid"
 # Internet file retriever
 brew "wget"
 # Dumb downloader that scrapes the web
 brew "you-get"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
 # Family of tools to build, test and package software
 cask "cmake-app"
+# Web browser
+cask "google-chrome"
+# GraalVM from Oracle
+cask "graalvm-jdk@25"
+# Chromium-based web browser
+cask "helium-browser"
+# Free and open-source media player
+cask "iina"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Open-source download manager
+cask "motrix"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Finds large, unwanted files and deletes them
+cask "omnidisksweeper"
+# Graphical client for Git version control
+cask "sourcetree"
+# System monitor for the menu bar
+cask "stats"
 # Open-source code editor
 cask "visual-studio-code"
+# Multiplayer code editor
+cask "zed"
+# Gecko based web browser
+cask "zen"
+# OpenJDK distribution from Azul
+cask "zulu@17"
+# OpenJDK distribution from Azul
+cask "zulu@21"
+# OpenJDK distribution from Azul
+cask "zulu@25"
+# OpenJDK distribution from Azul
+cask "zulu@8"
 mas "Apple Configurator", id: 1037126344
 mas "Brother iPrint&Scan", id: 1193539993
 mas "Developer", id: 640199958
@@ -290,4 +352,5 @@ go "github.com/koron/iferr"
 go "github.com/josharian/impl"
 go "github.com/fatih/motion"
 go "github.com/mgechev/revive"
+go "github.com/boyter/scc/v3"
 go "honnef.co/go/tools/cmd/staticcheck"

@@ -28,8 +28,14 @@
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>AutoCommandHistory</key>
+	<false/>
+	<key>AutoComposer</key>
+	<false/>
 	<key>ClickToSelectCommand</key>
 	<false/>
+	<key>ComposerHeight</key>
+	<real>187.25390625</real>
 	<key>CopySelection</key>
 	<false/>
 	<key>Default Bookmark Guid</key>
@@ -850,6 +856,8 @@
 			<integer>190</integer>
 			<key>Command</key>
 			<string></string>
+			<key>Composer Top Offset</key>
+			<real>241.07421875</real>
 			<key>Cursor Boost</key>
 			<integer>0</integer>
 			<key>Cursor Boost (Dark)</key>

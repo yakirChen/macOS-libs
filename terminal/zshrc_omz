@@ -66,12 +66,12 @@ zstyle ":plugin:history-search-multi-word" clear-on-cancel "no"        # Whether
 
 # ########################################## User Configuration #####################################
 export OPT=/opt
-export BREW=${OPT}/homebrew
-export HOMEBREW_CELLAR=${BREW}/Cellar
+export HOMEBREW=${OPT}/homebrew
+export HOMEBREW_OPT=${HOMEBREW}/opt
+export HOMEBREW_CELLAR=${HOMEBREW}/Cellar
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_VERBOSE=1
-export BREW_OPT=${BREW}/opt
 export VLM=/Volumes/sm
 export VLM_REPOS=${VLM}/repos
 export VLM_SERVERS=${VLM}/servers
@@ -87,11 +87,13 @@ export GOPROXY=https://goproxy.cn,direct
 export GOPATH=${VLM_REPOS}/go/gopath
 export GOCACHE=${VLM_REPOS}/go/gocache
 # export ERL_HOME=${OPT}/otp
-export CARGO_HOME=${OPT}/rust
 # export SRCROOT=${OPT}/rust
+export RUST_HOME=${HOMEBREW_OPT}/rust
+# export CARGO_HOME=${HOMEBREW_OPT}/rust
+export CARGO_HOME=${OPT}/rust
 export CARGO_PATH=${CARGO_HOME}
 export CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
-export RUSTUP_HOME=${OPT}/rust
+export RUSTUP_HOME=${HOMEBREW_OPT}/rustup
 export ZIG_HOME=${OPT}/zig
 # export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 # export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
@@ -143,11 +145,11 @@ export NGINX_HOME=${VLM_SERVERS}/nginx
 # export BTRACE_HOME=${OPT}/btrace
 
 # 运行时环境变量
-export PKG_CONFIG=${BREW_OPT}/pkg-config/bin/pkg-config       # pkg-config
-# export PKG_CONFIG_PATH="${BREW_OPT}/libressl/lib/pkgconfig"
-# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/libffi/lib/pkgconfig/"
-# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/ncurses/lib/pkgconfig"
-# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${BREW_OPT}/guile@2/lib/pkgconfig"
+export PKG_CONFIG=${HOMEBREW_OPT}/pkg-config/bin/pkg-config       # pkg-config
+# export PKG_CONFIG_PATH="${HOMEBREW_OPT}/libressl/lib/pkgconfig"
+# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${HOMEBREW_OPT}/libffi/lib/pkgconfig/"
+# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${HOMEBREW_OPT}/ncurses/lib/pkgconfig"
+# export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${HOMEBREW_OPT}/guile@2/lib/pkgconfig"
 # export PKG_CONFIG_LIBDIR=${OPT}/lib/pkgconfig
 # export CFLAGS="-I${OPT}/include -I${OPT}/include/openssl" # -I${OPT}/include/readline -I${OPT}/include/sodium -I${OPT}/include/freetype2"
 # # -I${OPT}/include/lzma -I${OPT}/include/freetype2
@@ -300,13 +302,13 @@ export ZIG_LOCAL_CACHE_DIR=/Volumes/sm/repos/zig/
 # GET www.baidu.com
 
 ########################################### OpenSSL ##################################################
-# export OPENSSL_CFLAGS=${BREW_OPT}/libressl/include        # libressl
-export OPENSSL_ROOT_DIR=${BREW_OPT}/openssl@3        # openssl
+# export OPENSSL_CFLAGS=${HOMEBREW_OPT}/libressl/include        # libressl
+export OPENSSL_ROOT_DIR=${HOMEBREW_OPT}/openssl@3        # openssl
 export OPENSSL_CFLAGS=${OPENSSL_ROOT_DIR}/include        # openssl
 # export OPENSSL_LIBS=${HOME}/local/lib/                 # openssl lib 貌似要所有的动态链接库都列出来
 export OPENSSL_INCLUDE_DIR=${OPENSSL_CFLAGS}
 export DEP_OPENSSL_INCLUDE=${OPENSSL_CFLAGS}
-# export OPENSSL_LIB_DIR=${BREW_OPT}/libressl/lib/
+# export OPENSSL_LIB_DIR=${HOMEBREW_OPT}/libressl/lib/
 export OPENSSL_LIB_DIR=${OPENSSL_ROOT_DIR}/lib
 
 # export CFLAGS=" -I${OPENSSL_CFLAGS} "
@@ -321,8 +323,8 @@ export SILVER_SHELL=$0
 # PATHS=(
 #     "${OPT}/bin"
 #     "${OPT}/kits"
-#     "${BREW}/bin"
-#     "${BREW}/sbin"
+#     "${HOMEBREW_OPT}/bin"
+#     "${HOMEBREW_OPT}/sbin"
 #     "${CARGO_HOME}/bin"
 #     "${MAVEN_HOME}/bin"
 #     "${GRADLE_HOME}/bin"
@@ -330,7 +332,7 @@ export SILVER_SHELL=$0
 #     "${SQLITE}/bin"
 #     "${RUBY_HOME}/bin"
 #     "${PROTOBUF_HOME}/bin"
-#     "${BREW_OPT}/erlang@27/bin"
+#     "${HOMEBREW_OPT}/erlang@27/bin"
 #     "${CHT_HOME}"
 #     "${MOLE_HOME}"
 #     "${GOROOT}/bin"
@@ -349,14 +351,14 @@ export SILVER_SHELL=$0
 #     [[ -d "$p" ]] && PATH="$p:$PATH"
 # done
 
-path+=("${OPT}/bin" "${OPT}/kits" "${BREW}/bin" "${BREW}/sbin")
-path+=("${CARGO_HOME}/bin" "${MAVEN_HOME}/bin" "${GRADLE_HOME}/bin"  "${RUBY_HOME}/bin")
-path+=("${PROTOBUF_HOME}/bin" "${BREW_OPT}/erlang@27/bin" "${CHT_HOME}")
+path+=("${OPT}/bin" "${OPT}/kits" "${HOMEBREW_OPT}/bin" "${HOMEBREW_OPT}/sbin")
+path+=("${RUST_HOME}/bin" "${CARGO_HOME}/bin" "${MAVEN_HOME}/bin" "${GRADLE_HOME}/bin"  "${RUBY_HOME}/bin")
+path+=("${PROTOBUF_HOME}/bin" "${HOMEBREW_OPT}/erlang@27/bin" "${CHT_HOME}")
 path+=(""${NODE_HOME}/bin"" "${NPM_GLOBAL}/bin")
 
 export PATH
 
-FPATH="${BREW}/share/zsh/site-functions:${FPATH}"
+FPATH="${HOMEBREW}/share/zsh/site-functions:${FPATH}"
 
 source $ZSH/oh-my-zsh.sh
 
